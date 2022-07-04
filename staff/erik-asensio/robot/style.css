@@ -2,10 +2,11 @@
 
 body{
     margin: 0;
-    background-color: blue;
+    background-image: url(textura-patron-pared-ladrillo-rojo_53876-23210.jpeg);
 }
 
 h1{
+    color: yellow;
     padding-left: 150px;
     font-size: 100px;
     font-family: 'The Nautigal', cursive;
@@ -82,14 +83,13 @@ h1{
 .scene{
     width: 100%;
     height: 800px;
-    background-color:blue;
 }
 
 .ground{
-    background-color: green;
+    background-image: url(70052087-perspectiva-vista-de-piedra-monótona-de-ladrillo-gris-en-el-suelo-para-street-road-acera-calzada-pav.webp);
     width: 100%;
     height: 200px;
-    bottom: 0px;
+    top:620px;
     position: absolute;
 }
 
