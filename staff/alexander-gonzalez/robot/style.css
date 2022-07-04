@@ -1,0 +1,38 @@
+.head{
+background-color: blue;
+width: 500px;
+height: 500px;
+position: absolute;
+}
+
+.pupil{
+background-color: black;
+width: 5px;
+height: 5px;
+position: absolute
+}
+
+.eye2{
+    background-color: aliceblue;
+    width: 20px; 
+    height: 20px;
+    right: 20px;
+    position: absolute;
+    top: 20px;
+
+}
+
+.eye1{
+    background-color: aliceblue;
+    width: 20px;
+    height: 20px;
+    left: 60px;
+    position: absolute;
+    top: 20px;
+}
+
+.nose{
+    background-color: black;
+    width: 10px;
+
+}
