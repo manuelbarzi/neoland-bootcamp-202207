@@ -1,8 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=The+Nautigal:wght@700&display=swap');
+
+body{
+    margin: 0;
+    background-color: blue;
+}
+
+h1{
+    padding-left: 150px;
+    font-size: 100px;
+    font-family: 'The Nautigal', cursive;
+}
+
 .head{
-    background-color: red;
-    width: 100px;
-    height: 100px;
+    background-color: pink;
+    width: 120px;
+    height: 120px;
     position: absolute;
+    border-radius: 50%;
 }
 
 .eye1{
@@ -12,6 +26,7 @@
     position: absolute;
     top: 20px;
     left: 20px;
+    border-radius: 50%;
 }
 
 .eye2{
@@ -21,6 +36,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    border-radius: 50%;
 }
 
 .pupil1{
@@ -29,7 +45,8 @@
     height: 5px;
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: 7.5px;
+    border-radius: 50%;
 }
 
 .pupil2{
@@ -38,16 +55,19 @@
     height: 5px;
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: 7.5px;
+    border-radius: 50%;
 }
 
 .nose{
-    background-color: black;
+    background-color: red;
     width: 10px;
     height: 20px;
     top: 50px;
     left: 50px;
     position: absolute;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
 
 .mouth{
@@ -55,6 +75,198 @@
     width: 50px;
     height: 10px;
     top: 80px;
-    left: 25px;
+    left: 35px;
     position: absolute;
+}
+
+.scene{
+    width: 100%;
+    height: 800px;
+    background-color:blue;
+}
+
+.ground{
+    background-color: green;
+    width: 100%;
+    height: 200px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.sun{
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    background-color: yellow;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.ray1{
+    right: 120px;
+    top: 120px;
+    background-color: yellow;
+    height: 50px;
+    width: 10px;
+    position: absolute;
+    transform: rotate(0deg);
+}
+
+.ray2{
+    right: 200px;
+    top: 50px;
+    background-color: yellow;
+    height: 50px;
+    width: 10px;
+    position: absolute;
+    transform: rotate(90deg);
+}
+.ray3{
+    right: 170px;
+    top: 100px;
+    background-color: yellow;
+    height: 50px;
+    width: 10px;
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.robot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 300px;
+    left: 350px;
+}
+.neck{
+    background-color: pink;
+    position: absolute;
+    top:40px;
+    width:25px;
+    height: 40px;
+}
+.torso{
+    background-color: pink;
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    top:75px;
+    border-top-right-radius: 15%;
+    border-top-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+}
+
+.leg1{
+    position: absolute;
+    background-color: pink;
+    right: 20px;
+    top: 245px;
+    width: 30px;
+    height: 120px;
+}
+
+.leg2{
+    transform: rotate(-45deg);
+    position: absolute;
+    background-color: pink;
+    left: 20px;
+    top: 210px;
+    width: 30px;
+    height: 120px;
+}
+
+.pant{
+    position: absolute;
+    background-color: lawngreen;
+    width: 100%;
+    height: 40px;
+    bottom: 0px;
+    border-bottom-right-radius: 15%;
+    border-bottom-left-radius: 15%;
+}
+
+.pant1{
+    position: absolute;
+    background-color: lawngreen;
+    width: 100%;
+    height: 40px;
+    top: 0px;
+}
+.pant2{
+    position: absolute;
+    background-color: lawngreen;
+    width: 100%;
+    height: 60px;
+    top: 0px;
+}
+.arm1{
+    background-color: pink;
+    position: absolute;
+    top: 72px;
+    width: 20px;
+    height: 120px;
+    left: 60px;
+    transform: rotate(-22deg);
+    border-top-right-radius: 50%;
+}
+
+.arm2{
+    background-color: pink;
+    position: absolute;
+    top: 72px;
+    width: 20px;
+    height: 120px;
+    right: 60px;
+    transform: rotate(22deg);
+    border-top-left-radius: 50%;
+}
+
+.glove1{
+    margin-top:100px;
+    margin-right: 50px;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+.glove2{
+    margin-top:100px;
+    margin-right: 80px;
+    background-color: black;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+.shoe1{
+    top: 60px;
+    position: absolute;
+    background-color: black;
+    width: 50px;
+    height: 20px;
+}
+
+.shoe2{
+    top: 100px;
+    position: absolute;
+    background-color: black;
+    width: 50px;
+    height: 20px;
+}
+
+.hair{
+    width: 50px;
+    height: 30px;
+    background-color: yellow;
+    left: 35px;
+    top:-20px;
+    position: absolute;
+    border-radius: 30%;
+    transform: rotate(90deg);
 }
