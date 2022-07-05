@@ -47,7 +47,14 @@ h1 {
   border: 0.5px solid black;
   border-radius: 35% 15% 15% 35%;
 }
-
+@keyframes pupil-movement {
+  from {
+    width: 5px;
+  }
+  to {
+    width: 30px;
+  }
+}
 .eye--right {
   left: 40px;
   position: absolute;
@@ -58,14 +65,13 @@ h1 {
 }
 .pupil {
   background-color: black;
-  width: 7.5px;
   height: 7.5px;
   position: absolute;
   top: 15px;
   left: 16px;
   border-radius: 16px;
   animation-name: pupil-movement;
-  animation-duration: 2seg;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
 }
 .nouse {
