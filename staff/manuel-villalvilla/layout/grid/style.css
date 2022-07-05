@@ -9,25 +9,17 @@ html, body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 20% 60% 20%;
     grid-template-rows: 20% 60% 20%;
     background-color: aquamarine;
     height: 100%;
-    width: 100%;
 }
 
 div {
     border: 1px solid white;
 }
 
-.main {
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    height: 100%;
-    width: 100%;
-}
-
-/* .header {
+.header {
     grid-column: 1 / span 3;
 }
 
@@ -45,7 +37,7 @@ div {
 
 .footer {
     grid-column: 1 / span 3;
-} */
+}
 
 .flex-items-aligned {
     display: flex;
