@@ -1,7 +1,52 @@
+.scene{
+    width: 100%;
+    height: 800px;
+    background-color: black;
+}
+
+.bodyrobot{
+    background-color: white;
+    width: 150px;
+    height: 200px;
+    top: 135px;
+    left: 100px;
+    position: absolute;
+
+}
+
 .head{
     background-color: red;
     width: 100px;
     height: 100px;
+    left: 125px;
+    position: absolute;
+    
+}
+
+.neck{
+    background-color: yellow;
+    width: 40px;
+    height: 35px;
+    top: 100px;
+    left: 155px;
+    position: absolute;
+}
+
+.leg-left{
+    background-color: red;
+    width: 40px;
+    height: 60px;
+    top: 335px;
+    left: 125px;
+    position: absolute;
+}
+
+.leg-right{
+    background-color: red;
+    width: 40px;
+    height: 60px;
+    top: 335px;
+    left: 185px;
     position: absolute;
 }
 
@@ -46,4 +91,91 @@
     position: absolute;
     top: 80px;
     left: 25px;
+}
+
+
+.biceps-left{
+    background-color: white;
+    width: 100px;
+    height: 35px;
+    top: 185px;
+    position: absolute;
+
+}
+
+.biceps-right{
+    background-color: white;
+    width: 100px;
+    height: 35px;
+    top: 185px;
+    left: 250px;
+    position: absolute;
+
+}
+.arm-left{
+    width: 35px;
+    height: 70px;
+    background-color: white;
+    top: 115px;
+    position: absolute;
+}
+
+.arm-right{
+    width: 35px;
+    height: 70px;
+    background-color: white;
+    top: 115px;
+    position: absolute;
+    left: 315px;
+}
+
+.robot{
+  top: 30%;
+  left: 38%;
+  position: absolute;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    top: 40px;
+}
+
+.button-button5{
+    background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  top: 100px;
+  left: 47px
+}
+
+.left-shoe{
+    background-color: yellow;
+    width: 50px;
+    height: 40px;
+    top: 395px;
+    position: absolute;
+    left: 120px;
+
+
+}
+
+.right-shoe{
+    background-color: yellow;
+    width: 50px;
+    height: 40px;
+    top: 395px;
+    position: absolute;
+    left: 181px;
+
+
 }
