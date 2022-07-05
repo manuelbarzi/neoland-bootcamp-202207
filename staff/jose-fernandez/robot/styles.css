@@ -15,8 +15,14 @@ img{
 }
 .robot{
     position: absolute;
-    top: 200px;
-    left: 45px;
+    top: 130px;
+    left: 680px;
+    transform:rotate3d(3,55,4,180deg);
+    animation: robot1 2s infinite;
+}
+@keyframes robot1{
+    0%{transform: translate3d(0px,0px,13);}
+    100%{transform: translate3d(687px,130px,13);}
 }
 .head{
     background-color: red;
@@ -95,21 +101,44 @@ img{
 .leg{
     position: absolute;
     background-color: red;
-    height: 150px;
-    width: 30px;
+    height: 30px;
+    width: 70px;
     top: 250px;
-    
-    
 }
 .leg--right{
     left: 62px;
+    transform:rotate3d(3,55,4,60deg);
+
+}
+.leg2r{
+    position: absolute;
+    background-color: red;
+    height: 70px;
+    width: 30px;
+    top: 20px;
+    left: 40px;
 }
 .leg--left{
     left: 10px;
+    transform:rotate3d(3,55,4,60deg);
 }
-/* @keyframes example{
-    0%{}
-    25%{}
-    50%{}
-    100%{}
-} */
+.leg2l{
+    position: absolute;
+    background-color: red;
+    height: 70px;
+    width: 30px;
+    top: 20px;
+    left: 40px;
+}
+
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }

@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    background:radial-gradient(circle,#fff,#bbb);
+    height: 100%;
+}
+.grid-container{
+    display:grid;
+    grid-template-rows: 1/4;
+    grid-template-columns: 1/4;
+    border: 2px solid blue;
+
+}
+
+.grid-item1{
+    background-color: coral;
+    grid-column: 1/4
+}

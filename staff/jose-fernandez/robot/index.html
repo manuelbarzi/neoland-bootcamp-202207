@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="scene">
-        <!-- <video class="video">
-            <source src="video.mp4" >
-         </video> -->
+        <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+            <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4">
+          </video>
         <h1 class="title">Robot</h1>
         <div class="robot">
             <div class="head">
@@ -27,8 +27,12 @@
             </div>
             <div class="neck"></div>
             <div class="torso"></div>
-            <div class="leg leg--right"></div>
-            <div class="leg leg--left"></div>
+            <div class="leg leg--right">
+                <div class="leg2r"></div>
+            </div>
+            <div class="leg leg--left">
+                <div class="leg2l"></div>
+            </div>
         </div>
     </div>  
 </body>
