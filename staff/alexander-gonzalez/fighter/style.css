@@ -1,0 +1,21 @@
+
+html, body{
+    height: 100%;
+    margin:0;
+}
+
+
+.fighter{
+    background-color: red;
+    height: 100px;
+    width: 50px;
+    position:absolute;
+}
+
+.oponent{
+    background-color:blue;
+    height: 100px;
+    width: 50px;
+    position: absolute;
+    
+}
