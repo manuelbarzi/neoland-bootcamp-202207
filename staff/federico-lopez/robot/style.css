@@ -5,6 +5,10 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .scene {
     background-image: url("./wood.jpg");
     width: 100%;
