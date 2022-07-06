@@ -10,46 +10,58 @@ var result1 = document.querySelector('.result1')
 var result2 = document.querySelector('.result2')
 
 fighter.x = 200
-// posición inicial fighter
-fighter.width = 50
+fighter.y = 200
+fighter.width = 100
 fighter.score = 0
 fighter.style.left = fighter.x + 'px'
+fighter.style.top = fighter.y + 'px'
 
 opponent.x = 500
-opponent.width = 50
+opponent.y = 200
+opponent.width = 100
 opponent.score = 0
 opponent.style.left = opponent.x + 'px'
+opponent.style.top = opponent.y + 'px'
 
 document.onkeydown = function (event) {
-    // detecta las tecla que presionas y la devuelve en consola
-    // fighter
-    if (event.key === 'ArrowRight') {
-        fighter.x = fighter.x + 10
-    } else if (event.key === 'ArrowLeft') {
-        fighter.x = fighter.x - 10
-    }
-    fighter.style.left = fighter.x + 'px'
+  // fighter
+  if (event.key === 'd') {
+    fighter.x = fighter.x + 20
+  } else if (event.key === 'a') {
+    fighter.x = fighter.x - 20
+  } else if (event.key === 'w') {
+    fighter.y = fighter.y - 20
+  } else if (event.key === 's') {
+    fighter.y = fighter.y + 20
+  }
 
-    //opponent
+  fighter.style.left = fighter.x + 'px'
+  fighter.style.top = fighter.y + 'px'
+  //opponent
 
-    if (event.key === 'd') {
-        opponent.x = opponent.x + 10
+  if (event.key === 'ArrowRight') {
+    opponent.x = opponent.x + 20
+  } else if (event.key === 'ArrowLeft') {
+    opponent.x = opponent.x - 20
+  } else if (event.key === 'ArrowUp') {
+    opponent.y = opponent.y - 20
+  } else if (event.key === 'ArrowDown') {
+    opponent.y = opponent.y + 20
+  }
 
-    } else if (event.key === 'a') {
-        opponent.x = opponent.x - 10
-    }
-    opponent.style.left = opponent.x + 'px'
+  opponent.style.left = opponent.x + 'px'
+  opponent.style.top = opponent.y + 'px'
 
-    if (event.key === ' ' && (fighter.x + fighter.width >= opponent.x) && !(fighter.x >= opponent.x + opponent.width)) {
-        fighter.score = fighter.score + 1
-    }
+  if (event.key === 'h' && (fighter.x + fighter.width >= opponent.x) && !(fighter.x >= opponent.x + opponent.width)) {
+    fighter.score = fighter.score + 1
+  }
 
-    if (event.key === 'h' && (opponent.x + opponent.width >= fighter.x) && !(opponent.x >= fighter.x + fighter.width)) {
-        opponent.score = opponent.score + 1
-    }
-    result1.innerHTML = fighter.score
-    result2.innerHTML = opponent.score
-    // console.log('scores', fighter.score, opponent.score)
+  if (event.key === ' ' && (opponent.x + opponent.width >= fighter.x) && !(opponent.x >= fighter.x + fighter.width)) {
+    opponent.score = opponent.score + 1
+  }
+  result1.innerHTML = fighter.score
+  result2.innerHTML = opponent.score
+  // console.log('scores', fighter.score, opponent.score)
 }
 
 
