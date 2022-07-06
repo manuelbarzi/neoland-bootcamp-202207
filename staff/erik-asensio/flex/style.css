@@ -1,0 +1,53 @@
+html, body {
+    height: 100%;
+}
+
+*, body, html {
+    margin: 0;
+}
+
+.header{
+    width: 100%;
+    height: 20%;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+}
+
+.aside{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    background-color: red;
+}
+
+.body{
+    display: flex;
+    width: 50%;
+    height:100%;
+    background-color: blue;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+    background-color: blueviolet;
+}
+
+main{
+    display: flex;
+    height: 60%;
+}
+
+*{
+    border: 1px solid white;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
