@@ -14,7 +14,7 @@ body {
   height: 100%;
 }
 div {
-  border-color: 1px solid black;
+  border: 1px solid black;
 }
 
 .header {
