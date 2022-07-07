@@ -19,10 +19,13 @@ body {
 }
 .content {
   background-color: rgb(20, 169, 169);
+  display: flex;
   flex-grow: 1;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (min-width: 666px) {
+@media (min-width: 1000px) {
   .container {
     background-color: gold;
     display: grid;
@@ -37,6 +40,8 @@ body {
   .content {
     background-color: blueviolet;
   }
+  
+
   .content:first-child {
     background-color: aquamarine;
     grid-area: a;
@@ -72,14 +77,20 @@ body {
   .content:nth-child(9) {
     background-color: rgb(64, 224, 24);
     grid-area: i;
+    
   }
 }
+
+
+/*
+ -DIFERENTE FORMA REFERENCIAL DE ORDENAR LOS BLOQUES-
+
 @media (min-width: 1024px) {
   .container {
     transform: rotate3d(1, 1, 1, 45deg);
     transition: transform 2g;
   }
-}
+} */
 
 /* @media (min-width: 666px) {
   .container {
@@ -128,4 +139,4 @@ body {
     background-color: rgb(64, 224, 24);
     grid-column: 2 / span 3;
   }
-} */
+}
