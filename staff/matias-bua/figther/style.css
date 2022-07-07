@@ -15,3 +15,10 @@
   border: 1px solid black;
   border-radius: 31px;
 }
+.score {
+  display: grid;
+  background-color: aquamarine;
+  border-color: 2px solid black;
+  height: 200px;
+  width: 50px;
+}

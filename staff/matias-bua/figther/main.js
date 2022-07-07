@@ -4,13 +4,15 @@ console.log('%cFighter🔥%cv0.0', 'color: red; font-size: 32px;', 'color: dodge
 var fighter = document.querySelector('.fighter')
 var oponent = document.querySelector('.oponent')
 
+var score = document.querySelector('score1')
+var score = document.querySelector('score2')
+
 
 fighter.x = 200
 fighter.y = 50
 fighter.width = 50
 fighter.score = 0
-fighter.style.left =
-fighter.x + 'px'
+fighter.style.left = fighter.x + 'px'
 
 oponent.x = 600
 oponent.width = 50
@@ -24,11 +26,8 @@ document.onkeydown = function(Event) {
 
     if (Event.key === 'ArrowRight') {
         fighter.x = fighter.x + 5
-    }
-        if (Event.key === 'ArrowDown') {
-            fighter.x = fighter.y - 5
-    } else if (Event.key === 'ArrowLeft') {
-        fighter.x = fighter.y -5
+    } else if (Event.key === 'a') {
+        oponent.x = oponent.x -5
     }
         fighter.style.left = fighter.x + 'px'
 
