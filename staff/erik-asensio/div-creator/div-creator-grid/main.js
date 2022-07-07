@@ -10,7 +10,6 @@ const colors=["red"," black","blue","orange","yellow","pink","violet", "gold" ,"
     for(var j = 0; j < 8 ; j++){
         for(var i = 1; i < 9 ; i++){
             var element = document.createElement("div")
-            // element.style.position="absolute"
             element.style.gridColumn= i
             element.style.width = "50px"
             element.style.height = "50px"
