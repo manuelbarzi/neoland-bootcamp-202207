@@ -1,0 +1,61 @@
+<style>.head {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: red;
+    width: 500px;
+    height: 500px;
+}
+
+.eye {
+    position: absolute;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+}
+
+.eye--left {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+}
+
+.eye--right {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+}
+
+.pupil {
+    position: absolute;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    ¨
+}
+
+.pupil--left {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: white;
+    width: 80px;
+    height: 80px;
+}
+
+.pupil--right {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: black;
+    width: 80px;
+    height: 80px;
+}
+
+</style>
