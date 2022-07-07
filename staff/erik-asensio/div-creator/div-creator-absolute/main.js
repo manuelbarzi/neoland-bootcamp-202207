@@ -2,21 +2,24 @@ var body = document.querySelector("body")
 
 body.style.height="100%"
 body.style.margin="0"
-body.style.display="grid"
-body.style.gridTemplateColumns="8"
 
+var left = 0
+var topValue = 0
 const colors=["red"," black","blue","orange","yellow","pink","violet", "gold" ,"white", "green"]
 
-    for(var j = 0; j < 8 ; j++){
-        for(var i = 1; i < 9 ; i++){
+    for(var i = 0; i < 8 ; i++){
+        for(var j = 0; j < 8 ; j++){
             var element = document.createElement("div")
-            // element.style.position="absolute"
-            element.style.gridColumn= i
+            element.style.position="absolute"
+            element.style.left= left + "px"
+            left= left + 50
             element.style.width = "50px"
             element.style.height = "50px"
-            element.style.backgroundColor = colors[i-1]
             element.style.border= "black solid 1px"
-        
             body.append(element);
-        }
+            element.style.top=topValue+"px"
+        } 
+        left= 0
+        topValue = topValue + 50
+        
     }
