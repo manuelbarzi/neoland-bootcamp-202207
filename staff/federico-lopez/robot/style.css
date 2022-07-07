@@ -36,10 +36,9 @@
 .robot {
     position: absolute;
     top: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-auto-columns: 10px;
+    grid-auto-rows: 10px;
 }
 
 @keyframes change-bgcolor {
@@ -54,6 +53,8 @@
     animation-name: change-bgcolor;
     animation-duration: 4s;
     animation-iteration-count: infinite;
+    grid-column: 1;
+    grid-row: 1;
     width: 100px;
     height: 100px;
     display: flex;
@@ -99,17 +100,17 @@
 
 .neck {
     background-color: yellow;
+    grid-column: 5;
+    grid-row: 11;
     height: 20px;
     width: 20px;
-}
-
-.superior-part {
-    display: flex;
 }
 
 .torso {
     width: 100px;;
     height: 150px;
+    grid-column: 1;
+    grid-row: 13;
     background-color: blue;
     display: flex;
     align-items: center;
@@ -117,9 +118,13 @@
 }
 
 .arm {
-    width: 200px;
-    height: 50px;
-    background-color: brown
+    grid-column: 10 / 21;
+    grid-row: 15;
+    width: 50px;
+    height: 20px;
+    background-color: brown;
+    transform: rotate(45deg);
+    border-bottom-left-radius: 1000px;
 }
 
 .circle {
@@ -135,6 +140,8 @@
 
 .legs-container {
     width: 100%;
+    grid-column: 1 / 11;
+    grid-row: 28 / 40;
     display: flex;
     justify-content: space-around;
 }

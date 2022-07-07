@@ -5,6 +5,8 @@ const scoreRobot2Element = document.querySelector('.score-robot-2')
 let scoreRobot1 = 0
 let scoreRobot2 = 0
 
+const keysPressed = {}
+
 function areOverlap(el1, el2) {
     const domRect1 = el1.getBoundingClientRect();
     const domRect2 = el2.getBoundingClientRect();
@@ -17,35 +19,38 @@ function areOverlap(el1, el2) {
     );
 }
 
-window.addEventListener('keydown', event => {
-    const key = event.key
+const lookForKeysPreseed = () => {
+    if (keysPressed['ArrowRight'])
+        robot1.style.left = Number(robot1.style.left.slice(0, -2)) + 50 + 'px'
+    else if (keysPressed['ArrowLeft'])
+        robot1.style.left = Number(robot1.style.left.slice(0, -2)) - 50 + 'px'
 
-    switch (key) {
-        case 'ArrowRight':
-            robot1.style.left = Number(robot1.style.left.slice(0, -2)) + 50 + 'px'
-            break;
-        case 'ArrowLeft':
-            robot1.style.left = Number(robot1.style.left.slice(0, -2)) - 50 + 'px'
-            break;
-        case 'ArrowDown':
-            break;
-        case 'd':
-            robot2.style.left = Number(robot2.style.left.slice(0, -2)) + 50 + 'px'
-            break;
-        case 'a':
-            robot2.style.left = Number(robot2.style.left.slice(0, -2)) - 50 + 'px'
-            break;
-    }
+    if (keysPressed['d'])
+        robot2.style.left = Number(robot2.style.left.slice(0, -2)) + 50 + 'px'
+    else if (keysPressed['a'])
+        robot2.style.left = Number(robot2.style.left.slice(0, -2)) - 50 + 'px'
 
     const hasOverlap = areOverlap(robot1, robot2)
 
-    if (hasOverlap && (key === 'ArrowLeft' || key === 'ArrowRight')) {
+    if (hasOverlap && (keysPressed['ArrowRight'] || keysPressed['ArrowLeft'])) {
         scoreRobot1++
 
         scoreRobot1Element.innerHTML = `Score Robot 1: ${scoreRobot1}`
-    } else if (hasOverlap && (key === 'a' || key === 'd')) {
+    }
+    
+    if (hasOverlap && (keysPressed['a'] || keysPressed['d'])) {
         scoreRobot2++
 
         scoreRobot2Element.innerHTML = `Score Robot 2: ${scoreRobot2}`
-    }  
+    }
+}
+
+setInterval(lookForKeysPreseed, 100)
+
+window.addEventListener('keydown', event => {
+    keysPressed[`${event.key}`] = true
+})
+
+window.addEventListener('keyup', event => {
+    keysPressed[`${event.key}`] = false
 })
