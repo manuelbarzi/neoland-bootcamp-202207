@@ -2,7 +2,7 @@ function abs(value) {
     // TODO implement me
 }
 
-// demos
+// tests
 
 console.log(abs(2 - 7))
 // 5

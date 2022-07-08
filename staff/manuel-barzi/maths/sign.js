@@ -2,7 +2,7 @@ function sign(value) {
     // TODO ...
 }
 
-// demos
+// tests
 
 console.log(sign(3));
 // 1

@@ -5,7 +5,7 @@ function min(a, b) {
         return b
 }
 
-// demos
+// tests
 
 console.log(min(4, 1))
 // 1

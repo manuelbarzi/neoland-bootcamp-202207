@@ -2,7 +2,7 @@ function max(a, b) {
     // TODO ...
 }
 
-// demos
+// tests
 
 console.log(max(4, 1))
 // 4

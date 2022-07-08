@@ -2,7 +2,7 @@ function mod(value, divisor) {
     // TODO ...
 }
 
-// demos
+// tests
 
 console.log(mod(10, 2))
 // 0

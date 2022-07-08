@@ -2,7 +2,7 @@ function pow(value, power) {
     // TODO implement me
 }
 
-// demos
+// tests
 
 console.log(pow(10, 3))
 // 1000
