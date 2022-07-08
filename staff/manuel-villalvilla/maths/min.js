@@ -6,17 +6,24 @@ function min(a, b) {
         else
             return b;
     } else {
-        let minValueTemp;
-        for (var i = 0; i < arguments.length; i++) {
-            for (var j = i; j < arguments.length; j++) {
-                if (arguments[j] < arguments[i]) {
-                    minValueTemp = arguments[j];
-                    arguments[j] = arguments[i];
-                    arguments[i] = minValueTemp;
-                } 
+        // let minValueTemp;
+        // for (var i = 0; i < arguments.length; i++) {
+        //     for (var j = i; j < arguments.length; j++) {
+        //         if (arguments[j] < arguments[i]) {
+        //             minValueTemp = arguments[j];
+        //             arguments[j] = arguments[i];
+        //             arguments[i] = minValueTemp;
+        //         } 
+        //     }
+        // }
+        // return arguments[0];
+        var x = arguments[0];
+        for (var i = 1; i < arguments.length; i++) {
+            if (arguments[i] < x) {
+                x = arguments[i];
             }
         }
-        return arguments[0];
+        return x;
     }
 }
 
