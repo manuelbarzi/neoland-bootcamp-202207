@@ -1,3 +1,4 @@
+// TABLERO DE AJEDREZ BASICO
 var body = document.querySelector('body')
 // var body = document.getElementsByTagName('body')
 var i,j;
