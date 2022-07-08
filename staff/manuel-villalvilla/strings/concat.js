@@ -4,7 +4,6 @@ function concat(text, text2) {
         texto += arguments[i];
     }
     return texto;
-    // TODO ...
 }
 
 // tests

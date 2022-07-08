@@ -8,7 +8,6 @@ function replaceChar(text, search, replace) {
         }
     }
     return result;
-    // TODO ...
 }
 
 // tests

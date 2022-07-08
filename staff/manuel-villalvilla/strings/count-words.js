@@ -5,7 +5,6 @@ function countWords(text) {
             numeroEspacios++;
     }
     return numeroEspacios + 1;
-    // TODO ...
 } 
 
 // tests

@@ -1,6 +1,5 @@
 function countChars(text) {
     return text.length;
-    // TODO ...
 }
 
 // tests

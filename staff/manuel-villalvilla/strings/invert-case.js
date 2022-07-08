@@ -8,7 +8,6 @@ function invertCase(text) {
         }
     }
     return newText;
-//     // TODO ...
 }
 
 // tests
