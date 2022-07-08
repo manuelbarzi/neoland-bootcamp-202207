@@ -8,7 +8,6 @@ function concat(array, array2) {
         }
     }
     return newArray;
-    // TODO ...
 }
 
 // tests

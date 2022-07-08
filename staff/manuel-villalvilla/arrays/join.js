@@ -8,7 +8,6 @@ function join(array, separator) {
         newString += array[i] + separator;
     }
     return newString;
-    // TODO ...
 }
 
 // tests;
