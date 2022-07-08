@@ -1,6 +1,5 @@
 // potencias
 function power(val, pow) {
-    // TODO implement me
     var result = 1;
     // result = Math.pow(val, pow);
     for (var i = 0; i < pow; i++) {

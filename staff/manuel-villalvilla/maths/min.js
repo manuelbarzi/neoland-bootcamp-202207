@@ -1,5 +1,5 @@
 function min(a, b) {
-    // TODO ...
+    
     if (arguments.length === 2) {
         if (a < b) 
             return a;

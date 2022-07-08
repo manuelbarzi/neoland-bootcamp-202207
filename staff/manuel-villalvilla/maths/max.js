@@ -1,6 +1,5 @@
 function max(a, b) {
-    // TODO ...
-    // console.log(arguments.length);
+    
     if (arguments.length === 2) {
         if (a > b) 
             return a;

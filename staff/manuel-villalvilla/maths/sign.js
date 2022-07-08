@@ -5,7 +5,6 @@ function sign(value) {
         return 0;
     else if (value > 0)
         return 1;
-    // TODO ...
 }
 
 // demos

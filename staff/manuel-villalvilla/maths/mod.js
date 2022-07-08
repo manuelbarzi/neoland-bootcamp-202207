@@ -1,7 +1,6 @@
 function mod(value, divisor) {
     var x = value % divisor;
     return x;
-    // TODO ...
 }
 
 // demos

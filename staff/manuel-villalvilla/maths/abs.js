@@ -1,5 +1,4 @@
 function abs(value) {
-    // TODO implement me
     if (value > 0) {
         return value;
     } else {
