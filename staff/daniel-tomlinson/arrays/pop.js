@@ -1,6 +1,13 @@
+// function pop(array) {
+//   // TODO
+//   let newArray = array.pop(array.length - 1);
+//   return newArray;
+// }
+
 function pop(array) {
   // TODO
-  let newArray = array.pop(array.length - 1);
+  let newArray = array[array.length - 1];
+  if (array.length !== 0) array.length = array.length - 1;
   return newArray;
 }
 

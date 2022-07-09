@@ -2,7 +2,7 @@ function at() {
   //TODO
   array = arguments[0];
   return array[arguments[1]];
-  return arguments;
+  // return arguments;
 }
 
 console.log(at(["cat", "dog", "elephant"], 2));

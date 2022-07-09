@@ -1,7 +1,13 @@
+// function indexOf(array, value) {
+//   // TODO
+//   array = arguments[0];
+//   return array.indexOf(arguments[1]);
+// }
+
 function indexOf(array, value) {
-  // TODO
-  array = arguments[0];
-  return array.indexOf(arguments[1]);
+  //   // TODO
+
+  for (i = 0; i < array.length; i++) if (array[i] === value) return i;
 }
 
 console.log(indexOf(["dog", "cat", "elephant", "monkey"], "monkey"));
