@@ -1,4 +1,5 @@
 function invertCase(text) {
+    var abecedario = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'];
     var newText = '';
     for (var i = 0; i < text.length; i++) {
         if (text[i] === text[i].toUpperCase()) {
