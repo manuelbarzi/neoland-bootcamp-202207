@@ -1,7 +1,7 @@
 const fighter1 = document.querySelector(".fighter1");
 const fighter2 = document.querySelector(".fighter2");
-const scoreRobot1Element = document.querySelector(".score-robot-1");
-const scoreRobot2Element = document.querySelector(".score-robot-2");
+const scoreFighter1Element = document.querySelector(".score-fighter-1");
+const scoreFighter2Element = document.querySelector(".score-fighter-2");
 const scoreboard = document.querySelector(".scoreboard");
 
 fighter1.style.width = "50px";
@@ -49,7 +49,7 @@ window.addEventListener("keyup", (event) => {
   controller[`${event.keyCode}`] = false;
 });
 
-const checkKeyDown = () => {
+const checkUpdates = () => {
   checkKeyDownFighter1();
   checkKeyDownFighter2();
 };
@@ -95,8 +95,38 @@ const checkKeyDownFighter2 = () => {
   fighter2.style.left = fighter2.x + "px";
   fighter2.style.top = fighter2.y + "px";
 };
-setInterval(checkKeyDown, 10);
 
+checkContact = () => {
+  if (
+    (fighter2.x >= fighter1.x - fighterWidth &&
+      fighter2.x <= fighter1.x + fighterWidth &&
+      fighter2.y >= fighter1.y - fighterHeight &&
+      fighter2.y <= fighter1.y + fighterHeight) ||
+    (fighter1.x >= fighter2.x - fighterWidth &&
+      fighter1.x <= fighter2.x + fighterWidth &&
+      fighter1.y >= fighter2.y - fighterHeight &&
+      fighter1.y <= fighter2.y + fighterHeight)
+  ) {
+    fighter1.score += +1;
+    fighter2.score += -1;
+    scoreFighter1Element.innerHTML = "Robot Score 1: " + fighter1.score;
+    scoreFighter2Element.innerHTML = "Robot Score 2: " + fighter2.score;
+    fighter1.x = 0;
+    fighter2.x = visualViewport.width - fighterWidth;
+  }
+};
+
+// checkContact = () => {
+//   if (fighter1.x === fighter2.x && fighter1.y === fighter2.y) {
+//     fighter1.score += fighter1.score + 1;
+//     fighter2.score += fighter2.score - 1;
+//     scoreRobot1Element.innerHTML = "Robot Score: " + fighter1.score;
+//     scoreRobot2Element.innerHTML = "New Heading" + fighter2.score;
+//   }
+// };
+
+setInterval(checkUpdates, 10);
+setInterval(checkContact, 100);
 // score = () => {
 //   if ((fighter1.x = fighter2.x) && (fighter1.y = fighter2.y)) return score + 1;
 // };
