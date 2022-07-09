@@ -26,4 +26,4 @@ console.log(countWords('hello world'))
 console.log(countWords('1 2 3 4 5'))
 // 5
 
-console.log(countWords('123   '))
+console.log(countWords('   123  123  '))
