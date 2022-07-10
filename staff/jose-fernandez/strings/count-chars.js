@@ -1,12 +1,13 @@
-// falta eliminar los espacios 
 function countChars(text) {
-    let pep
-    for(let i=0;i<arguments.length;i++){
-        pep=arguments[i].length;
+    let espac = 0
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === " " || text[i] == ' ') {
+            espac++
+        }
     }
-    
-    return pep
 
+
+    return text.length - espac
 
 }
 
