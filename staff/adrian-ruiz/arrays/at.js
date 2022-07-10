@@ -1,5 +1,6 @@
 function at(array) {
-    //TODO
+    
+    return array[arguments[arguments.length-1]]
 }
 
 console.log(at(['cat', 'dog', 'elephant'], 2))
