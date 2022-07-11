@@ -1,9 +1,14 @@
-function join(array, separator) {
-    var frase
+function join(array, separator=",") {
+    var result=""
     for (i =0; i < array.length; i++){
-        frase = array[i]
-        console.log(frase + arguments[1])
+        var element = array[i]
+        result += element //(+=) --> result = result + element
+
+        if(i<array.length-1){
+            result += separator
+        }
     }
+    return result
 }
 
 // tests;

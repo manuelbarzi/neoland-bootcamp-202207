@@ -1,7 +1,6 @@
 function mod(value, divisor) {
-    rest= arguments[0]%arguments[1]
-    console.log
-    return(rest)
+    result = arguments[0] % arguments[1]
+    return (result)
 }
 
 // tests

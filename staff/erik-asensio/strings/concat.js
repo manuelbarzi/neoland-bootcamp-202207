@@ -1,9 +1,12 @@
 function concat(text, text2) {
-    var frase=""
+    var result=""
     for (i = 0; i < arguments.length; i++){
-        frase = frase + arguments[i]
+        // const argument = arguments[i]
+        // result += argument
+
+        result += arguments[i]
     }
-    return frase
+    return result
 }
 // tests
 

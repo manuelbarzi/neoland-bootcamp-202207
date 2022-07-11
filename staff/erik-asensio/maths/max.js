@@ -7,10 +7,10 @@ function max(a, b) {
     //     return(b)
     // }
     var maxValue = arguments[0]
-    for (i = 0; i < arguments.length; i++){
-       if (maxValue < arguments[i]){
-        maxValue = arguments[i]
-        
+    for (i = 1; i < arguments.length; i++){
+        const argument = arguments[i]
+       if (maxValue < argument){
+        maxValue = argument
        }
     }
     return maxValue
