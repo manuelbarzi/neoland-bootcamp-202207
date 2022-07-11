@@ -37,8 +37,8 @@ document.onkeydown = function (event) {
 
   fighter.style.left = fighter.x + 'px'
   fighter.style.top = fighter.y + 'px'
-  //opponent
 
+  //opponent
   if (event.key === 'ArrowRight') {
     opponent.x = opponent.x + 20
   } else if (event.key === 'ArrowLeft') {
