@@ -6,7 +6,6 @@ function push(array, element) {
     
 }
 
-
 var numbers = [0, 1, 2, 3]
 
 console.log(push(numbers, 7))
