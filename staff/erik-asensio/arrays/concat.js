@@ -1,7 +1,14 @@
 function concat(array, array2) {
-    for (i = 0; i < array2.length; i++)
-    array.push(array2[i])
-    return array
+    var result=[]
+    for (i = 0; i < arguments.length; i++){
+        var argument = arguments[i]
+
+        for(j=0; j < argument.length; j++){
+            var element=argument[j]
+            result.push(element)
+        }
+    }
+    return result
 }
 
 
