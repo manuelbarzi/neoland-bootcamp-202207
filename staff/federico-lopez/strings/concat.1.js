@@ -11,3 +11,13 @@ function concat() {
 
     return result
 }
+
+// tests
+
+describe('concat', function () {
+    check(concat('Hola', 'Mundo'), 'HolaMundo')
+
+    check(concat('Adios', 'Mundo', 'Cruel'), 'AdiosMundoCruel')
+
+    check(concat('i', ' ', 'love', ' ', 'coding'), 'i love coding')
+})

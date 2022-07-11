@@ -1,8 +1,17 @@
-function join(array, separator = ',') {
-    let result = ''
+function join(array, separator) {
+    /*
+    - new variable (empty string)
+    - for loop iterates all elements in array
+    - for each element, add element and separator
+    */
 
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i]
+    var result = ''
+    
+    if (!separator)
+        separator = ','
+
+    for (var i = 0; i < array.length; i++) {
+        var element = array[i]
 
         // result = result + element
         result += element
