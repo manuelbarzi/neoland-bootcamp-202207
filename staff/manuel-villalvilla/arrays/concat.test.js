@@ -30,12 +30,19 @@ describe('concat', function () {
         check(result[8], array2[4])
     })
 
-    console.log(concat([1, 2], [3, 4], [5, 6]))
-    // [1, 2, 3, 4, 5, 6]
+    test('three arrays with numbers', function() {
+        const array1 = [1, 2];
+        const array2 = [3, 4];
+        const array3 = [5, 6];
+        const result = concat(array1, array2, array3);
 
-    console.log(concat([1, 2], [3, 4], [5, 6], [7, 8]))
-    // [1, 2, 3, 4, 5, 6, 7, 8]
-
-    console.log(concat([1, 2], [3, 4], [5, 6], [7, 8], [9, 10]))
-    // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        check(result.length, array1.length + array2.length + array3.length)
+        check(result[0], array1[0])
+        check(result[1], array1[1])
+        check(result[2], array2[0])
+        check(result[3], array2[1])
+        check(result[4], array3[0])
+        check(result[5], array3[1])
+    })
+    
 })
