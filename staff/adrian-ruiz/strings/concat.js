@@ -10,14 +10,3 @@ function concat(text, text2) {
     }
     return resultado
 }
-
-// tests
-
-console.log(concat('Hola', 'Mundo'))
-// HolaMundo
-
-console.log(concat('Adios', 'Mundo', 'Cruel'))
-// AdiosMundoCruel
-
-console.log(concat('i', ' ', 'love', ' ', 'coding'))
-// i love coding

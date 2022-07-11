@@ -15,18 +15,3 @@ function countWords(text) {
     
     return wordCount
 }
-
-// tests
-
-console.log(countWords('adiós mundo cruel'))
-// 3
-
-console.log(countWords('hello world'))
-// 2
-
-console.log(countWords('1 2 3 4 5'))
-// 5
-
-console.log(countWords('   123  123  '))
-
-console.log(countWords('   '))
