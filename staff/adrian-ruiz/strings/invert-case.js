@@ -19,6 +19,8 @@ function invertCase(text) {
                 else if(text[i] === alphabetUpperCase[j]){
                     newText += alphabetLowerCase[j]
                     break
+                }else if(j === alphabetLowerCase.length-1){
+                    newText += text[i]
                 }
             }
         } 
