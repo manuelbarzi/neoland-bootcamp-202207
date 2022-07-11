@@ -7,7 +7,8 @@ function concat() {
         for (var j = 0; j < argument.length; j++) {
             var element = argument[j]
 
-            result.push(element)
+            //result.push(element)
+            result[result.length] = element
         }
     }
     
