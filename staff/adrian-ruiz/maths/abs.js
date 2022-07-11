@@ -1,10 +1,11 @@
 function abs(value) {
-    if(value < 0){
-    resultado = value*-1
-    return resultado
+    return value < 0? value * -1 : value
+    /*if(value < 0){
+     return value*-1
     }else{
         return value
     }
+    */
 }
 
 // demos
