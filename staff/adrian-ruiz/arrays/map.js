@@ -6,8 +6,8 @@ var personas = [
 ];
 
 function map(x, array){
-    var newArray = []
-    var indice = 0
+    let newArray = []
+    let indice = 0
     for (let i = 0; i < array.length ; i++){
         newArray[indice] = x(array[i])
         indice++

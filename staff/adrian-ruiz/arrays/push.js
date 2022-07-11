@@ -2,7 +2,7 @@
 
 function push(array, element) {
     // TODO
-    var arrayLength = 0
+    let arrayLength = 0
 
     for(let i = 1; i < arguments.length; i++){
         array.length++

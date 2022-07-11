@@ -1,7 +1,7 @@
 function concat(array, array2) {
     // TODO ...
     
-    var newArray = []
+    let newArray = []
     for(let i = 0; i < arguments.length; i++){
 
         for(let j = 0; j < arguments[i].length; j++){

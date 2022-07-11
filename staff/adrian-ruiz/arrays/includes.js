@@ -1,7 +1,7 @@
 
 
 function includes(word, indexStart, array){
-    var l = arguments.length
+    let l = arguments.length
 
     if(l === 3){
         for(let i = indexStart; i < array.length ; i++){

@@ -1,8 +1,8 @@
 var fruits = ["Orange", "Apple", "Mango", "Apple", "Banana", "Apple"];
 
 function lastIndexOf(word, indexStart, array){
-    l = arguments.length
-    var indexOf
+    let l = arguments.length
+    let indexOf
     if(l === 2){
         for(let i = arguments[1].length ; i > 0 ; i--){
             if(arguments[1][i-1] === word)

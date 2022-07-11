@@ -1,6 +1,6 @@
 function join(array, separator) {
     // TODO ...
-    var newText = ""
+    let newText = ""
     if(!separator)
         separator = ","
     for(let i = 0; i < array.length; i++){

@@ -1,5 +1,5 @@
 function pop(array) {
-    var newString = array[array.length-1]
+    let newString = array[array.length-1]
     
     //array.length-- -> Si lo hago de esta manera, y pasamos un array vacio nos dará error
     
