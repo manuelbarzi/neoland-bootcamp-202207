@@ -3,36 +3,25 @@ function invertCase(text) {
     var abecedarioM = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     var newText = '';
     for (var i = 0; i < text.length; i++) {
-        if (text[i] === ' ') { // añado estas lineas para verificar si hay un espacio y evitar que el loop vaya hasta la última posición buscándolo
-            newText += ' '; // también se puede poner otros símbolos como @, #, € etc
-        } else {
-            for (var z = 0; z < abecedariom.length; z++) {
-                if (text[i] === abecedariom[z]) {
-                    newText += abecedarioM[z];
-                    break; // añado el break porque ya no hace falta que continue buscando la letra
-                } else if (text[i] === abecedarioM[z]) {
-                    newText += abecedariom[z];
-                    break; // añado el break porque ya no hace falta que continue buscando la letra 
-                } 
+        for (var z = 0; z < abecedariom.length; z++) {
+            if (text[i] === abecedariom[z]) {
+                newText += abecedarioM[z];
+                break; // añado el break porque ya no hace falta que continue buscando la letra
+            } else if (text[i] === abecedarioM[z]) {
+                newText += abecedariom[z];
+                break; // añado el break porque ya no hace falta que continue buscando la letra 
+            } else if (z === abecedariom.length - 1) {
+                newText += text[i]; // añado esta linea para que cuando llegue al final, si no ha encontrado el caracter, añada el caracter original
             }
         }
-        // if (text[i] === text[i].toUpperCase()) {
-        //     newText += text[i].toLowerCase(); // preguntar por que no sirve editar text: text[i] = text[i].toLowerCase()
-        // } else if (text[i] === text[i].toLowerCase()) {
-        //     newText += text[i].toUpperCase();
-        // }
     }
+    
+    // if (text[i] === text[i].toUpperCase()) {
+    //     newText += text[i].toLowerCase(); // preguntar por que no sirve editar text: text[i] = text[i].toLowerCase()
+    // } else if (text[i] === text[i].toLowerCase()) {
+    //     newText += text[i].toUpperCase();
+    // }
     return newText;
 }
 
-// tests
-
-console.log(invertCase('Hello World'))
-// hELLO wORLD
-
-console.log(invertCase('a B c D e F'))
-// A b C d E f
-
-console.log(invertCase('i lOVe COdInG'))
-// I LovE coDiNg
 
