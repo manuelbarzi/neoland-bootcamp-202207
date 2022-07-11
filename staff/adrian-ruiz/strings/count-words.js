@@ -1,18 +1,19 @@
 function countWords(text) {
-    
+    let wordCount
+
     if(text[0]=== " "){
-        spaceCount = 0;
-    }else spaceCount = 1;
+        wordCount = 0;
+    }else wordCount = 1;
 
     for(let i = 0; i < text.length; i++){
         
         if(text[i] === " " && text[i+1]!== " " && (i+1)!==text.length){
-            spaceCount += 1; 
+            wordCount += 1
         }
         
     }
     
-    return spaceCount
+    return wordCount
 }
 
 // tests
@@ -27,3 +28,5 @@ console.log(countWords('1 2 3 4 5'))
 // 5
 
 console.log(countWords('   123  123  '))
+
+console.log(countWords('   '))
