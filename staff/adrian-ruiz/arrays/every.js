@@ -12,6 +12,14 @@ function every(check, array){
     return true
 }
 
+function checkAge1 (age) {
+    return age >= 18;
+}
+
+function checkAge2 (age) {
+    return age >= 20;
+}
+
 /* 
 
 FUNCIONA, PERO MAL OPTIMIZADO
@@ -31,17 +39,3 @@ function every(check, array){
 }
 
 */
-
-console.log(every(checkAge1, arrayOfNumbers));
-// expected output true
-
-console.log(every(checkAge2, arrayOfNumbers));
-// expected output false
-
-function checkAge1 (age) {
-    return age >= 18;
-}
-
-function checkAge2 (age) {
-    return age >= 20;
-}

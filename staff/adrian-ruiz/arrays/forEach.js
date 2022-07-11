@@ -8,10 +8,6 @@ function forEach(forEachFunc, array){
     return suma
 }
 
-forEach(sumar, arrayOfNumbers);
-console.log(suma);
-// expected output 253
-
 function sumar(elementos) {
     suma += elementos;
 }

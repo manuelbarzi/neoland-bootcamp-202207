@@ -11,8 +11,6 @@ function filter(check, array){
     }
     return newArray
 }
-console.log(filter(checkAge, arrayOfNumbers));
-// expected output [28, 25, 64, 19]
 
 function checkAge(age) {
     return age >= 18;
