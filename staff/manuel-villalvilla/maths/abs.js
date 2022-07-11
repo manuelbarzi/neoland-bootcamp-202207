@@ -1,10 +1,10 @@
 function abs(value) {
-    if (value > 0) {
-        return value;
-    } else {
-        value = value * -1;
-        return value;
-    }
+    // if (value > 0) {
+    //     return value;
+    // } else {
+    //     return value *= -1;
+    // }
+    return value < 0 ? value * -1 : value; // Esto es un operador ternario. Es un if reducido
 }
 
 // demos
