@@ -1,7 +1,7 @@
 function max() {
-    // TODO ...
+    // TODO...
     let maxi= arguments[0]
-    for(i=0;i<arguments.length;i++){
+    for(let i=1;i<arguments.length;i++){
       if(maxi<arguments[i])
       {
         maxi=arguments[i]
@@ -23,3 +23,6 @@ console.log(max(655, 456))
 
 console.log(max(1, 2, 3, 0, 4, 5))
 // 5
+
+console.log(max(-1, -2, -3, -4, -5))
+// -1

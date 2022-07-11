@@ -1,15 +1,19 @@
 function abs(value) {
     // TODO implement me
-    if(value>=0)
-    {
-        return value
-    }else
-    return value*-1
+    // if(value>=0)
+    // {
+    //     return value
+    // }else
+    // return value*-1
+    //
+    //Simplificando con operador ternario
+    return value>0? value:value*-1
+
 }
 
 // demos
 
-console.log(abs(2 - 7))
+console.log(abs(9 - 7))
 // 5
 
 console.log(abs(2 * 10 * -9))

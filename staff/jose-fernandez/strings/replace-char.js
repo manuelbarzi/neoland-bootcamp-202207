@@ -1,14 +1,14 @@
-// modificar salida
+// modificar cambio "replace"
 function replaceChar(text, search, replace) {
-    var result = "";
-    for (var i = 0; i < text.length; i++) {
-        if (text[i] == search) {
-            result = result + replace;
+    let te = ''
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === search) {
+            te = te + replace
         } else {
-            result = result + text[i];
+            te = te + text[i]  
         }
     }
-    return result;
+    return te
 }
 
 
