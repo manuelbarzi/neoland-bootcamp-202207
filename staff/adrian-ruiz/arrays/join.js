@@ -1,6 +1,8 @@
 function join(array, separator) {
     // TODO ...
     var newText = ""
+    if(!separator)
+        separator = ","
     for(let i = 0; i < array.length; i++){
         if(i === array.length -1){
             newText = newText + array[i]
@@ -22,5 +24,5 @@ console.log(join(['Fire', 'Air', 'Water'],''));
 console.log(join(['Fire', 'Air', 'Water'],'-'));
 // Fire-Air-Water
 
-console.log(join(['Fire', 'Air', 'Water'],','));
+console.log(join(['Fire', 'Air', 'Water'],''));
 // Fire,Air,Water
