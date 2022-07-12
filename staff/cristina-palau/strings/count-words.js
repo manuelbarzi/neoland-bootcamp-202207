@@ -1,11 +1,14 @@
 function countWords(text) {
-    var number = 0
-    for (var i = 0; i < text.length; i++) {
-        if (text[i] === " ")
-            number = number + 1
-        var result = number + 1
+    let result = 0
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] === " " &&
+            text[i + 1] !== " " &&
+            i !== text.length - 1 &&
+            i !== 0)
+            
+            result += 1
     }
-    return result
+    return result + 1
 }
 // function countWords(text) {
 //     var words = text.split (' ')
