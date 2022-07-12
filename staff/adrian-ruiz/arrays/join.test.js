@@ -1,4 +1,4 @@
-describe('Test Join', function(){
+describe('TESTING Join', function(){
     test('One array with a separator', function(){
 
         check(join(['Fire', 'Air', 'Water'],' '),'Fire Air Water')

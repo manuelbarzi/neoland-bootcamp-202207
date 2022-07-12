@@ -8,11 +8,6 @@ function some(checkAge, array){
     }
     return false
 }
-console.log(some(checkAge1, arrayOfNumbers));
-// expected output true
-
-console.log(some(checkAge2, arrayOfNumbers));
-// expected output false
 
 function checkAge1 (age) {
     return age >= 90;

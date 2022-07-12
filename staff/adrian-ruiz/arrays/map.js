@@ -14,9 +14,3 @@ function map(x, array){
     }
     return newArray
 }
-
-console.log(map((x) => x * 2, arrayOfNumbers));
-// expected output: [2, 4, 10, 14, 130]
-
-console.log(map((x) => [x.nombre,x.apellido].join(" "), personas));
-// expected output: ['Luis Garrido', 'Helena Tendero', 'Julia Otero']

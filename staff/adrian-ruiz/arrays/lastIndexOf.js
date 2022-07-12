@@ -15,12 +15,3 @@ function lastIndexOf(word, indexStart, array){
     } 
     return -1
 }
-
-console.log(lastIndexOf('Apple', fruits));
-// expected output 5
-
-console.log(lastIndexOf('Apple', 4, fruits));
-// expected output 3
-
-console.log(lastIndexOf('Cherry', fruits));
-// expected output -1
