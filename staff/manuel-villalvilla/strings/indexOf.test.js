@@ -13,6 +13,6 @@ describe('indexOf', function(){
         check(indexOf(artist, 'a'), 3)
     })
     test('indexOf word', function() {
-        check(indexOf(artist, 'sal'), 2)
+        check(indexOf(artist, 'ali'), -1)
     })
 })

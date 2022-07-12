@@ -20,6 +20,7 @@ function indexOf(string, searchString) {
                     }
                 }
             }
+            counter = 0;
         }
         return -1;
     }
