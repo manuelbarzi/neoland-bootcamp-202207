@@ -64,7 +64,7 @@ describe('TESTING concat arrays', function () {
         check(result[7], array4[1])
     })
   
-    test('Four arrays with numbers', function(){
+    test('Five arrays with numbers', function(){
         const array1 = [1,2]
         const array2 = [3,4]
         const array3 = [5,6]
