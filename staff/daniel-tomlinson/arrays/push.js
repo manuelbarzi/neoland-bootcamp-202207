@@ -21,18 +21,12 @@ function push() {
   return array.length;
 }
 
-var numbers = [0, 1, 2, 3];
+// var numbers = [0, 1, 2, 3];
 
-console.log(push(numbers, 7));
-// expected output: 5
+// var animals = ["cat", "dog", "elephant"];
 
-console.log(numbers);
-// expected output: [0, 1, 2, 3, 7]
+/* function push(array, element) {
+  array[array.length] = element;
 
-var animals = ["cat", "dog", "elephant"];
-
-console.log(push(animals, "monkey", "frog"));
-// expected output: 5
-
-console.log(animals);
-// expected output: ['cat', 'dog', 'elephant', 'monkey', 'frog']
+  return array.length;
+} */
