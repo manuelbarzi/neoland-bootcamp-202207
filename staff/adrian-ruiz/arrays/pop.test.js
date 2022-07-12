@@ -24,4 +24,10 @@ describe('pop', function() {
         check(animals[1], 'cat')
         check(animals[2], undefined)
     })
+
+    const emptyArray = []
+    test('empty array',function(){
+        check(pop(emptyArray),undefined)
+        check(emptyArray.length, 0)
+    })
 })
