@@ -16,11 +16,3 @@ function includes(element, start, array) {
         return false;
     }
 }
-
-var fruits = ["Banana", "Orange", "Apple", "Mango"];
-
-console.log(includes('Mango', fruits));
-// expected output true
-
-console.log(includes('Banana', 3, fruits));
-// expected output false
