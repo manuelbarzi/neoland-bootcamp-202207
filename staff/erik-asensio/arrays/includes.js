@@ -11,5 +11,3 @@ function includes(array, element){
     }
     return result
 }
-
-console.log(includes([1,2,3,4], 5))
