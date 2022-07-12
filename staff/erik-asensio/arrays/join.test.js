@@ -1,5 +1,5 @@
 
-describe("Join", function(){
+describe("join", function(){
 
     test("join with space", function(){
         const array = ['Fire', 'Air', 'Water']
