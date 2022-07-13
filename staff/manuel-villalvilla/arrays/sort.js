@@ -1,10 +1,10 @@
 function sort(array, compareFunction) {
-    if (compareFunction) {
+    if (compareFunction && typeof compareFunction === 'function') {
         const result = compareFunction(array[0], array[1]);
         if (result > 0) {
             let minValueTemp = '';
-            for (var i = 0; i < array.length; i++) {
-                for (var j = i; j < array.length; j++) {
+            for (let i = 0; i < array.length; i++) {
+                for (let j = i; j < array.length; j++) {
                     if (array[j] < array[i]) {
                         minValueTemp = array[j];
                         array[j] = array[i];
@@ -15,8 +15,8 @@ function sort(array, compareFunction) {
         return array;
         } else if (result < 0) {
             let maxValueTemp = '';
-            for (var i = 0; i < array.length; i++) {
-                for (var j = i; j < array.length; j++) {
+            for (let i = 0; i < array.length; i++) {
+                for (let j = i; j < array.length; j++) {
                     if (array[j] > array[i]) {
                         maxValueTemp = array[j];
                         array[j] = array[i];
@@ -35,8 +35,8 @@ function sort(array, compareFunction) {
         }
 
         let minValueTemp = '';
-        for (var i = 0; i < array.length; i++) {
-            for (var j = i; j < array.length; j++) {
+        for (let i = 0; i < array.length; i++) {
+            for (let j = i; j < array.length; j++) {
                 if (array[j] < array[i]) {
                     minValueTemp = array[j];
                     array[j] = array[i];
@@ -45,7 +45,7 @@ function sort(array, compareFunction) {
             }
         }
         // if strings with numbers, convert them to numbers
-        for (var j = 0; j < array.length; j++) {
+        for (let j = 0; j < array.length; j++) {
             if (!isNaN(array[j])){
                 array[j] = array[j] * 1;
             }
