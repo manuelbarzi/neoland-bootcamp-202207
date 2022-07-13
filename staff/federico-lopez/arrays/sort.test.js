@@ -151,4 +151,26 @@ describe('sort', function () {
         check(numbers[3], undefined)
         check(numbers[4], undefined)
     }) 
+
+    test('sort in a complex order array of strings with compare function', function() {
+        const strings = ['j', 'a', 'z', 'w', 'm', 'k']
+
+        const result = sort(strings, function(a, b) {
+            aValue = a.charCodeAt(0)
+            bValue = b.charCodeAt(0)
+
+            if (a === 'z') return -1
+            else if (b === 'z') return 1
+            
+            return aValue - bValue
+        })
+
+        check(strings, result)
+        check(strings[0], 'z')
+        check(strings[1], 'a')
+        check(strings[2], 'j')
+        check(strings[3], 'k')
+        check(strings[4], 'm')
+        check(strings[5], 'w')
+    })
 })
