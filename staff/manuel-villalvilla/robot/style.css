@@ -1,0 +1,177 @@
+body {
+    margin: 0px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.scene {
+    background-color: lightgray;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.robot {
+    position: absolute;
+    top: 100px;
+}
+
+.head {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.hair {
+    position: absolute;
+    top: -5px;
+    left: 10px;
+    background-color: blue;
+    width: 80px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.ear-1 {
+    position: absolute;
+    border-radius: 50%;
+    background-color: red;
+    height: 30px;
+    width: 30px;
+    top: 40px;
+    left: -15px;
+    /* z-index: 0; */
+}
+
+.ear-2 {
+    position: absolute;
+    border-radius: 50%;
+    background-color: red;
+    height: 30px;
+    width: 30px;
+    top: 40px;
+    right: -15px;
+}
+
+.eye {
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+}
+
+.eye--left {
+    left: 20px;
+    border-radius: 50%;
+}
+
+.eye--right {
+    right: 20px;
+}
+
+@keyframes pupilas-locas {
+    from {left: 0px;} to {left: 15px;}
+}
+
+.pupil {
+    background-color: black;
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 7.5px;
+    left: 0px;
+    border-radius: 50%;
+    animation-name: pupilas-locas;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.nose {
+    background-color: pink;
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    top: 50px;
+    left: 45px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.mouth {
+    background-color: white;
+    width: 50px;
+    height: 10px;
+    position: absolute;
+    top: 80px;
+    left: 25px;
+    border-radius: 10px;
+}
+
+.neck {
+    position: absolute;
+    background-color: yellow;
+    height: 10px;
+    width: 20px;
+    top: 100px;
+    left: 40px;
+}
+
+.torso {
+    position: absolute;
+    background-color: blue;
+    top: 110px;
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: aquamarine;
+    border-radius: 50%;
+}
+
+.arm {
+    position: absolute;
+    height: 40px;
+    width: 100px;
+    background-color: brown;
+    top: 150px;
+}
+
+.arm--left {
+   right: 100px;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+}
+
+.arm--right {
+    left: 100px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.leg {
+    position: absolute;
+    height: 100px;
+    width: 40px;
+    background-color: brown;
+    top: 260px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.leg--left {
+    left: 5px;
+}
+
+.leg--right {
+    right: 5px;
+}

@@ -1,0 +1,73 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {display: flex;
+    justify-content: center;}
+    
+    
+.fighter {
+    background-color: tomato;
+    height: 100px;
+    width: 50px;
+    position: absolute;
+    margin-top: 200px;
+    border-radius: 30%;
+}
+
+.opponent {
+    background-color: dodgerblue;
+    height: 100px;
+    width: 50px;
+    position: absolute;
+    margin-top: 200px;
+    border-radius: 30%;    
+}
+
+.score {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    height: 100px;
+    width: 500px;
+    justify-content: center;
+    font-size: 2em;
+}
+
+.player1 {
+    background-color: tomato;
+    grid-row: 1;
+    width: 100%;
+}
+
+.player2 {
+    background-color: dodgerblue;
+    grid-row: 2;
+    width: 100%;
+}
+
+.result1 {
+    background-color: rgb(250, 153, 136);
+    grid-row: 1;
+    grid-column: 2;
+    text-align: right;
+}
+
+.result2 {
+    background-color: rgb(156, 205, 253);
+    grid-row: 2;
+    grid-column: 2;
+    text-align: right;
+}
+
+.eye {
+    position: absolute;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    left: 20px;
+    margin-top: 10px;
+    border-radius: 50%;
+}

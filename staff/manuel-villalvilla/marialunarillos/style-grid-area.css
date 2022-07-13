@@ -1,0 +1,83 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: orange;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 60%;
+}
+
+.content {
+    background-color: gold;
+    flex-grow: 1; /* Estira la caja a height 100%. */
+}
+
+@media all and (min-width: 666px) {
+    .container {
+        background-color: papayawhip;
+        display: grid;
+        grid-template-areas: 
+            "a b b"
+            "a c c"
+            "d d f"
+            "e e f"
+            "g h h"
+            "g i i";
+    }
+    .content {
+        background-color: greenyellow;
+    }
+    .content:first-child {
+        background-color: yellow;
+        grid-area: a;
+        
+    }
+    .content:nth-child(2) {
+        background-color: red;
+        grid-area: b;
+        
+    }
+    .content:nth-child(3) {
+        background-color: dodgerblue;
+        grid-area: c;
+        
+    }
+    .content:nth-child(4) {
+        background-color: blueviolet;
+        grid-area: d;
+    }
+    .content:nth-child(5) {
+        background-color: burlywood;
+        grid-area: e;
+    }
+    .content:nth-child(6) {
+        background-color: aqua;
+        grid-area: f;
+    }
+    .content:nth-child(7) {
+        background-color: black;
+        grid-area: g;
+    }
+    .content:nth-child(8) {
+        background-color: crimson;
+        grid-area: h;
+    }
+    .content:nth-child(9) {
+        background-color: green;
+        grid-area: i;
+    }
+}
