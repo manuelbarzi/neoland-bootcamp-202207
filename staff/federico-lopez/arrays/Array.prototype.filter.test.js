@@ -1,4 +1,4 @@
-describe('filter', function() {
+describe('Array.prototype.filter', function() {
     test('filter pan family', function() {
         const people = [
             { name: 'Peter', surname: 'Pan', age: 15 },
@@ -8,7 +8,7 @@ describe('filter', function() {
             { name: 'Pin', surname: 'Ocho', age: 8 }
         ]
 
-        const pans = filter(people, function(person) {
+        const pans = people.filter(function(person) {
             return person.surname === 'Pan'
         })
 
@@ -26,7 +26,7 @@ describe('filter', function() {
             { name: 'Pin', surname: 'Ocho', age: 8 }
         ]
 
-        const olderThan18 = filter(people, function(person) {
+        const olderThan18 = people.filter(function(person) {
             return person.age >= 18
         })
 
