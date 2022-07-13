@@ -76,7 +76,7 @@ header{
     background-color: rgb(91, 91, 91);
     border-radius: 10px 10px 0px 0px;
 }
-header h2{
+header p{
     width: 90%;
     text-align: center;
     color: white;
