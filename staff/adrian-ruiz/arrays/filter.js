@@ -1,4 +1,4 @@
-var arrayOfNumbers = [10, 28, 17, 14, 25, 64, 15, 13, 19];
+
 
 function filter(check, array){
     let newArray = [];
@@ -10,8 +10,4 @@ function filter(check, array){
         }
     }
     return newArray
-}
-
-function checkAge(age) {
-    return age >= 18;
 }
