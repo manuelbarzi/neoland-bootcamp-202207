@@ -1,4 +1,19 @@
-function max(a, b) {
+// Version minificada
+
+function max() {
+    let result = arguments[0]
+    
+    for (let i = 1; i < arguments.length; i++) {
+        const element = arguments[i]
+
+        if (element > result)
+            result = element
+    }
+
+    return result
+}
+
+/* function max(a, b) {
     // TODO ...
     var maxValue;
 
@@ -16,7 +31,9 @@ function max(a, b) {
     }
     return maxValue
 
-}
+} */
+
+
 
 // demos
 
@@ -27,4 +44,4 @@ console.log(max(123, 456))
 // 456
 
 console.log(max(9000, 7000, 9, 5000, 4, 2000))
-// 5
+// 9000
