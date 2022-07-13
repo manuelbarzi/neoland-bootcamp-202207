@@ -1,8 +1,8 @@
-describe('map', function () {
+describe('Array.prototype.map', function () {
     test('multiply all the numbers in the array by 2', function () {
-        const array1 = [1, 4, 9, 16]
+        const array1 = [1, 4, 9, 16];
 
-        const map1 = map(array1, function (x) {
+        const map1 = array1.map(function (x) {
             return x * 2
         });
 
@@ -29,7 +29,7 @@ describe('map', function () {
             { name: 'sugar', price: 40 }
         ]
 
-        const newProductsList = map(productList, function (product) {
+        const newProductsList = productsList.map(function (product) {
             return { name: product.name, price: product.price * 1.2 }
         })
 
