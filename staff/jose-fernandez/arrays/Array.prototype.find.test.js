@@ -1,0 +1,1 @@
+Este es el ordenador de escritorio
