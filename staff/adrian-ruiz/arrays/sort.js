@@ -1,25 +1,57 @@
-function sort(array){
+function sort(array, compareFunction){
+    if(compareFunction){    //Compruebo si se ha pasado la funcion de comparar
+        for(let i = 0; i < array.length; i++){
+            if(array[i]!= undefined && array[i+1]!= undefined){ // Compruebo que ninguno sea undefined, para que si "i" es undefined haga la funciónd e comparación
+                const compareResult = compareFunction(array[i],array[i+1])  // Resultado de la comparación
+                if(compareResult < 0){  // Si a es menor que b. Dejamos el array como estaba
+                }
 
-    var newArray = [];
-    let newString = ''
-    let datoTemporal = ''
-    // CONVERTIMOS LOS ELEMENTOS DEL ARRAY EN STRINGS
-    for(let i = 0; i < array.length; i++){
-        newString = ""+array[i]+""
-        newArray[i] = newString 
-    }
+                else if(compareResult > 0){ // Si no, guardamos el valor de b y cambiamos posiciones
+                    const temp = array[i]
+                    array[i] = array[i+1]
+                    array[i+1] = temp
+                    if(i > 0){       // Comparar si i es mayor a 0 sirve para no empezar el bucle en -1 (0 -2 +1) y que el array[i] exista
+                        i= i-2      // Resto 2 para comprobar array[i+1], con array[i-1] (Valores de referencia antes del cambio de posición)
+                    }
+                }
+            }else if((array[i] === undefined) && (array[i+1]!=undefined)){        // Esto es para cuando i sea undefined, lo muevo de posición siempre que i+1 exista y no sea undefined, ya que si los 2 son undefined se quedan igual y pasariamos al siguiente
+                const temp = array[i]
+                array[i] = array[i+1]
+                array[i+1] = temp
+                if(i > 0){  
+                    i = i-2         
+                }
 
-    for(let i = 0; i < newArray.length; i++){
-        for(let j = 0; j < newArray.length -1; j++){  
-            if(newArray[i] < newArray[j]){
-                datoTemporal = newArray[j]
-                newArray[j] = newArray[i]
-                newArray[i] = datoTemporal
             }
+            
         }
-        
+        return array
     }
-    return newArray
 
+    if(compareFunction === undefined){
+         for(let i = 0 ; i < array.length; i++){
+
+            if((""+array[i]) > (""+array[i+1]) && array[i+1] && array[i]!= undefined){  // && array[i+1] sirve para detectar que la siguiente posición "existe"
+                const temp = array[i]
+                array[i] = array[i+1]
+                array[i+1] = temp
+                if(i > 0){
+                    i = i-2       
+                }
+                
+            }
+
+            else if((array[i] === undefined) && (array[i+1]!=undefined)){
+                const temp = array[i]
+                array[i] = array[i+1]
+                array[i+1] = temp
+                if(i > 0){
+                    i = i-2  
+                }
+            }
+        } 
+        return array 
+    }
+        
     
 }
