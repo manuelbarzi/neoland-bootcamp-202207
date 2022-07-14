@@ -8,8 +8,3 @@ function pow(val,power){
    return s
 }
 
-console.log(pow(10,4))
-
-console.log(pow(3,4))
-
-console.log(pow(2,3))

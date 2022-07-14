@@ -8,7 +8,7 @@ function invertCase(text) {
     //     }
     // }
     // return text;
-    debugger;
+
     let result = ''
     let alphabetLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     let alphabetUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -22,21 +22,10 @@ function invertCase(text) {
                 result += alphabetLowerCase[j]
                 break;
 
-            } else if (j = alphabetLowerCase.length - 1) {
+            } else if (j === alphabetLowerCase.length - 1) {
                 result += text[i]
             }
         }
     }
     return result
 }
-
-// tests
-
-console.log(invertCase('Hello World'))
-// hELLO wORLD
-
-console.log(invertCase('a B c D e F'))
-// A b C d E f
-
-console.log(invertCase('i lOVe COdInG'))
-    // I LovE coDiNg

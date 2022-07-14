@@ -1,12 +1,8 @@
-function join(array, separator) {
+// separator por defecto le digo que sea ","
+function join(array, separator=',') {
     // TODO ...
     result=''
     // si niego un undefined se vuelve true ==> !undefined = true
-
-    // Si no hay separator 
-    if(!separator){
-        separator=','
-    }
 
     for(let i=0;i<array.length;i++){
         const element=array[i]

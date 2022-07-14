@@ -10,17 +10,3 @@ function sign(value) {
         return -1
     }
 }
-
-// tests
-
-console.log(sign(3));
-// 1
-
-console.log(sign(-3));
-// -1
-
-console.log(sign(0));
-// 0
-
-console.log(sign('-3'));
-// -1
