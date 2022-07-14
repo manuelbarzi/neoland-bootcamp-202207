@@ -27,7 +27,7 @@ describe('filter', function() {
         ]
 
         const olderThan18 = filter(people, function(person) {
-            return person.age >= 18
+            return person.age > 17
         })
 
         check(olderThan18.length, 2)
