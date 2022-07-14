@@ -10,6 +10,6 @@ describe('indexOfString', function(){
     })
 
     test('on repeated character', function(){
-        check(indexOf(artist, 'ali'), 3)
+        check(indexOf(artist, 'alí'), 3)
     })
 })

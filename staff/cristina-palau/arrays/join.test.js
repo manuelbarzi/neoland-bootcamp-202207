@@ -1,14 +1,36 @@
 describe('joinFunction', function () {
     test('espace', function () {
-        check(join(['Fire', 'Air', 'Water'], ' '), 'Fire Air Water');
+        const elements = ['Fire', 'Air', 'Water']
+        const separator = ' '
+
+        const result = join(elements, separator)
+
+        check(result, elements[0] + separator + elements[1] + separator + elements[2]);
     })
     test('no-espace', function () {
-        check(join(['Fire', 'Air', 'Water'], ''), 'FireAirWater');
+        const elements = ['Fire', 'Air', 'Water']
+        const separator = ''
+
+        const result = join(elements, separator)
+
+        check(result, elements[0] + separator + elements[1] + separator + elements[2]);
     })
+
     test('minus', function () {
-        check(join(['Fire', 'Air', 'Water'], '-'), 'Fire-Air-Water');
+        const elements = ['Fire', 'Air', 'Water']
+        const separator = '-'
+
+        const result = join(elements, separator)
+
+        check(result, elements[0] + separator + elements[1] + separator + elements[2]);
     })
+
     test('comma', function () {
-        check(join(['Fire', 'Air', 'Water'],), 'Fire,Air,Water');
-    })   
+        const elements = ['Fire', 'Air', 'Water']
+        const separator = ','
+
+        const result = join(elements, separator)
+
+        check(result, elements[0] + separator + elements[1] + separator + elements[2]);
+    })
 })

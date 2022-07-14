@@ -1,12 +1,14 @@
-function push(array, element) {
-    for (let i = 1; i < push.arguments.length; i++) {
-        array[array.length] = push.arguments[i]      
+function push(array, ...element) {
+    for (let i = 0; i < element.length; i++) {
+        const elements = element[i] 
+
+        array[array.length] = elements
     }
     return array.length
-    
+
 }
 
-var numbers = [0, 1, 2, 3]
+/* var numbers = [0, 1, 2, 3]
 
 console.log(push(numbers, 7))
 // expected output: 5
@@ -22,15 +24,4 @@ console.log(push(animals, 'monkey', 'frog'))
 console.log(animals)
 // expected output: ['cat', 'dog', 'elephant', 'monkey', 'frog']
 
-
-// let newArray = array
-
-// for (let i = 0; i < push.arguments.length; i++) {
-//     for (let j = 0; j < array.length; j++) {
-//         if (array[j] === array.length - 1)
-//         newArray = array + element
-
-//         array = newArray
-//         return newArray
-//     }
-// }
+ */
