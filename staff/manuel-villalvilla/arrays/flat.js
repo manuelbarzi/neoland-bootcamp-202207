@@ -22,26 +22,4 @@ function flat(array, depth) {
     return newArray;
 }
 
-console.log(flat([0, 1, 2, [[3, 4]]]));
-// expected output [0, 1, 2, [3, 4]]
 
-console.log(flat([0, 1, 2, [3, 4]]));
-// expected output [0, 1, 2, 3, 4]
-
-console.log(flat([[0, 1], 2, [[3, 4]], 5, 6, [[[7, 8]]]]));
-// expected output [0, 1, 2, [3, 4], 5, 6, [[7, 8]]]
-
-console.log(flat([0, 1, 2, [[[3, 4]]]], 2))
-// expected output [0, 1, 2, [3, 4]]
-
-console.log(flat([0, 1, 2, [[[3, 4]]]], 3))
-// expected output [0, 1, 2, 3, 4]
-
-console.log(flat([0, [[1, 2]], [[[3, 4]]]], 1))
-// expected output [0, [1, 2], [[3, 4]]]
-
-console.log(flat([0, [[1, 2]], [[[3, 4]]]], 10))
-// expected output [0, 1, 2, 3, 4]
-
-console.log(flat(4, 10))
-// expected output error

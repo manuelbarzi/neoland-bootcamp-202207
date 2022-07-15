@@ -1,58 +1,156 @@
-describe('sort', function() {
-    test('array of strings', function() {
-        const array = ["Banana", "Orange", "Apple", "Mango"];
-        const result = sort(array);
+describe('sort', function () {
+    test('order array of strings without compare function', function () {
+        const months = ['March', 'Jan', 'Feb', 'Dec']
 
-        check(result.length, array.length)
-        check(result[0], 'Apple')
-        check(result[1], 'Banana')
-        check(result[2], 'Mango')
-        check(result[3], 'Orange')
+        const result = sort(months)
+
+        check(months, result)
+        check(months[0], 'Dec')
+        check(months[1], 'Feb')
+        check(months[2], 'Jan')
+        check(months[3], 'March')
     })
 
-    test('array of numbers', function() {
-        const array = [12, 1, 2, 23];
-        const result = sort(array);
+    test('order array of numbers without compare function', function () {
+        const numbers = [1, 30, 4, 21, 100000]
 
-        check(result.length, array.length)
-        check(result[0], 1)
-        check(result[1], 12)
-        check(result[2], 2)
-        check(result[3], 23)
+        const result = sort(numbers)
+
+        check(numbers, result)
+        check(numbers[0], 1)
+        check(numbers[1], 100000)
+        check(numbers[2], 21)
+        check(numbers[3], 30)
+        check(numbers[4], 4)
     })
 
-    test('array of strings with numbers', function() {
-        const array = ['word', 'Word', '1 Word', '2 Words'];
-        const result = sort(array);
+    test('order array of strings with undefined element and without compare function', function () {
+        const strings = ['z', 'a', 'b', undefined, 'j']
 
-        check(result.length, array.length)
-        check(result[0], '1 Word')
-        check(result[1], '2 Words')
-        check(result[2], 'Word')
-        check(result[3], 'word')
+        const result = sort(strings)
+
+        check(strings, result)
+        check(strings[0], 'a')
+        check(strings[1], 'b')
+        check(strings[2], 'j')
+        check(strings[3], 'z')
+        check(strings[4], undefined)
     })
 
-    test('array of numbers with compareFunction', function() {
-        const array = [12, 1, 2, 23];
-        const result = sort(array, function (a, b) { return a - b });
+    test('order array of strings with undefined element at the beginning of the array and without compare function', function () {
+        const strings = [undefined, 'a', 'b', 'z', 'j']
 
-        check(result.length, array.length)
-        check(result[0], 1)
-        check(result[1], 2)
-        check(result[2], 12)
-        check(result[3], 23)
+        const result = sort(strings)
+
+        check(strings, result)
+        check(strings[0], 'a')
+        check(strings[1], 'b')
+        check(strings[2], 'j')
+        check(strings[3], 'z')
+        check(strings[4], undefined)
     })
 
-    test('array of numbers with compareFunction', function() {
-        const array = [12, 1, 2, 23];
-        const result = sort(array, function (a, b) { return b - a });
+    test('sort in ascending order array of numbers with compare function ', function() {
+        const numbers = [1, 30, 4, 21, 100000]
 
-        check(result.length, array.length)
-        check(result[0], 23)
-        check(result[1], 12)
-        check(result[2], 2)
-        check(result[3], 1)
+        const result = sort(numbers, function(a, b) {
+            return a - b
+        })
+
+        check(numbers, result)
+        check(numbers[0], 1)
+        check(numbers[1], 4)
+        check(numbers[2], 21)
+        check(numbers[3], 30)
+        check(numbers[4], 100000)
+    }) 
+
+    test('sort array of objects by number with compare function', function() {
+        const items = [
+            { name: 'Edward', value: 21 },
+            { name: 'Sharpe', value: 37 },
+            { name: 'And', value: 45 },
+            { name: 'The', value: -12 },
+            { name: 'Magnetic', value: 13 },
+            { name: 'Zeros', value: 37 }
+          ]
+          
+          const result = sort(items, function(a, b) {
+            return a.value - b.value
+          })
+
+          check(items, result)
+          check(items[0].name, 'The')
+          check(items[1].name, 'Magnetic')
+          check(items[2].name, 'Edward')
+          check(items[3].name, 'Sharpe')
+          check(items[4].name, 'Zeros')
+          check(items[5].name, 'And')
     })
+
+    test('sort array of objects by string with compare function', function() {
+        const items = [
+            { name: 'Edward', value: 21 },
+            { name: 'Sharpe', value: 37 },
+            { name: 'And', value: 45 },
+            { name: 'The', value: -12 },
+            { name: 'Magnetic', value: 13 },
+            { name: 'Zeros', value: 37 }
+          ]
+          
+          const result = sort(items, function(a, b) {
+            const nameA = a.name.toUpperCase()
+            const nameB = b.name.toUpperCase()
+            
+            if (nameA < nameB) {
+              return -1;
+            }
+
+            if (nameA > nameB) {
+              return 1;
+            }
+            
+            return 0;
+          })
+
+          check(items, result)
+          check(items[0].name, 'And')
+          check(items[1].name, 'Edward')
+          check(items[2].name, 'Magnetic')
+          check(items[3].name, 'Sharpe')
+          check(items[4].name, 'The')
+          check(items[5].name, 'Zeros')    
+    })
+
+    test('sort in ascending order array of numbers with undefined value and compare function ', function() {
+        const numbers = [undefined, 30, 4, 21, 100000]
+
+        const result = sort(numbers, function(a, b) {
+            return a - b
+        })
+
+        check(numbers, result)
+        check(numbers[0], 4)
+        check(numbers[1], 21)
+        check(numbers[2], 30)
+        check(numbers[3], 100000)
+        check(numbers[4], undefined)
+    }) 
+
+    test('sort in ascending order array of numbers with multiple undefined values and compare function ', function() {
+        const numbers = [undefined, undefined, 4, undefined, 100000]
+
+        const result = sort(numbers, function(a, b) {
+            return a - b
+        })
+
+        check(numbers, result)
+        check(numbers[0], 4)
+        check(numbers[1], 100000)
+        check(numbers[2], undefined)
+        check(numbers[3], undefined)
+        check(numbers[4], undefined)
+    }) 
 
     test('sort in a complex order array of strings with compare function', function() {
         const strings = ['j', 'a', 'z', 'w', 'm', 'k']
@@ -63,7 +161,7 @@ describe('sort', function() {
 
             if (a === 'z') return -1
             else if (b === 'z') return 1
-
+            
             return aValue - bValue
         })
 
@@ -74,9 +172,5 @@ describe('sort', function() {
         check(strings[3], 'k')
         check(strings[4], 'm')
         check(strings[5], 'w')
-
     })
 })
-
-
-

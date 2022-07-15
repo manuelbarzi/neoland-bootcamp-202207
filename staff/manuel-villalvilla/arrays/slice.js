@@ -41,6 +41,7 @@ function slice (array, ...args) {
 }
 
 const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+const notAnArray = 'hola';
 
 console.log(slice(animals, 2, 4));
 // expected output: Array ["camel", "duck"]
@@ -59,3 +60,12 @@ console.log(slice(animals, -2));
 
 console.log(slice(animals));
 // expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+
+// console.log(slice(notAnArray, 2, 4));
+// expected output: error, not an ARRAY
+
+// console.log(slice(animals, 2, 4, 6));
+// expected output: error, args EXCEEDED
+
+// console.log(slice(animals, 'hola', 4));
+// expected output: error, arg not a NUMBER

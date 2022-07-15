@@ -33,18 +33,47 @@ describe('flat', function() {
         check(result[5], array[4]);
         check(result[4], array[3]);
         check(result[5], array[4]);
-        check(result[6], array[5][0][0]);
+        check(result[6][0], array[5][0][0]);
+    })
+
+    test('dimensional array with depth', function() {
+        const array = [0, 1, 2, [[[3, 4]]]];
+        const result = flat(array, 2);
+
+        check(result[0], array[0]);
+        check(result[1], array[1]);
+        check(result[2], array[2]);
+        check(result[3], array[3][0][0]);
+    })
+
+    test('dimensional array with depth', function() {
+        const array = [0, 1, 2, [[[3, 4]]]];
+        const result = flat(array, 3);
+
+        check(result[0], array[0]);
+        check(result[1], array[1]);
+        check(result[2], array[2]);
+        check(result[3], array[3][0][0][0]);
+        check(result[4], array[3][0][0][1]);
+    })
+
+    test('dimensional array with depth', function() {
+        const array = [0, [[1, 2]], [[[3, 4]]]];
+        const result = flat(array, 1);
+
+        check(result[0], array[0]);
+        check(result[1], array[1][0]);
+        check(result[2], array[2][0]);
+    })
+
+    test('dimensional array with depth', function() {
+        const array = [0, [[1, 2]], [[[3, 4]]]];
+        const result = flat(array, 10);
+
+        check(result[0], array[0]);
+        check(result[1], array[1][0][0]);
+        check(result[2], array[1][0][1]);
+        check(result[3], array[2][0][0][0]);
+        check(result[4], array[2][0][0][1]);
     })
 })
-
-// console.log(flat([0, 1, 2, [[[3, 4]]]], 2))
-// // expected output [0, 1, 2, [3, 4]]
-
-// console.log(flat([0, 1, 2, [[[3, 4]]]], 3))
-// // expected output [0, 1, 2, 3, 4]
-
-// console.log(flat([0, [[1, 2]], [[[3, 4]]]], 1))
-// // expected output [0, [1, 2], [[3, 4]]]
-
-// console.log(flat([0, [[1, 2]], [[[3, 4]]]], 10))
-// // expected output [0, 1, 2, 3, 4]
