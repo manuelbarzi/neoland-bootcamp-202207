@@ -105,13 +105,16 @@ html, body {
 
 
 .link {
-    
     font-size: 1rem;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    font-weight: bold;
+}
+.link-register, .link-login{
+    text-decoration: none;
 }
 .link-register:visited{
     color:white;
@@ -163,16 +166,16 @@ html, body {
     /* background-color: aqua; */
     
 }
-.cont__header .message{
+.cont__header .messageTitle{
      padding-left: 30%;
 }
 
 
-.message, .fas.fa-bars {
+.messageTitle, .fas.fa-bars {
     margin: 5px;
     color: #037E8c;
 }
-.message{
+.messageTitle{
     font-size: 150% ;
     display: flex;
     justify-content: center;
@@ -242,7 +245,8 @@ html, body {
 }
 
 .nolink-register{
-    text-decoration: none;
+    /* text align para centrar un elemento p */
+    text-align: center;
     color:aqua;
 }
 
