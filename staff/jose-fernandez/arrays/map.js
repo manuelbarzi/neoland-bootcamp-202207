@@ -1,4 +1,3 @@
-debugger;
 function map(array, callback){
     let result=[]
     for(i=0;i<array.length;i++){

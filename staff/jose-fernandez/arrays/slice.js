@@ -1,20 +1,30 @@
-function slice(array,start,end) {
+function slice(array, start, end) {
     let sliced = []
     // test2
-    if(end == undefined)
-    end= array.length
-    
-    //test 3 
-    // if(start<0)
-    // start= array.length-start
+    if (end == undefined)
+        end = array.length
+
+    //test 3  const result = slice(animals, -2)
+    if (start < 0)
+        start = array.length + start
+
+    //test 4  
+    if (end < 0)
+        end = array.length + end
+
+    //test 5      
+    if (start === undefined)
+        start = 0
 
     for (let i = start; i < end; i++) {
-        const element=array[i]
-        sliced[sliced.length]=element
+        const element = array[i]
+        sliced[sliced.length] = element
 
     }
     return sliced
 }
+
+
 
 //             // 0---------------------------------------------0
 // const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
