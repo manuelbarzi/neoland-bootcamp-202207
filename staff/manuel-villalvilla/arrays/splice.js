@@ -89,6 +89,7 @@ function splice () {
         let start = arguments[1];
         const deleteCount = arguments[2];
         const elements = [];
+        // compruebo que ningun elemento sea un objeto y los guardo en elements
         for (let i = 3; i < arguments.length; i++) {
             if (typeof arguments[i] !== 'object') {
                 elements[elements.length] = arguments[i];
@@ -190,10 +191,3 @@ const exampleArray = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
 
 // console.log(exampleArray);
 // expected output ['angel', 'clown', 'drum', 'pen', 'guitar', 'mandarin', 'sturgeon']
-
-
-
-
-
-
-
