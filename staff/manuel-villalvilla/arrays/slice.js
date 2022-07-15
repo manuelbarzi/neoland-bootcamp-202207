@@ -1,14 +1,19 @@
 function slice (array, ...args) {
-    if (!(array instanceof Array)) {
-        throw new Error (`${array} is not an ARRAY`);
-    }
-    if (args.length > 2) {
-        throw new Error ('Argument length EXCEEDED');
-    }
-    for (let i = 0; i < args.length; i++) {
-        if (isNaN(args[i])) {
-            throw new Error (`${args[i]} is not a NUMBER`);
+    try{
+        if (!(array instanceof Array)) {
+            throw new Error (`${array} is not an ARRAY`);
         }
+        if (args.length > 2) {
+            throw new Error ('Argument length EXCEEDED');
+        }
+        for (let i = 0; i < args.length; i++) {
+            if (isNaN(args[i])) {
+                throw new Error (`${args[i]} is not a NUMBER`);
+            }
+        }
+    }
+    catch(err) { // probar en testy
+        return err.message;
     }
     if (args.length === 2) {
         if (args[0] < 0) {
@@ -54,6 +59,9 @@ console.log(slice(animals, 2, -1));
 
 console.log(slice(animals, 2));
 // expected output: Array ["camel", "duck", "elephant"]
+
+console.log(slice(animals, 6));
+// expected output: Array []
 
 console.log(slice(animals, -2));
 // expected output: Array ["duck", "elephant"]
