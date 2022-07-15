@@ -27,7 +27,7 @@ describe("push", function () {
     check(animals.length - 3, "cows");
     check(animals[0], "pigs");
     check(animals[1], "goats");
-    check(animals[2], "sheeps");
+    check(animals[2], "sheep");
   });
 });
 

@@ -7,9 +7,9 @@ describe("join", function () {
 
     check(
       result,
-      elements[0] + seperator,
-      elements[1] + seperator,
-      elements[2] + seperator
+      elements[0] + separator,
+      elements[1] + separator,
+      elements[2] + separator
     );
   });
 });

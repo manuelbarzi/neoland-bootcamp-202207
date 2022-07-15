@@ -11,7 +11,7 @@ function join() {
 
   var result = "";
 
-  if (!seperator)
+  if (!separator)
     for (i = 0; i < Array.length; i++) {
       var element = array[i];
     }
