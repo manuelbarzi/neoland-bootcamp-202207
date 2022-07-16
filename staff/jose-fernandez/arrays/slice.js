@@ -17,8 +17,9 @@ function slice(array, start, end) {
         start = 0
 
     for (let i = start; i < end; i++) {
-        const element = array[i]
-        sliced[sliced.length] = element
+        // const element = array[i]
+        sliced[sliced.length] = array[i]
+        // sliced[sliced.length] = element
 
     }
     return sliced

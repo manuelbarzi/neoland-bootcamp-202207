@@ -1,8 +1,7 @@
 function map(array,element){
     let result=[]
     for(i=0;i<array.length;i++){
-        result[i]=array[i]*element;   
-        
+        result[i]=array[i]*element;    
     }
     return result
 }

@@ -4,7 +4,8 @@ function concat(array, array2) {
     for (var i = 0; i < array.length; i++) {
         var element = array[i]
 
-        result.push(element)
+        // result.push(element)
+        result[result.length]=element
     }
 
     for (var i = 0; i < array2.length; i++) {
