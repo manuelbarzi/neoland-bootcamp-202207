@@ -150,7 +150,7 @@ html, body {
 }
 .header_home{
     padding-top:5%;
-    height: 10%;
+    height: 20%;
     width: 100%;
     /* background-color: aqua ; */
 }
@@ -167,7 +167,7 @@ html, body {
     
 }
 .cont__header .messageTitle{
-     padding-left: 30%;
+     padding-left: 10%;
 }
 
 
@@ -195,7 +195,7 @@ html, body {
     text-align: center;
     line-height: 155%;
     border-radius: 20%;
-    margin-left: 12%;
+    margin-left: 20%;
     cursor: pointer;
 }
 

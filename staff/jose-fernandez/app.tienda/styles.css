@@ -137,29 +137,44 @@ html, body {
 
 
 /* =========================HOME====================== */
+.container_home {
+    display: flex;
+    /* background-color: aqua; */
+    border: 1px solid black;
+    height: 100%;
+    gap: 10px;
+    background-image: url("https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg");
+}
+.header_home{
+    padding-top:5%;
+    height: 10%;
+    width: 100%;
+    background-color: aqua ;
+}
+.home_page{
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+    
+    
+}
 .cont__header {
     display: flex;
     width: 100%;
+    
     /* background-color: aqua; */
-
+    
 }
-.cont__header .message{
+.cont__header .messageTitle{
      padding-left: 30%;
 }
 
-/* .container-home {
-    display: flex;
-    background-color: silver;
-    width: 100%; 
-    height: 15%;
 
-} */
-
-.message, .fas.fa-bars {
+.messageTitle, .fas.fa-bars {
     margin: 5px;
     color: #037E8c;
 }
-.message{
+.messageTitle{
     font-size: 150% ;
     display: flex;
     justify-content: center;
@@ -167,27 +182,29 @@ html, body {
     
 }
 /* #btn-menu{
-    margin-left:35%;
+    margin-top: 0%;
 } */
 .fas.fa-bars{
     display: flex;
     justify-content: center ;
     width: 12%;
-    height: 75%;
+    height: 7%;
     font-size: 175%;
     background: rgb(2, 1, 3);
     text-align: center;
-    line-height: 150%;
+    line-height: 155%;
     border-radius: 20%;
-    margin-left: auto;
+    margin-left: 12%;
     cursor: pointer;
 }
 
 .nav-home {
-    position: absolute;
+    /* position: absolute;
     top: 7%;
     right:-100%;
-    transition: 0.4s;
+     */
+    display: none;
+    
     
 }
 
@@ -206,7 +223,8 @@ html, body {
 
 .menu__link{
     display: block;
-    padding: 15px;
+    padding:15px;
+    width: 100%;
     background: WHITE;
     text-decoration: none;
     color: white;
@@ -220,11 +238,14 @@ html, body {
     color: #436174;
 }
 .mostrar{
-    right: 0%;
+    display: flex;
+    margin-left: 65%;
+    transition: 0.2s;
 }
 
 .nolink-register{
-    text-decoration: none;
+    /* text align para centrar un elemento p */
+    text-align: center;
     color:aqua;
 }
 
@@ -232,6 +253,7 @@ html, body {
 .off{
     display: none;
 }
+
 
 
 /* ==============MEDIA======================= */
