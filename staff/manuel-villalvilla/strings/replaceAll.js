@@ -1,4 +1,4 @@
-function replace() {
+function replaceAll() {
     if (arguments.length < 3) {
         throw new Error ('Not enough ARGUMENTS');
     }
@@ -24,6 +24,10 @@ function replace() {
     
     // asigno las variables en funcion del tipo de argumentos pasados
     arguments[1] instanceof RegExp ? regExp = new RegExp(arguments[1]) : substr = arguments[1];
+    // compruebo si el RegExp tiene variable global requerida para esta funcion
+    if (regExp && !regExp.global) {
+        throw new Error ('replaceAll must be called with a global RegExp');
+    }
     typeof arguments[2] === 'string' ? newSubstr = arguments[2] : replacerFunction = arguments[2];
 
     // caso de buscar con RegExp y reemplazar match(es) con newSubstr
@@ -45,10 +49,10 @@ function replace() {
             return string;
         }
     }
-    // caso de buscar con substr y reemplazar con newSubstr | solo reemplazo el primer match segun documentacion
+    // caso de buscar con substr y reemplazar con newSubstr | reemplazo todos los matches segun documentacion
     if (substr && newSubstr) {
         let charMatches = 0;
-        // itero por todo el string y voy construyendo el newString hasta el match
+        // itero por todo el string y voy construyendo newString
         for (let i = 0; i < string.length; i++) {
             if (substr[0] === string[i]) {
                 let index = i;
@@ -58,20 +62,19 @@ function replace() {
                         charMatches++;
                         index++;
                         if (charMatches === substr.length) {
-                            // construyo lo que falta de newString
                             // añado el replacement
-                            newString += newSubstr; 
-                            // desde string[match[end]] hasta el final del string
-                            for (let a = i + substr.length; a < string.length; a++) { 
-                                newString += string[a];
-                            }
-                            return newString;
+                            newString += newSubstr;
+                            // como el index ahora va 1 por delante de todo el match, reasigno i para que se siga escribiendo la continuacion del string
+                            i = index - 1;
+                            charMatches = 0;
+                            index = 0;
+                            break;
                         }
                     } else {
-                        // si falla el chequeo del match completo, reseteo valores y construyo newString
-                        index = 0;
+                        // si falla el match completo, reseteo valores y construyo newString
+                        newString += string[i];
                         charMatches = 0;
-                        newString += string[i]
+                        index = 0;
                         break;
                     }
                 }
@@ -83,7 +86,6 @@ function replace() {
         return newString;
     }
     // caso de buscar con substr y reemplazar con replacerFunction 
-    // reemplazo todos los matches pero no se si es correcto porque a lo mejor deberia decirlo la replacerFunction
     if (substr && replacerFunction) {
         let charMatches = 0;
         // itero por todo el string y voy construyendo newString
@@ -123,20 +125,20 @@ function replace() {
 
 const string = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
 
-console.log(replace(string, /Dog/i, 'elephant'));
+// console.log(replaceAll(string, /Dog/i, 'elephant')); // error RegExp correcto
 // expected output 'The quick brown fox jumps over the lazy elephant. If the dog reacted, was it really lazy?'
-console.log(replace(string, /Dog/ig, 'elephant')); // con global
+console.log(replaceAll(string, /Dog/ig, 'elephant')); // con global
 // expected output 'The quick brown fox jumps over the lazy elephant. If the elephant reacted, was it really lazy?'
-console.log(replace(string, /Dog/i, function(match) {return match = 'cat'})); // funciona pero no entiendo sus posibilidades
-// expected output 'The quick brown fox jumps over the lazy cat. If the dog reacted, was it really lazy?'
-console.log(replace(string, 'brown', 'yellow'));
+console.log(replaceAll(string, /Dog/ig, function(match) {return match = 'cat'})); // funciona pero no entiendo sus posibilidades
+// expected output 'The quick brown fox jumps over the lazy cat. If the cat reacted, was it really lazy?'
+console.log(replaceAll(string, 'brown', 'yellow'));
 // expected output 'The quick yellow fox jumps over the lazy dog. If the dog reacted, was it really lazy?'
-console.log(replace(string, 'dog', 'lion')); // 2 matches pero solo reemplaza 1. Es correcto
-// expected output 'The quick brown fox jumps over the lazy lion. If the dog reacted, was it really lazy?'
-console.log(replace(string, 'dogsss', 'lion')); // sin matches
+console.log(replaceAll(string, 'dog', 'lion')); // 2 matches y reemplaza los dos
+// expected output 'The quick brown fox jumps over the lazy lion. If the lion reacted, was it really lazy?'
+console.log(replaceAll(string, 'dogsss', 'lion')); // sin matches
 // expected output 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?'
-console.log(replace(string, 'dog', function(match) {return match = 'elephant'})); // funciona pero no entiendo sus posibilidades
+console.log(replaceAll(string, 'dog', function(match) {return match = 'elephant'})); // funciona pero no entiendo sus posibilidades
 // expected output 'The quick brown fox jumps over the lazy elephant. If the elephant reacted, was it really lazy?'
-console.log(replace(string, 'dogss', function(match) {return match = 'elephant'})); // Sin matches. Funciona pero no entiendo sus posibilidades
+console.log(replaceAll(string, 'dogss', function(match) {return match = 'elephant'})); // Sin matches. Funciona pero no entiendo sus posibilidades
 // expected output 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?'
 
