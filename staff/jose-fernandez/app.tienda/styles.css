@@ -10,12 +10,13 @@ html, body {
     display: flex;
     /* background-color: aqua; */
     border: 1px solid black;
-    justify-content: center;
+    /* justify-content: ; */
     align-items: center;
     flex-direction: column;
     height: 100%;
     gap: 10px;
-    background-image: url("https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg");
+    background-color: transparent;
+    /* background-image: url("https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg"); */
 }
 .label__movil{
     font-size: 1rem;
@@ -23,6 +24,11 @@ html, body {
 }
 /* =========================LOGIN====================== */
 
+.header_only{
+    background-color: #037E8c;
+    margin-top: 5%;
+    margin-bottom: 20%;
+}
 
 .form{
     display: flex;
@@ -137,9 +143,9 @@ html, body {
 
 
 /* =========================HOME====================== */
+
 .container_home {
     display: flex;
-    /* background-color: aqua; */
     border: 1px solid black;
     height: 100%;
     gap: 10px;
@@ -150,6 +156,7 @@ html, body {
     height: 10%;
     width: 100%;
     /* background-color: aqua ; */
+    
 }
 .home_page{
     margin: 0;
@@ -160,14 +167,10 @@ html, body {
 }
 .cont__header {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     align-items: center;
     justify-content: space-around;
-    /* flex-wrap: nowrap; */
-    
-    
-    /* background-color: aqua; */
-    
+
 }
 
 .cont__header , .fas.fa-bars {
@@ -179,52 +182,51 @@ html, body {
     margin: 10px;
     /* display: flex;
     justify-content: center;
-    align-items: center; */
-    
+    align-items: center; */ 
 }
-/* #btn-menu{
-    margin-top: 0%;
-} */
+.img-home{
+    border-radius: 15px;
+    width: 25%;
+    height: 10%;
+}
 .btn__login{
     display: flex;
     justify-content: center ;
-    width: 20%;
-    height: 70%;
-    /* margin: none; */
-    font-size: 175%;
-    background:white;
     text-align: center;
-    font-size: 120%;
+    font-size: 150%;
     /* line-height: 155%; */
-    border-radius: 15PX;
+    border-radius: 50%;
     /* margin-left: 12%; */
     cursor: pointer; 
-    color:#09cbe0;
-    background-color: transparent;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:#09cbe0; 
+
 }
-.btn__register{
+.btn__carShop{
     display: flex;
     justify-content: center ;
-    width: 25%;
-    height: 70%;
-    /* margin: none; */
-    font-size: 175%;
-    background:white;
     text-align: center;
-    font-size: 120%;
-    color: rgb(229, 255, 0);
+    font-size: 150%;
     /* line-height: 155%; */
-    border-radius: 15PX;
+    border-radius: 50%;
     /* margin-left: 12%; */
     cursor: pointer; 
-    background-color: transparent;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:#09cbe0; 
+}
+.btn__search{
+    display: flex;
+    justify-content: center ;
+    text-align: center;
+    font-size: 150%;
+    /* line-height: 155%; */
+    border-radius: 50%;
+    /* margin-left: 12%; */
+    cursor: pointer; 
+    color:#09cbe0; 
 }
 .fas.fa-bars{
     display: flex;
     justify-content: center ;
-    width: 12%;
+    width: 18%;
     height: 7%;
     font-size: 175%;
     background: rgb(2, 1, 3);
