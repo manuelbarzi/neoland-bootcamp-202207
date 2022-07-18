@@ -1,11 +1,11 @@
 function slice(array, inicio, final){
-    let sliced = []
+    let result = []
 
     if(inicio == undefined && final == undefined){
         for(let i = 0; i < array.length; i++){
-            sliced[sliced.length] = array[i]
+            result[result.length] = array[i]
         }
-        return sliced
+        return result
     }
 
     if(final < 0){
@@ -18,8 +18,8 @@ function slice(array, inicio, final){
     }
 
     for(let i = inicio; i < final; i++){
-        sliced[sliced.length] = array[i]
+        result[result.length] = array[i]
     }
 
-    return sliced
+    return result
 }
