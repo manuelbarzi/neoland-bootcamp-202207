@@ -92,4 +92,21 @@ describe('TESTING find in Arrays', function(){
         
         check(userFound, undefined)
     })
+
+    test('First argument not an array', function(){
+
+        const array = [5, 12, 8, 130, 44]
+
+        const result = find('1234', function(element){
+            return element > 150
+        })
+        check(result,'1234 is not an Array')
+    })
+
+    test('Second argument not an array',function(){
+        const array = [5, 12, 8, 130, 44]
+
+        const result = find(array,'1234')
+        check(result,'1234 is not a Function')
+    })
 })
