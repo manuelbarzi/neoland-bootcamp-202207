@@ -54,37 +54,21 @@ loginForm.onsubmit = function (event) {
     const email = loginForm.email.value
     const password = loginForm.password.value
 
-    try {
-        authenticateUser(email, password, function (error) {
-            if (error) {
-                alert(error.message)
-                return
-            }
-            try {
-                retrieveUser(email, function (error, user) {
-                    if (error) {
-                        alert(error.message)
-                        return
-                    }
+    //recogemos los datos de la base de datos
+    const user = users.find(function (user) {
+        return user.email === email
+    })
 
-                    loginPage.classList.add('off')
+    // if (user && user.password === password) {
+    if (user) {
+        loginPage.classList.add('off')
 
-                    const messageTitle = homePage.querySelector(".messageTitle")
-                    messageTitle.innerText = " Hello " + user.name + " !"
-                    homePage.classList.remove('off')
-                })
-
-            } catch (error) {
-                alert(error.message)
-            }
-
-        })
-    } catch (error) {
-        alert(error.message)
-    }
+        const messageTitle = homePage.querySelector(".messageTitle")
+        messageTitle.innerText = " Hello " + user.name + " !"
+        homePage.classList.remove('off')
+    } else
+        alert('credentials error')
 }
-
-
 
 const registerForm = registerPage.querySelector('.form')
 registerForm.onsubmit = function (event) {
@@ -94,21 +78,21 @@ registerForm.onsubmit = function (event) {
     const email = registerForm.email.value
     const password = registerForm.password.value
 
-    // try catch 
-    try {
-        registerUser(name,email,password, function (error) {
+    //recogemos los datos de la base de datos
+    const user = users.find(function (user) {
+        return user.email === email
+    })
 
-            if (error) {
-                alert(error.message)
-                return
-            }
-            registerPage.classList.add("off")
-            loginPage.classList.remove("off")
+    if (user) {
+        alert('user already exists')
+    } else {
+        users.push({
+            name: name,
+            email: email,
+            password: password
         })
 
-    } catch (error) {
-        alert(error.message)
+        registerPage.classList.add("off")
+        loginPage.classList.remove("off")
     }
-
 }
-

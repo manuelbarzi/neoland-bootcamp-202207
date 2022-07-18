@@ -149,7 +149,7 @@ html, body {
     padding-top:5%;
     height: 10%;
     width: 100%;
-    background-color: aqua ;
+    /* background-color: aqua ; */
 }
 .home_page{
     margin: 0;
@@ -161,29 +161,66 @@ html, body {
 .cont__header {
     display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    /* flex-wrap: nowrap; */
+    
     
     /* background-color: aqua; */
     
 }
-.cont__header .messageTitle{
-     padding-left: 30%;
-}
 
-
-.messageTitle, .fas.fa-bars {
-    margin: 5px;
-    color: #037E8c;
+.cont__header , .fas.fa-bars {
+    /* margin: 5px; */
+    color: #09cbe0;
 }
 .messageTitle{
-    font-size: 150% ;
-    display: flex;
+    font-size: 140% ;
+    margin: 10px;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     
 }
 /* #btn-menu{
     margin-top: 0%;
 } */
+.btn__login{
+    display: flex;
+    justify-content: center ;
+    width: 20%;
+    height: 70%;
+    /* margin: none; */
+    font-size: 175%;
+    background:white;
+    text-align: center;
+    font-size: 120%;
+    /* line-height: 155%; */
+    border-radius: 15PX;
+    /* margin-left: 12%; */
+    cursor: pointer; 
+    color:#09cbe0;
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.btn__register{
+    display: flex;
+    justify-content: center ;
+    width: 25%;
+    height: 70%;
+    /* margin: none; */
+    font-size: 175%;
+    background:white;
+    text-align: center;
+    font-size: 120%;
+    color: rgb(229, 255, 0);
+    /* line-height: 155%; */
+    border-radius: 15PX;
+    /* margin-left: 12%; */
+    cursor: pointer; 
+    background-color: transparent;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 .fas.fa-bars{
     display: flex;
     justify-content: center ;
@@ -194,8 +231,9 @@ html, body {
     text-align: center;
     line-height: 155%;
     border-radius: 20%;
-    margin-left: 12%;
+    /* margin-left: 12%; */
     cursor: pointer;
+    /* display: none; */
 }
 
 .nav-home {
@@ -204,7 +242,7 @@ html, body {
     right:-100%;
      */
     display: none;
-    
+    /* transition: 1,4s; */
     
 }
 
@@ -213,13 +251,6 @@ html, body {
     padding: 0;
     margin: 0 ;
 }
-
-/*.menu-item{
-     padding-top: 3%;
-    padding-left: 23%;
-    padding-bottom: 3%;
-    border: 2px solid blue; 
-}*/
 
 .menu__link{
     display: block;

@@ -163,13 +163,11 @@ html, body {
 .cont__header {
     display: flex;
     width: 100%;
-    justify-content: space-around;
-    align-items: center;
     /* background-color: aqua; */
     
 }
 .cont__header .messageTitle{
-     /* padding-left: 10%; */
+     padding-left: 10%;
 }
 
 
@@ -179,10 +177,10 @@ html, body {
 }
 .messageTitle{
     font-size: 150% ;
-    /* display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-     */
+    
 }
 /* #btn-menu{
     margin-top: 0%;
@@ -203,12 +201,11 @@ html, body {
 
 .nav-home {
     /* position: absolute;
-    
+    top: 7%;
+    right:-100%;
      */
-    /* display: none; */
     display: none;
-    /* top: 7%;
-    margin-left: 100%; */
+    
     
 }
 
@@ -244,7 +241,7 @@ html, body {
 .mostrar{
     display: flex;
     margin-left: 65%;
-    transition: 1.5s;
+    transition: 0.2s;
 }
 
 .nolink-register{

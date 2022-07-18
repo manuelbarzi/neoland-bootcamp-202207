@@ -1,20 +1,22 @@
 function slice(array, start, end) {
     let sliced = []
-    // test2
-    if (end == undefined)
-        end = array.length
-
-    //test 3  const result = slice(animals, -2)
-    if (start < 0)
-        start = array.length + start
-
-    //test 4  
-    if (end < 0)
-        end = array.length + end
-
-    //test 5      
+    // test
     if (start === undefined)
         start = 0
+    //test  
+    else if (start < 0)
+        start = array.length + start
+
+    //test 
+    if (end === undefined)
+        end = array.length
+    //test     
+    else if (end < 0)
+        end = array.length + end
+
+
+    if (start >= end)//early return
+        return sliced
 
     for (let i = start; i < end; i++) {
         // const element = array[i]
