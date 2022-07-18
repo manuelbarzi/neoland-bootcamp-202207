@@ -36,6 +36,3 @@ describe('TESTING flat in arrays', function(){
         check(arrayResult[3][1],4)
     })
 })
-
-console.log(flat([0, 1, 2, [[3, 4]]]));
-// expected output [0, 1, 2, [3, 4]]
