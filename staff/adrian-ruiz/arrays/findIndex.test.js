@@ -41,4 +41,45 @@ describe('TESTING findIndex in arrays', function(){
         const result = findIndex(users, checkid)
         check(result,-1)
     })
+
+    test('Arguments not enough', function(){
+        const users = [
+            {name: 'Adrian', id: 1234},
+            {name: 'Pepe', id: 5678},
+            {name: 'Jose', id: 4321}
+        ]
+        const result = findIndex(users)
+        check(result,'Arguments are not enough(2required)')
+
+    })
+
+    test('Arguments exceeded', function(){
+        const users = [
+            {name: 'Adrian', id: 1234},
+            {name: 'Pepe', id: 5678},
+            {name: 'Jose', id: 4321}
+        ]
+        const result = findIndex(users,1234,'12345','13123')
+        check( result, 'Arguments exceeded')
+    })
+
+    test('First argument not an array', function(){
+        const users = [
+            {name: 'Adrian', id: 1234},
+            {name: 'Pepe', id: 5678},
+            {name: 'Jose', id: 4321}
+        ]
+        const result = findIndex('1234','13123')
+        check(result, 'First argument must be an ARRAY')
+    })
+
+    test('Second argument not a function', function(){
+        const users = [
+            {name: 'Adrian', id: 1234},
+            {name: 'Pepe', id: 5678},
+            {name: 'Jose', id: 4321}
+        ]
+        const result = findIndex(users,'13123')
+        check(result, 'Second argument must be a Function')
+    })
 })
