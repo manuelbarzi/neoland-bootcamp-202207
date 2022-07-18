@@ -173,7 +173,7 @@ describe('TESTING slice in arrays', function(){
     })
 
     test('slice starting WITHOUT start/ending', function(){
-
+        
         const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
         const result = slice(animals)
 
@@ -203,7 +203,7 @@ describe('TESTING slice in arrays', function(){
     })
 
     test('more than 3 arguments defined (Should throw an error)', function(){
-
+        
         const animals = ['ant', 'bison', 'camel', 'duck', 'elephant']
         const result = slice(animals, 2, 4, 6)
         

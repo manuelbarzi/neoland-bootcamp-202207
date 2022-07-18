@@ -1,5 +1,18 @@
 function slice(array, start, end){
     const newArray = []
+    // COMPROBAMOS CASOS DE ERROR Y DEVOLVEMOS EL ERROR DEL MENSAJE
+    
+    try{
+        if(!(array instanceof Array)) {
+            throw new Error (`${array} is not an ARRAY`);
+        }
+        else if(arguments.length > 3) {
+            throw new Error ('error, args EXCEEDED (min 1, max 3 args)');
+        }
+    }
+    catch(err){
+        return err.message
+    }
     if(!end && (start > 0)){
         var x = 0;
         for(let i = start; i < array.length ; i++){
@@ -37,20 +50,5 @@ function slice(array, start, end){
             x++
         }
     }
-    // COMPROBAMOS CASOS DE ERROR Y DEVOLVEMOS EL ERROR DEL MENSAJE
-    try{
-        if(!(array instanceof Array)) {
-            throw new Error (`${array} is not an ARRAY`);
-        }
-        else if(!(arguments > 3)) {
-            throw new Error ('error, args EXCEEDED (min 1, max 3 args)');
-        }
-
-    }
-    catch(err){
-        return err.message
-    }
-    
-
     return newArray
 }
