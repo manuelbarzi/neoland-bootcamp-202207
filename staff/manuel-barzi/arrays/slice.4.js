@@ -1,9 +1,7 @@
 function slice(array, start, end) {
     const sliced = []
 
-    if (start === undefined)
-        start = 0
-    else if (start < 0)
+    if (start < 0)
         start = array.length + start
 
     if (end === undefined)

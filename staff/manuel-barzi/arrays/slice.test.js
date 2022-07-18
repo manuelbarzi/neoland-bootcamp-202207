@@ -117,10 +117,10 @@ describe('slice', () => {
       check(animals[4], 'elephant')
     })
   
-    test('slice starting at index and ending with negative count (3)', () => {
+    test('slice without index / count arguments', () => {
       const animals = ['ant', 'bison', 'camel', 'duck', 'elephant']
   
-      const result = slice(animals, )
+      const result = slice(animals)
   
       check(result.length, 5)
       check(result[0], 'ant')
