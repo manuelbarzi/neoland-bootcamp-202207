@@ -207,7 +207,15 @@ describe('TESTING slice in arrays', function(){
         const animals = ['ant', 'bison', 'camel', 'duck', 'elephant']
         const result = slice(animals, 2, 4, 6)
         
-        check(result, 'error, args EXCEEDED (min 1, max 3 args)')
+        check(result, 'Error, args EXCEEDED (min 1, max 3 args)')
+    })
+
+    test('Start and End not numbers', function(){
+        
+        const animals = ['ant', 'bison', 'camel', 'duck', 'elephant']
+        const result = slice(animals, NaN, 'mundo')
+        
+        check(result, 'Error, Start or End are not numbers')
     })
 })
 

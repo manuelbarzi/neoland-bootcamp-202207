@@ -7,7 +7,11 @@ function slice(array, start, end){
             throw new Error (`${array} is not an ARRAY`);
         }
         else if(arguments.length > 3) {
-            throw new Error ('error, args EXCEEDED (min 1, max 3 args)');
+            throw new Error ('Error, args EXCEEDED (min 1, max 3 args)');
+        }
+        else if(( isNaN(start) || isNaN(end)) && start !== undefined && end !== undefined){
+            console.log('Error numbers')
+            throw new Error ('Error, Start or End are not numbers')
         }
     }
     catch(err){
