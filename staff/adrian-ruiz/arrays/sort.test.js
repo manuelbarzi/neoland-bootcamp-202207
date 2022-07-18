@@ -101,14 +101,13 @@ describe('TESTING Sort in arrays', function(){
     })
 
     test('order array of strings with undefined element at the beginning of the array and without compare function', function () {
-        const strings = [undefined, 'a', 'b', 'z', 'j']
-
+        const strings = [undefined, 'a', false, 'z', null]
         const result = sort(strings)
 
         check(strings, result)
         check(strings[0], 'a')
-        check(strings[1], 'b')
-        check(strings[2], 'j')
+        check(strings[1], false)
+        check(strings[2], null)
         check(strings[3], 'z')
         check(strings[4], undefined)
     })
