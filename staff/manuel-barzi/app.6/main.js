@@ -25,37 +25,29 @@ loginForm.onsubmit = function (event) {
     const email = loginForm.email.value
     const password = loginForm.password.value
 
-    try {
-        authenticateUser(email, password, function (error) {
+    authenticateUser(email, password, function (error) {
+        if (error) {
+            alert(error.message)
+
+            return
+        }
+
+        retrieveUser(email, function (error, user) {
             if (error) {
                 alert(error.message)
 
                 return
             }
 
-            try {
-                retrieveUser(email, function (error, user) {
-                    if (error) {
-                        alert(error.message)
+            loginPage.classList.add('off')
 
-                        return
-                    }
+            const title = homePage.querySelector('.title')
 
-                    loginPage.classList.add('off')
+            title.innerText = 'Hello, ' + user.name + '!'
 
-                    const title = homePage.querySelector('.title')
-
-                    title.innerText = 'Hello, ' + user.name + '!'
-
-                    homePage.classList.remove('off')
-                })
-            } catch (error) {
-                alert(error.message)
-            }
+            homePage.classList.remove('off')
         })
-    } catch (error) {
-        alert(error.message)
-    }
+    })
 
 }
 
@@ -67,18 +59,14 @@ registerForm.onsubmit = function (event) {
     const email = registerForm.email.value
     const password = registerForm.password.value
 
-    try {
-        registerUser(name, email, password, function (error) {
-            if (error) {
-                alert(error.message)
+    registerUser(name, email, password, function (error) {
+        if (error) {
+            alert(error.message)
 
-                return
-            }
+            return
+        }
 
-            registerPage.classList.add('off')
-            loginPage.classList.remove('off')
-        })
-    } catch (error) {
-        alert(error.message)
-    }
+        registerPage.classList.add('off')
+        loginPage.classList.remove('off')
+    })
 }

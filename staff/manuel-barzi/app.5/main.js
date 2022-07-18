@@ -25,22 +25,10 @@ loginForm.onsubmit = function (event) {
     const email = loginForm.email.value
     const password = loginForm.password.value
 
-    try {
-        authenticateUser(email, password, function (error) {
-            if (error) {
-                alert(error.message)
-
-                return
-            }
-
-            try {
-                retrieveUser(email, function (error, user) {
-                    if (error) {
-                        alert(error.message)
-
-                        return
-                    }
-
+    authenticateUser(email, password, function (error) {
+        if (!error) {
+            retrieveUser(email, function (error, user) {
+                if (!error) {
                     loginPage.classList.add('off')
 
                     const title = homePage.querySelector('.title')
@@ -48,14 +36,12 @@ loginForm.onsubmit = function (event) {
                     title.innerText = 'Hello, ' + user.name + '!'
 
                     homePage.classList.remove('off')
-                })
-            } catch (error) {
-                alert(error.message)
-            }
-        })
-    } catch (error) {
-        alert(error.message)
-    }
+                } else
+                    alert(error.message)
+            })
+        } else
+            alert(error.message)
+    })
 
 }
 
@@ -67,18 +53,11 @@ registerForm.onsubmit = function (event) {
     const email = registerForm.email.value
     const password = registerForm.password.value
 
-    try {
-        registerUser(name, email, password, function (error) {
-            if (error) {
-                alert(error.message)
-
-                return
-            }
-
+    registerUser(name, email, password, function (error) {
+        if (!error) {
             registerPage.classList.add('off')
             loginPage.classList.remove('off')
-        })
-    } catch (error) {
-        alert(error.message)
-    }
+        } else
+            alert(error.message)
+    })
 }
