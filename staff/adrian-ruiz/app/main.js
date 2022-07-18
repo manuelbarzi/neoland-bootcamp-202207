@@ -1,4 +1,3 @@
-
 const loginPage = document.querySelector('.loginPage')
 const registerPage = document.querySelector('.registerPage')
 const homePage = document.querySelector('.homePage')
@@ -9,8 +8,10 @@ const registerForm = document.querySelector('.registerForm')
 const registerLink = document.querySelector('.registerLink')
 const loginLink = document.querySelector('.loginLink')
 
-// Valor requerido para la contraseña, construido con expresiones regulares
+// Definición de Regex para comprobaciones
 const requiredPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
+const mailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const nameRegex = /^[a-zà-ú]{1,20}$/i;
 const lowerCaseLettersRegex = /[a-z]/g
 const upperCaseLettersRegex = /[A-Z]/g
 const numbersRegex = /[0-9]/g
@@ -30,7 +31,7 @@ loginLink.addEventListener("click", function(event){
     loginPage.classList.remove('off')
     registerPage.classList.add('off')
     
-    
+
 })
 
 loginForm.addEventListener('submit', function(event){
@@ -39,52 +40,66 @@ loginForm.addEventListener('submit', function(event){
     const inputEmail = loginForm.email.value
     const inputPassword = loginForm.password.value
 
-    const user = users.find(function(user){
-        return user.email === inputEmail && user.password === inputPassword
+    try{
+        authenticateUser(inputEmail, inputPassword, function(error){
+            
+            if(error){
+                
+                alert(error.message)
+                return
+            }
+    
+            try{
+                retrieveUser(inputEmail, function(error,user){
+                
+                    if(error){
+                        alert(error.message)
+                        return
+                    }
         
-    })
-
-    if(user){
-        const headerTitle = document.getElementById('headerTitle')
-        headerTitle.textContent = 'Hello, ' + user.name
-        homePage.classList.remove('off')
-        loginPage.classList.add('off')
-    }else{
-        alert('User does not exists or credentials does not matches')
-    }
+                    const headerTitle = document.getElementById('headerTitle')
+                    headerTitle.textContent = 'Hello, ' + user.name
+                    homePage.classList.remove('off')
+                    loginPage.classList.add('off')
+                })
+            }catch(error){
+                alert(error.message)
+            }
+        }) 
+    }catch(error){
+        alert(error.message)
+    }  
 })
 
 registerForm.addEventListener('submit', function(event){
+    
     event.preventDefault()
     
     const inputName = registerForm.name.value
     const inputEmail = registerForm.email.value
     const inputPassword = registerForm.password.value
-    if(inputName && inputEmail && inputPassword){
-        const user = users.find(function (user) {
-            return user.email === inputEmail
-        })
 
-        if(user){
-            alert('ERROR: User already exists')
-        }else if(inputPassword.match(requiredPass)){
-            users.push(
-                {
-                    user: inputName,
-                    email: inputEmail,
-                    password: inputPassword
+    
+        try{
+            registerUser(inputName, inputEmail, inputPassword, function(error){
+    
+                if(error){
+                    alert(error.message)
+                    return
                 }
-            )
-            loginPage.classList.remove('off')
-            registerPage.classList.add('off')
-        }else if(!(inputPassword.match(requiredPass))){
-            alert('La contraseña no cumple los requisitos: - Entre 8 y 15 caracteres \nMínimo 1 letra mayúscula\nMínimo 1 letra minúscula\nMínimo 1 carácter especial')
-        }
-    }else{
-        alert("No has introducido todos los datos correctamente")
-    }
-          
+    
+                loginPage.classList.remove('off')
+                registerPage.classList.add('off')
+            })
+        }catch(error){
+            alert(error)
+            
+        }  
+
+    registerForm.reset()
 })
+
+
 // UTILIZAR ON CHANGE PARA DETECTAR SI LA PASSWORD TIENE MAYUS, NUMEROS, CARACTERES...
 // UTILIZO INPUT PORQUE ASI LO CAPTA "EN TIEMPO REAL"
 const pLowerCase = document.getElementById('lowerCase')
@@ -98,7 +113,6 @@ registerForm.password.addEventListener("input", checkPassword)
         function checkPassword(){
             if(registerForm.password.value.match(requiredPass)){
                 span.classList.add('off')
-                console.log('La contraseña es correcta') // ESTO HABRÁ QUE ELIMINARLO
             }else{
                 span.classList.remove('off')
             }
@@ -141,10 +155,7 @@ registerForm.password.addEventListener("input", checkPassword)
 
         }  
 
-// Funcion activar rotación DIVS menú
-function myFunction(x) {
-    x.classList.toggle("change");
-  }
+
 
 
 
