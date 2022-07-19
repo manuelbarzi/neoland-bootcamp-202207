@@ -18,64 +18,61 @@ loginLink.onclick = function(event) {
 }
 
 const loginForm = document.querySelector('.login-form');
-loginForm.onkeydown = function(event) {
-    if (event.key === 'enter') {
-        loginForm.submit();
-    }
-}
-
-
 loginForm.onsubmit = function(event) {
     event.preventDefault();
 
     const loginEmail = loginForm.email.value; // puedo acceder asi por el name del html
     const loginPassword = loginForm.password.value;
-    
-    const user = users.find(function(user) {
-        return user.email === loginEmail && user.password === loginPassword;
-    });
-
-    if (user) {
-        loginPage.classList.add('off');
-        
-        const title = homePage.querySelector('.title');
-        title.innerText = 'Hello, ' + user.name + '!'
-        
-        homePage.classList.remove('off');
-    } else {
-        alert('Wrong credentials');
+    try {
+        authenticateUser(loginEmail, loginPassword, function(error) {
+            if (error) { 
+                alert(error.message);
+                return;
+            } 
+            try {
+                retrieveUser(loginEmail, function(error, user) {
+                    if (error) {
+                        alert(error.message)
+                        return;
+                    } else {
+                        loginPage.classList.add('off');
+                        const title = homePage.querySelector('.title');
+                        title.innerText = 'Hello, ' + user.name + '!';
+                        homePage.classList.remove('off');
+                    }
+                })
+            }
+            catch(error) { 
+                alert(error.message);
+            }
+        })
+    }
+    catch(error) {
+        alert(error.message)
     }
 }
 
 const registerForm = document.querySelector('.register-form');
-registerForm.onkeydown = function(event) {
-    if (event.key === 'enter') {
-        registerForm.submit();
-    }
-}
 
 registerForm.onsubmit = function(event) {
     event.preventDefault();
 
     const name = registerForm.name.value;
     const email = registerForm.email.value;
-    const password = registerForm.email.value;
-
-    const user = users.find(function(user) {
-        return user.email === email
-    })
-
-    if (user)
-        alert('user already exists')
-    else {
-        users.push({
-            name: name,
-            email: email,
-            password: password
-        });
-
-        registerPage.classList.add('off');
-        loginPage.classList.remove('off');
+    const password = registerForm.password.value;
+    try {
+        registerUser(name, email, password, function(error) {
+            if (error) {
+                alert(error.message);
+                return;
+            } else {
+                registerPage.classList.add('off');
+                loginPage.classList.remove('off');
+            }
+        })
+    }
+    catch(error) {
+        alert(error.message);
     }
 }
 
