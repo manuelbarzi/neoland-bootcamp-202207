@@ -25,19 +25,38 @@ loginForm.onsubmit = function (event) {
     const email = loginForm.email.value
     const password = loginForm.password.value
 
-    const user = users.find(function (person) {
-        return person.email === email && person.password === password
-    })
+    try {
+        authenticateUser(email, password, function (error) {
+            if (error) {
+                alert(error.message)
 
-    if (user) {
-        loginPage.classList.add('off')
+                return
+            }
 
-        const title = homePage.querySelector('.title')
-        title.innerText = 'Hello, ' + user.name + '!'
+            try {
+                retrieveUser(email, function (error, user) {
+                    if (error) {
+                        alert(error.message)
 
-        homePage.classList.remove('off')
-    } else
-        alert('credentials error')
+                        return
+                    }
+
+                    loginPage.classList.add('off')
+
+                    const title = homePage.querySelector('.title')
+
+                    title.innerText = 'Hello, ' + user.name + '!'
+
+                    homePage.classList.remove('off')
+                })
+            } catch (error) {
+                alert(error.message)
+            }
+        })
+    } catch (error) {
+        alert(error.message)
+    }
+
 }
 
 const registerForm = registerPage.querySelector('.form')
@@ -48,20 +67,18 @@ registerForm.onsubmit = function (event) {
     const email = registerForm.email.value
     const password = registerForm.password.value
 
-    const user = users.find(function (user) {
-        return user.email === email
-    })
+    try {
+        registerUser(name, email, password, function (error) {
+            if (error) {
+                alert(error.message)
 
-    if (user) 
-        alert('user already exists')
-    else {
-        users.push({
-            name: name,
-            email: email,
-            password: password
+                return
+            }
+
+            registerPage.classList.add('off')
+            loginPage.classList.remove('off')
         })
-
-        registerPage.classList.add('off')
-        loginPage.classList.remove('off')
+    } catch (error) {
+        alert(error.message)
     }
 }
