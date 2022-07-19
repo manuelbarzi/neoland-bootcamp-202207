@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -40,10 +40,21 @@
   <main class="body-center home-page off">
     <h1 class="title"></h1>
   </main>
+  
+  <!-- Commons / Utils -->
+  <script src="constants.js"></script>
 
-  <script src="data.js"></script>
-  <script src="logic.js"></script>
-  <script src="main.js"></script>
+  <!-- Data layer -->
+  <script src="data/users.js"></script>
+  
+  <!-- Business layer -->
+  <script src="logic/authenticateUser.js"></script>
+  <script src="logic/retrieveUser.js"></script>
+  <script src="logic/registerUser.js"></script>
+
+  <!-- Presentation layer -->
+  <script src="index.js"></script>
+  
 
 </body>
 
