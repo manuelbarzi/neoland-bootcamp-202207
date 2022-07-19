@@ -9,12 +9,12 @@ body,
 main
  {
     margin: 0;
-    height: 100%;
+    height: 100%!important;
     width: 100%;
 }
 
 html {
-    background-image: url(1483.jpg);
+    background-image: url(img/1483.jpg);
     font-family: 'Indie Flower';
     font-weight: 700px;
 }
@@ -53,9 +53,9 @@ header {
 
 }
 
-.hamburgerMenu {
+.hamburgerMenu-icon {
     height: auto;
-    width: 10%;
+    max-width: 10%;
     margin: 10px 30px;
     justify-content: right;
 }
@@ -130,5 +130,23 @@ button:hover{
 }
 
 .off{
-    display: none;
+    display: none!important;
+}
+
+.page-hamburgerMenu{
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+ul li span{
+    color: red;
+}
+
+ul li a{
+    text-decoration: none;
+    color: black;
 }

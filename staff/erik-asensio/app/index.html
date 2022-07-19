@@ -12,7 +12,7 @@
 
 <body>
     
-        <main class="page-login ">
+        <main class="page-login">
             <h1 class="title">MI PRIMERA APP</h1>
             <h2 class="subtitle">Inicio de sesión</h2>
 
@@ -44,7 +44,7 @@
             <form class="form-register">
                 <div class="nombreUsuario">
                     <p>Nombre de usuario:</p>
-                    <input name="username" type="text" placeholder="Escribe tu nombre de usuario...">
+                    <input name="name" type="text" placeholder="Escribe tu nombre de usuario...">
                 </div>
 
                 <div class="email">
@@ -68,14 +68,28 @@
 
             </form>
         </main> 
+
+        <main class="page-hamburgerMenu off">
+            <nav class="hamburgerMenu">
+                <ul>
+                    <h1>MENÚ</h1>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About us</a> </li>
+                    <li><a class="enlaceLogout" href="page-login.html"><span><u>Log out</u></span></a></li>
+                </ul>
+            </nav>
+        </main>
   
         <main class="page-home1 off">
             <header>
                 <h1 class="homeTitle">¡Hola Pepito! Bienvenido</h1>
-                <img src="Hamburger_icon.png" class="hamburgerMenu"></img>
+                <a href="page-hamburgerMenu.html"></a><img src="img/Hamburger_icon.png" class="hamburgerMenu-icon"></img>
             </header>
         </main>
-        <script src="data.js"></script>
+
+        <script src="constants.js"></script>
+        <script src="data/data.js"></script>
+        <script src="logic/logic.js"></script>
         <script src="main.js"></script>
 </body>
 
