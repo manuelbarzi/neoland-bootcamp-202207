@@ -15,8 +15,8 @@ html, body {
     flex-direction: column;
     height: 100%;
     gap: 10px;
-    background-color: transparent;
-    /* background-image: url("https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg"); */
+    /* background-color: transparent; */
+    background-image: url("https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg");
 }
 .label__movil{
     font-size: 1rem;
@@ -25,7 +25,7 @@ html, body {
 /* =========================LOGIN====================== */
 
 .header_only{
-    background-color: #037E8c;
+    /* background-color: #037E8c; */
     margin-top: 5%;
     margin-bottom: 20%;
 }
@@ -155,7 +155,7 @@ html, body {
     padding-top:5%;
     height: 10%;
     width: 100%;
-    /* background-color: aqua ; */
+    /* background-color:transparent ; */
     
 }
 .home_page{
@@ -170,6 +170,7 @@ html, body {
     /* width: 100%; */
     align-items: center;
     justify-content: space-around;
+    
 
 }
 
@@ -184,11 +185,15 @@ html, body {
     justify-content: center;
     align-items: center; */ 
 }
+/* ===================================================== */
 .img-home{
     border-radius: 15px;
     width: 25%;
     height: 10%;
+    /* border: 1px ; */
 }
+
+/* ===================================================== */
 .btn__login{
     display: flex;
     justify-content: center ;
