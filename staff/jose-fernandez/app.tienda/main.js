@@ -33,3 +33,20 @@ event.preventDefault()
     registerPage.classList.add('off')
     loginPage.classList.remove('off')
 }
+
+
+const link_home_login=loginPage.querySelector('.linkhomeLogin')
+link_home_login.onclick=function(event){
+event.preventDefault()
+
+    loginPage.classList.add('off')
+    homePage.classList.remove('off')
+}
+
+const link_home_register=registerPage.querySelector('.linkhomeRegister')
+link_home_register.onclick=function(event){
+event.preventDefault()
+
+    registerPage.classList.add('off')
+    homePage.classList.remove('off')
+}

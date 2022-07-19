@@ -6,16 +6,6 @@ btnMenu.addEventListener('click', function () {
     nav.classList.toggle('mostrar');
 });
 
-// function go(){
-//     if (document.form.password.value=='CONTRASEÑA' && document.form.login.value=='USUARIO'){ 
-//         document.form.submit(); 
-//     } 
-//     else{ 
-//          alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
-//     } 
-
-// }
-
 // ===================================================================
 const loginPage = document.querySelector('.login_page')
 const registerPage = document.querySelector('.register_page')
