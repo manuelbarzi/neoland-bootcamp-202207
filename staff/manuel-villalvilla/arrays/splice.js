@@ -1,17 +1,16 @@
-function splice () {
+function splice (array, start, deleteCount, ...elements) {
     if (arguments.length === 1) {
         throw new Error ('Not enough ARGUMENTS');
     }
 
     if (arguments.length === 2) {
-        if (!(Array.isArray(arguments[0]))) {
-            throw new Error (`${arguments[0]} not an ARRAY`);
+        if (!(Array.isArray(array))) {
+            throw new Error (`${array} not an ARRAY`);
         }
-        if (isNaN(arguments[1])) {
+        if (isNaN(start)) {
             throw new Error ('start index not a NUMBER');
         }
-        const array = arguments[0];
-        let start = arguments[1];
+        
         // check start
         if (start > array.length) {
             start = array.length;
@@ -34,18 +33,16 @@ function splice () {
     }
 
     if (arguments.length === 3) {
-        if (!(Array.isArray(arguments[0]))) {
-            throw new Error (`${arguments[0]} not an ARRAY`);
+        if (!(Array.isArray(array))) {
+            throw new Error (`${array} not an ARRAY`);
         }
-        if (isNaN(arguments[1])) {
+        if (isNaN(start)) {
             throw new Error ('start index not a NUMBER');
         }
-        if (typeof arguments[2] === 'string' || arguments[2] instanceof Object) {
+        if (typeof deleteCount === 'string' || deleteCount instanceof Object) {
             throw new Error ('deleteCount must not be omitted if there is an ELEMENT');
         }
-        const array = arguments[0];
-        let start = arguments[1];
-        const deleteCount = arguments[2];
+        
         if (deleteCount <= 0) {
             throw new Error (`${deleteCount} requires more arguments`);
         }
@@ -76,24 +73,19 @@ function splice () {
     }
 
     if (arguments.length >= 4) {
-        if (!(Array.isArray(arguments[0]))) {
-            throw new Error (`${arguments[0]} not an ARRAY`);
+        if (!(Array.isArray(array))) {
+            throw new Error (`${array} not an ARRAY`);
         }
-        if (isNaN(arguments[1])) {
+        if (isNaN(start)) {
             throw new Error ('start index not a NUMBER');
         }
-        if (isNaN(arguments[2])) {
-            throw new Error (`${arguments[2]} not a NUMBER`);
+        if (isNaN(deleteCount)) {
+            throw new Error (`${deleteCount} not a NUMBER`);
         }
-        const array = arguments[0];
-        let start = arguments[1];
-        const deleteCount = arguments[2];
-        const elements = [];
-        // compruebo que ningun elemento sea un objeto y los guardo en elements
-        for (let i = 3; i < arguments.length; i++) {
-            if (typeof arguments[i] !== 'object') {
-                elements[elements.length] = arguments[i];
-            } else {
+        
+        // compruebo que ningun elemento sea un objeto y los guardo en elements. PREGUNTAR
+        for (let i = 0; i < elements.length; i++) {
+            if (typeof elements[i] === 'object') {
                 throw new Error ('item is not a STRING or NUMBER');
             }
         }
