@@ -116,8 +116,8 @@ describe("slice", () => {
     check(animals[3], "duck");
     check(animals[4], "elephant");
   });
-
-  test("slice starting at index and ending with negative count (3)", () => {
+  debugger;
+  test("slice without index / count arguments", () => {
     const animals = ["ant", "bison", "camel", "duck", "elephant"];
 
     const result = slice(animals);

@@ -23,4 +23,4 @@ function reverse(array) {
 
 const numbersArray = [1, 2, 3, 4, 5, 6];
 
-console.log(reverse(numbersArray));
+// console.log(reverse(numbersArray));
