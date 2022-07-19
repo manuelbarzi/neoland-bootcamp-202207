@@ -1,14 +1,14 @@
 function slice (array, ...args) {
-    try{
+    try {
         if (!(array instanceof Array)) {
-            throw new Error (`${array} is not an ARRAY`);
+            throw new TypeError (`${array} is not an ARRAY`);
         }
         if (args.length > 2) {
             throw new Error ('Argument length EXCEEDED');
         }
         for (let i = 0; i < args.length; i++) {
-            if (isNaN(args[i])) {
-                throw new Error (`${args[i]} is not a NUMBER`);
+            if (isNaN(args[i]) || !isFinite(args[i])) { // añado isFinite para averiguar si el argumento es infinito(Infinity)
+                throw new TypeError (`${args[i]} is not a NUMBER`);
             }
         }
     }
@@ -23,6 +23,9 @@ function slice (array, ...args) {
             args[1] = array.length + args[1];
         }
         let newArray = [];
+        if (args[1] >= args[2]) {
+            return newArray; // early return
+        }
         for (let i = args[0]; i < args[1]; i++) {
             newArray[newArray.length] = array[i];
         }

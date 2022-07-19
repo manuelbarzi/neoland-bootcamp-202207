@@ -152,6 +152,13 @@ function splice () {
 }
 
 const exampleArray = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jun', 'Jun', 'Jul'];
+
+// console.log(splice(months, 4, 2, 'May'));
+// expected return ['Jun', 'Jun']
+
+// console.log(months);
+// expected return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
 
 // console.log(splice(exampleArray, 2, 1, 'pen', 'guitar')); 
 // expected output ['drum']
