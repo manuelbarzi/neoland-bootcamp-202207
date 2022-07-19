@@ -150,6 +150,10 @@ input:focus {
   outline: none;
 }
 
+/* input:invalid {
+  text-decoration: underline;
+} */
+
 /* Buttons */
 
 button {

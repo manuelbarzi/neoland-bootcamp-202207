@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login App</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="favicon_io_bomba/favicon.ico" type="image/x-icon">
     <script
     src="https://kit.fontawesome.com/32f006383c.js"
     crossorigin="anonymous"
@@ -93,7 +94,21 @@
 
 </body>
 
-  <script src="data.js"></script>
-  <script src="main.js"></script>
+<!-- utility -->
+
+  <script src="constants.js"></script>
+
+  <!-- data -->
+
+  <script src="data/users.js"></script>
+
+  <!-- logic -->
+  <script src="logic/authenticateUser.js"></script>
+  <script src="logic/registerUser.js"></script>
+  <script src="logic/retrieveUser.js"></script>
+
+  <!-- presentation -->
+  
+  <script src="index.js"></script>
 
 </html>
