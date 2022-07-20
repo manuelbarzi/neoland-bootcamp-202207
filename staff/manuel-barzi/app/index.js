@@ -2,6 +2,10 @@ const loginPage = document.querySelector('.login-page')
 const registerPage = document.querySelector('.register-page')
 const homePage = document.querySelector('.home-page')
 
+// temp (for ui design purposes)
+// loginPage.classList.add('off')
+// homePage.classList.remove('off')
+
 const registerLink = loginPage.querySelector('.anchor')
 registerLink.onclick = function (event) {
     event.preventDefault()
@@ -56,9 +60,11 @@ loginForm.onsubmit = function (event) {
                             title.innerText = 'Hello, ' + user.name + '!'
 
                             const list = homePage.querySelector('.list')
+                            list.innerHTML = ''
 
                             notes.forEach(note => {
                                 const item = document.createElement('li')
+                                item.classList.add('list__item')
 
                                 item.innerText = note.text
 
