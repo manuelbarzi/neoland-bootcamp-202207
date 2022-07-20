@@ -11,6 +11,10 @@ const loginPage = document.querySelector('.login_page')
 const registerPage = document.querySelector('.register_page')
 const homePage = document.querySelector('.home_page')
 
+
+// loginPage.classList.add('off')
+// homePage.classList.remove('off')
+
 const registerLink = loginPage.querySelector('.link-register')
 
 registerLink.onclick = function (event) {
@@ -56,12 +60,38 @@ loginForm.onsubmit = function (event) {
                         alert(error.message)
                         return
                     }
+                    try {
+                        retrieveNotes(user.id, function (error, notes) {
+                            if (error) {
+                                alert(error.message)
+                                return
+                            }
 
-                    loginPage.classList.add('off')
+                            loginPage.classList.add('off')
 
-                    const messageTitle = homePage.querySelector(".messageTitle")
-                    messageTitle.innerText = " Hello " + user.name + " !"
-                    homePage.classList.remove('off')
+                            const messageTitle = homePage.querySelector(".messageTitle")
+
+                            messageTitle.innerText = " Hello " + user.name + " !"
+
+                            const list = homePage.querySelector('.list')
+                            //utilizams .innerHTML='' en list para que aparezca vacio al no tener notas
+                            list.innerHTML = ''
+
+                            notes.forEach(note => {
+                                const item = document.querySelector('li')
+                                item.classList.add('list__item')
+
+                                //con innerText obtenemos el texto del item
+                                item.innerText = note.text
+
+                                list.append(item)
+                            })
+
+                            homePage.classList.remove('off')
+                        })
+                    } catch (error) {
+                        alert(error.message)
+                    }
                 })
 
             } catch (error) {
@@ -86,7 +116,7 @@ registerForm.onsubmit = function (event) {
 
     // try catch 
     try {
-        registerUser(name,email,password, function (error) {
+        registerUser(name, email, password, function (error) {
 
             if (error) {
                 alert(error.message)

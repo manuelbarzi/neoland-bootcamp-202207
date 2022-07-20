@@ -24,9 +24,10 @@ function registerUser(name,email, password, callback) {
         return
     }
     users.push({
-        name:name,
-        email:email,
-        password:password
+        id: 'user-' + Date.now(),
+        name: name,
+        email: email,
+        password: password
     })
     callback(null)
 }
