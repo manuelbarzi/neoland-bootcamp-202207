@@ -41,35 +41,13 @@ loginForm.onsubmit = function (event) {
                         return
                     }
 
-                    try {
-                        retrieveNotes(user.id, function (error, notes) {
-                            if (error) {
-                                alert(error.message)
+                    loginPage.classList.add('off')
 
-                                return
-                            }
+                    const title = homePage.querySelector('.title')
 
-                            loginPage.classList.add('off')
+                    title.innerText = 'Hello, ' + user.name + '!'
 
-                            const title = homePage.querySelector('.title')
-
-                            title.innerText = 'Hello, ' + user.name + '!'
-
-                            const list = homePage.querySelector('.list')
-
-                            notes.forEach(note => {
-                                const item = document.createElement('li')
-
-                                item.innerText = note.text
-
-                                list.append(item)
-                            })
-
-                            homePage.classList.remove('off')
-                        })
-                    } catch (error) {
-                        alert(error.message)
-                    }
+                    homePage.classList.remove('off')
                 })
             } catch (error) {
                 alert(error.message)
