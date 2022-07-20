@@ -172,7 +172,7 @@ html, body {
     justify-content: space-around;
 }
 
-.cont__header , .fas.fa-bars {
+.cont__header , .icon-user-o {
     /* margin: 5px; */
     color: #09cbe0;
 }
@@ -238,7 +238,7 @@ html, body {
     cursor: pointer; 
     color:#09cbe0; 
 }
-.fas.fa-bars{
+.icon-user-o{
     display: flex;
     justify-content: center ;
     width: 18%;

@@ -37,9 +37,29 @@ function splice(array, start, removeCount, element) {
         for (let i = start; i < limit; i++)
             removed[removed.length] = array[i]
 
-        for (let i = start; i < array.length - 1; i++)
-            array[i] = array[i + removeCount]
+        for (let i = start; i < array.length - 1; i++){
+            array[i] = array[i + removeCount]       
+        }
 
+        if(element){
+            // for(let i=array.length;i>start;i--){
+            //     array[i]=array[i-1]        
+            // }
+            for (let i = array.length - 1; i >= start; i--) {
+                const elem = array[i]
+             
+                array[i + 1] = elem
+            }
+        array[start]=element
+        }
+        // for (let i = array.length - 1; i >= start; i--) {
+        //     const elem = array[i]
+         
+        //     array[i + 1] = elem
+        // }
+        // array[start] = element
+    
+        
         //array.length = array.length - removeCount
         array.length -= removed.length
 
