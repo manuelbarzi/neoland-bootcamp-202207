@@ -8,7 +8,9 @@ const registerForm = document.querySelector('.registerForm')
 const registerLink = document.querySelector('.registerLink')
 const loginLink = document.querySelector('.loginLink')
 
-
+// temp for design purposes
+loginPage.classList.add('off')
+homePage.classList.remove('off')
 
 
 registerLink.addEventListener("click", function(event){
@@ -49,11 +51,40 @@ loginForm.addEventListener('submit', function(event){
                         alert(error.message)
                         return
                     }
-        
-                    const headerTitle = document.getElementById('headerTitle')
-                    headerTitle.textContent = 'Hello, ' + user.name
-                    homePage.classList.remove('off')
-                    loginPage.classList.add('off')
+                    // Aquí introducir otro try para RetrieveNotes y recuperar las notas para introducirlas en el documento
+                    
+                    
+
+                    try{
+                        retrieveNotes(user.id, (error,notes) =>{
+                            if(error){
+                                alert(error.message)
+                                return
+                            }
+                            const notesList = document.querySelector('.notesList')
+                            notesList.innerHTML=''
+                        
+                            for(let i = 0; i < notes.length; i++){
+                                const container = document.createElement('div')
+                                container.classList.add('noteHeightController')
+                                const newElement = document.createElement('li')
+                                newElement.classList.add('note')
+
+                                const newNote = notes[i]
+                                newElement.textContent = newNote.text
+                                container.append(newElement)
+                                notesList.append(container)
+                            }
+
+                            const headerTitle = document.getElementById('headerTitle')
+                            headerTitle.textContent = 'Hello, ' + user.name
+                            homePage.classList.remove('off')
+                            loginPage.classList.add('off')
+
+                        })
+                    }catch(error){
+                         alert(error.message)
+                    }
                 })
             }catch(error){
                 alert(error.message)
@@ -149,10 +180,22 @@ registerForm.password.addEventListener("input", checkPassword)
         }  
 
 
-// Funcion activar rotación DIVS menú (Lanzamos funcion desde HTML)
-function myFunction(x) {
+// Funcion activar rotación DIVS menú y mostrar desplegable
+const menuContainer = document.querySelector('.menuContainer')
+const dropdown = document.querySelector('.dropdownMenu')
+
+menuContainer.addEventListener('click', function(){
+    menuContainer.classList.toggle("change")
+    dropdown.classList.toggle("off")
+    dropdown.classList.toggle("displayBlock")
+})
+
+
+/* function myFunction(x,dropdown) {
     x.classList.toggle("change");
+    dropdown.classList.toggle('off')
   }
+ */
 
 
 

@@ -6,3 +6,5 @@ const lowerCaseLettersRegex = /[a-z]/g
 const upperCaseLettersRegex = /[A-Z]/g
 const numbersRegex = /[0-9]/g
 const symbolsRegex = /[$-/:-?{-~!"^_`\[\]]/
+
+const regexUserId = /^user-+[0-9]{12,12}$/;

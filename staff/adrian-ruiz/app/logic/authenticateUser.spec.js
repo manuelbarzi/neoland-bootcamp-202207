@@ -4,11 +4,13 @@ describe('authenticateUser', () => {
     })
 
     it('should succeed on correct credentials', () => { // happy path :)
+        const id = 'user-tesspec'
         const name = 'Pi Tufo'
         const email = 'pi@tufo.com'
         const password = '123123123'
 
         const piTufo = {
+            id,
             name,
             email,
             password

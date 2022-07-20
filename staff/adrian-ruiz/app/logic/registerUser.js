@@ -22,6 +22,7 @@ function registerUser(name, email, password, callback){
 
             users.push(
                 {
+                    id: 'user-'+ Date.now(),
                     name: name,
                     email: email,
                     password: password

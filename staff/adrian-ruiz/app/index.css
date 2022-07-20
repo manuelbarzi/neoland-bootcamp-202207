@@ -6,11 +6,14 @@
 
 body, html, .page{
     margin: 0px;
-    /*padding: 0px;  NO ES NECESARIO */ 
     height: 100vh;
     font-size: 62.5%;   /* Formateo el size para que 1 rem = 10 px*/
     font-family: 'Oswald', sans-serif;
     overflow: hidden; /* Para eliminar scroll*/
+}
+.page{
+    display: flex;
+    flex-direction: column;
 }
 body{
     width: 100%;
@@ -155,6 +158,43 @@ button{
     text-decoration: none;
 }
 
+
+
+a:visited{
+    color:black;
+}
+
+.anchor{
+    font-size: 2rem;
+}
+.anchorDiv{
+    height: 10%;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.passSpan{
+    width: 100%;
+    height: auto;
+    background-color: rgb(250, 39, 39);
+    color: white;
+}
+
+.passSpan > h3{
+    font-size: 1.8rem;
+    border-bottom: 5px solid white;
+    margin-top: 2px;
+    padding-bottom: 10px;
+}
+
+.passSpan > p{
+    font-size: 1.4rem;
+    line-height: 10px;
+}
+
+/* HOME */
 header{
     display: flex;
     flex-direction: row;
@@ -162,8 +202,7 @@ header{
     justify-content: flex-start;
     width: 100%;
     height: 10%;
-    background-color: rgb(91, 91, 91);
-    border-radius: 10px 10px 0px 0px;
+    background-color: #531a7c;
 }
 header h1{
     width: 90%;
@@ -172,8 +211,9 @@ header h1{
     font-size: 28px;
     font-weight: 400;
 }
-
 .menuContainer{
+    width: 10%;
+    position: relative;
     display: inline-block;
     margin-right: 5%;
 }
@@ -199,40 +239,98 @@ header h1{
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
   transform: rotate(45deg) translate(-8px, -8px);
 }
-a:visited{
-    color:black;
-}
 
-.anchor{
-    font-size: 2rem;
-}
-.anchorDiv{
-    height: 10%;
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.off{
+.dropdownMenu{
+    position: absolute;
     display: none;
+    width: 80px;
+    height: 100px;
+    right: -18.5px;
+    
 }
 
-.passSpan{
-    width: 100%;
-    height: auto;
-    background-color: rgb(250, 39, 39);
+.displayBlock{
+    display:block;
+}
+
+.dropdownMenu > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding:0px;
+    margin: 0;
+    list-style: none;
+    background-color: #9203ff;
+}
+
+.dropdownMenu > ul > li{
+    text-align: right;
+    font-size: 1.6rem;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    padding-right: 10px;
     color: white;
 }
-
-.passSpan > h3{
-    font-size: 1.8rem;
-    border-bottom: 5px solid white;
-    margin-top: 2px;
-    padding-bottom: 10px;
+.notesContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 84%;
 }
 
-.passSpan > p{
-    font-size: 1.4rem;
-    line-height: 10px;
+.notesList{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    list-style: none;
+    padding: 0px;
+    gap: 50px;
+    overflow: scroll;
+    padding: 20px 0px;
+}
+
+.note{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    min-height: 200px;
+    width: 250px;
+    background-color: yellow;
+    padding: 30px 10px;
+}
+
+.noteHeightController{
+    height: auto;
+}
+
+.bottomMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    bottom: 0px;
+    height: 6%;
+    min-height: 60px;
+    width: 100%;
+    background-color: #531a7c;
+    
+}
+.newNoteButton{
+    padding: 0px;
+    margin: 0px;
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 100px;
+}
+
+.newNoteEmoji{
+    margin-left: 3px;
+}
+.off{
+    display: none;
 }
