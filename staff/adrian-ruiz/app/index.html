@@ -5,10 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="data.js"></script>
-    <script src="logic.js" defer></script>
-    <script src="main.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- commons / utils -->
+    <script src="constants.js"></script>
+
+    <!-- data layer -->
+    <script src="data/users.js"></script>
+
+    <!--business layer -->
+    <script src="logic/authenticateUser.js" defer></script>
+    <script src="logic/registerUser.js"></script>
+    <script src="logic/retrieveUser.js"></script>
+
+    <!-- presentation layer -->
+    <script src="index.js" defer></script>
+
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
