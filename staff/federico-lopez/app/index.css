@@ -83,6 +83,26 @@ body {
     color: white;
 }
 
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 0;
+    overflow: scroll;
+}
+
+.list__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    color: black;
+    min-height: 29px;
+    width: 300px;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
 .off {
     display: none;
 }

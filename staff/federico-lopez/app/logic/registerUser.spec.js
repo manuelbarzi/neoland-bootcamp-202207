@@ -14,6 +14,7 @@ describe('registerUser', () => {
             expect(users).toHaveSize(1)
 
             const user = users[0]
+            expect(user.id).toBeDefined()
             expect(user.name).toBe(name)
             expect(user.email).toBe(email)
             expect(user.password).toBe(password)
@@ -21,6 +22,7 @@ describe('registerUser', () => {
     })
 
     it('should fail on already existing user', () => { // unhappy path :(
+        const id = 'user-' + Date.now()
         const name = 'Cobra Taka'
         const email = 'cobra@taka.com'
         const password = '123123123'
@@ -31,6 +33,7 @@ describe('registerUser', () => {
         //     password: password
         // }
         const cobraTaka = {
+            id,
             name,
             email,
             password

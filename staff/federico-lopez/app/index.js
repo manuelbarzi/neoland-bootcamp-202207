@@ -2,6 +2,10 @@ const loginPage = document.querySelector('.login-page')
 const registerPage = document.querySelector('.register-page')
 const homePage = document.querySelector('.home-page')
 
+// temp (for ui design purposes)
+// loginPage.classList.add('off')
+// homePage.classList.remove('off')
+
 const registerLink = loginPage.querySelector('.anchor')
 registerLink.onclick = function (event) {
     event.preventDefault()
@@ -41,13 +45,37 @@ loginForm.onsubmit = function (event) {
                         return
                     }
 
-                    loginPage.classList.add('off')
+                    try {
+                        retrieveNotes(user.id, function (error, notes) {
+                            if (error) {
+                                alert(error.message)
 
-                    const title = homePage.querySelector('.title')
+                                return
+                            }
 
-                    title.innerText = 'Hello, ' + user.name + '!'
+                            loginPage.classList.add('off')
 
-                    homePage.classList.remove('off')
+                            const title = homePage.querySelector('.title')
+
+                            title.innerText = 'Hello, ' + user.name + '!'
+
+                            const list = homePage.querySelector('.list')
+                            list.innerHTML = ''
+
+                            notes.forEach(note => {
+                                const item = document.createElement('li')
+                                item.classList.add('list__item')
+
+                                item.innerText = note.text
+
+                                list.append(item)
+                            })
+
+                            homePage.classList.remove('off')
+                        })
+                    } catch (error) {
+                        alert(error.message)
+                    }
                 })
             } catch (error) {
                 alert(error.message)

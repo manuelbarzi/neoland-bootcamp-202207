@@ -21,11 +21,11 @@ describe('retrieveUser', () => {
 
             expect(user).toBeDefined()
             expect(user.name).toBe(name)
-            expect(user.email).toBe(email)
+            expect(user.email).toBe(email)            
             expect(user.password).toBe(password)
         })
     })
-
+    
     it('should fail on incorrect email', () => { // unhappy path :(
         const name = 'Zor Ro'
         const email = 'zor@ro.com'
@@ -64,17 +64,16 @@ describe('retrieveUser', () => {
 
         const invalidEmail = 'zor_ro.com'
 
-        // try {
-        //     retrieveUser(invalidEmail, (error, user) => {
-        //         fail('it should not reach this point')
-        //     })
-        // } catch (error) {
-        //     expect(error).toBeInstanceOf(Error)
-        //     expect(error.message).toBe('email is not valid')
-        // }
-
-        expect(function() {retrieveUser(invalidEmail, (error, user) => {
-            fail('it should not reach this point')
-        })}).toThrowError();
+        try {
+            retrieveUser(invalidEmail, (error, user) => {
+                expect(error).toBeInstanceOf(Error)
+                expect(error.message).toBe('user with email ' + invalidEmail + ' not found')
+    
+                expect(user).toBeUndefined()
+            })
+        } catch(error) {
+            expect(error).toBeInstanceOf(Error)
+            expect(error.message).toBe('email is not valid')
+        }
     })
 })

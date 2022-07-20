@@ -4,11 +4,13 @@ describe('authenticateUser', () => {
     })
 
     it('should succeed on correct credentials', () => { // happy path :)
+        const id = 'user-' + Date.now()
         const name = 'Pi Tufo'
         const email = 'pi@tufo.com'
         const password = '123123123'
 
         const piTufo = {
+            id,
             name,
             email,
             password
@@ -22,11 +24,13 @@ describe('authenticateUser', () => {
     })
 
     it('should fail on incorrect password', () => { // unhappy path :(
+        const id = 'user-' + Date.now()
         const name = 'Ele Fante'
         const email = 'ele@fante.com'
         const password = '123123123'
 
         const eleFante = {
+            id,
             name,
             email,
             password
@@ -41,11 +45,13 @@ describe('authenticateUser', () => {
     })
     
     it('should fail on incorrect email', () => { // unhappy path :(
+        const id = 'user-' + Date.now()
         const name = 'Ele Fante'
         const email = 'ele@fante.com'
         const password = '123123123'
 
         const eleFante = {
+            id,
             name,
             email,
             password
