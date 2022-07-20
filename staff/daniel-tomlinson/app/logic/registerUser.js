@@ -6,7 +6,7 @@ function registerUser(name, email, password, callback) {
   if (typeof email !== "string") throw new TypeError("email is not a string");
   if (email.trim().length === 0) throw new Error("email is empty or blank");
   if (email.length < 6) throw new Error("email length is not valid");
-  //TO DO validate email format (username@domain.xyz)
+  if (!EMAIL_REGEX.test(email)) throw new Error("email is not valid");
 
   if (typeof password !== "string")
     throw new TypeError("password is not a string");
@@ -30,6 +30,7 @@ function registerUser(name, email, password, callback) {
   }
 
   users.push({
+    id: "user-" + Date.now(),
     name: name,
     email: email,
     password: password,

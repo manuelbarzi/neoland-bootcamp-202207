@@ -43,12 +43,35 @@ loginForm.onsubmit = function (event) {
 
             return;
           }
-          loginPage.classList.add("off");
 
-          const title = homePage.querySelector(".title");
-          title.innerText = "Hello " + user.name + "!";
+          try {
+            retrieveNotes(user.id, function (error, notes) {
+              if (error) {
+                alert(error.message);
 
-          homePage.classList.remove("off");
+                return;
+              }
+
+              loginPage.classList.add("off");
+
+              const title = homePage.querySelector(".title");
+              title.innerText = "Hello " + user.name + "!";
+
+              const list = homePage.querySelector(".list");
+
+              notes.forEach((note) => {
+                const item = document.createElement("li");
+                item.classList.add("list__item");
+
+                item.innerText = note.text;
+
+                list.append(item);
+              });
+              homePage.classList.remove("off");
+            });
+          } catch (error) {
+            alert(error.message);
+          }
         });
       } catch (error) {
         alert(error.message);
@@ -57,8 +80,8 @@ loginForm.onsubmit = function (event) {
   } catch (error) {
     alert(error.message);
   }
-
-  /*   const user = users.find(function (user) {
+};
+/*   const user = users.find(function (user) {
     return user.email === email && user.password === password;
   });
 
@@ -67,29 +90,28 @@ loginForm.onsubmit = function (event) {
   } else alert("credentials error");
 }; */
 
-  const registerForm = registerPage.querySelector(".form");
+const registerForm = registerPage.querySelector(".form");
 
-  registerForm.onsubmit = function (event) {
-    event.preventDefault();
+registerForm.onsubmit = function (event) {
+  event.preventDefault();
 
-    const name = registerForm.name.value;
-    const email = registerForm.email.value;
-    const password = registerForm.password.value;
+  const name = registerForm.name.value;
+  const email = registerForm.email.value;
+  const password = registerForm.password.value;
 
-    try {
-      registerUser(name, email, password, function (error) {
-        if (error) {
-          alert(error.message);
+  try {
+    registerUser(name, email, password, function (error) {
+      if (error) {
+        alert(error.message);
 
-          return;
-        }
-        registerPage.classList.add("off");
-        loginPage.classList.remove("off");
-      });
-    } catch (error) {
-      alert(error.message);
-    }
-  };
+        return;
+      }
+      registerPage.classList.add("off");
+      loginPage.classList.remove("off");
+    });
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 /*   const user = users.find(function (user) {
