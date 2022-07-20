@@ -17,7 +17,27 @@ function splice(array, start, removeCount, element) {
         array[start] = element
     
         return []
-    } else if (removeCount > 0) {
+    } else if (removeCount === 1) {
+        /*
+        0. ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
+        1. removed -> ['clown']
+        2. ['angel', 'drum', 'drum', 'mandarin', 'sturgeon']
+        3. ['angel', 'drum', 'mandarin', 'mandarin', 'sturgeon']
+        4. ['angel', 'drum', 'mandarin', 'sturgeon', 'sturgeon']
+        5. ['angel', 'drum', 'mandarin', 'sturgeon']
+        */
+
+        const removed = []
+
+        removed[removed.length] = array[start]
+
+        for (let i = start; i < array.length - 1; i++)
+            array[i] = array[i + 1]
+
+        array.length--
+
+        return removed
+    } else if (removeCount > 1) {
         /*
         0. ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
         1. removed -> ['clown']
@@ -29,16 +49,14 @@ function splice(array, start, removeCount, element) {
 
         const removed = []
 
-        const limit =  start + removeCount > array.length? array.length :  start + removeCount
-
-        for (let i = start; i < limit; i++)
+        for (let i = start; i < start + removeCount; i++) {
             removed[removed.length] = array[i]
 
-        for (let i = start; i < array.length - 1; i++)
             array[i] = array[i + removeCount]
+        }
 
         //array.length = array.length - removeCount
-        array.length -= removed.length
+        array.length -= removeCount
 
         return removed
     }

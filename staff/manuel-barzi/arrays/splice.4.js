@@ -29,16 +29,15 @@ function splice(array, start, removeCount, element) {
 
         const removed = []
 
-        const limit =  start + removeCount > array.length? array.length :  start + removeCount
-
-        for (let i = start; i < limit; i++)
+        for (let i = start; i < start + removeCount; i++) {
             removed[removed.length] = array[i]
+        }
 
         for (let i = start; i < array.length - 1; i++)
             array[i] = array[i + removeCount]
 
         //array.length = array.length - removeCount
-        array.length -= removed.length
+        array.length -= removeCount
 
         return removed
     }
