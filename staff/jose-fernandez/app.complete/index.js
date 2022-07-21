@@ -11,9 +11,13 @@ const loginPage = document.querySelector('.login_page')
 const registerPage = document.querySelector('.register_page')
 const homePage = document.querySelector('.home_page')
 
+// ===================PageHome=============================
 
-// loginPage.classList.add('off')
-// homePage.classList.remove('off')
+// ==========================================================
+
+
+loginPage.classList.add('off')
+homePage.classList.remove('off')
 
 const registerLink = loginPage.querySelector('.link-register')
 
@@ -37,6 +41,35 @@ loginLink.onclick = function (event) {
     registerPage.classList.add('off')
     //Muestro la pagina del login removiendo off a la clase ".register_page"
     loginPage.classList.remove('off')
+}
+
+const btn__pluss= homePage.querySelector('.btn_plus')
+const list__Notes=homePage.querySelector('.list')
+const create__Note=homePage.querySelector('.createNote')
+const btn__arrLeft=homePage.querySelector('.btn_arrLeft')
+
+
+btn__pluss.onclick = function (event) {
+    //cancela la accion predeterminada del evento
+    event.preventDefault()
+
+    
+    list__Notes.classList.add('off')
+    btn__pluss.classList.add('off') 
+    create__Note.classList.remove('off')
+   
+ btn__arrLeft.classList.remove('off')
+}
+
+ btn__arrLeft.onclick = function (event) {
+    //cancela la accion predeterminada del evento
+    event.preventDefault()
+
+    create__Note.classList.add('off')
+    list__Notes.classList.remove('off')
+    
+    btn__arrLeft.classList.add('off')
+    btn__pluss.classList.remove('off')
 }
 
 const loginForm = loginPage.querySelector('.form')
