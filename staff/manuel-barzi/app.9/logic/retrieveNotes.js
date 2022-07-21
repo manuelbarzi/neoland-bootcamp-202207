@@ -1,4 +1,4 @@
-function createNote(userId, callback) {
+function retrieveNotes(userId, callback) {
     // TODO validate inputs
 
     const user = users.find(user => {
@@ -11,13 +11,9 @@ function createNote(userId, callback) {
         return
     }
 
-    const note = {
-        id: 'note-' + Date.now(),
-        text: '',
-        user: userId
-    }
+    const filtered = notes.filter(note => {
+        return note.user === userId
+    })
 
-    notes.push(note)
-
-    callback(null)
+    callback(null, filtered)
 }

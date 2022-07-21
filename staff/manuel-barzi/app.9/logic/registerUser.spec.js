@@ -3,7 +3,7 @@ describe('registerUser', () => {
         users.length = 0
     })
 
-    it('succeeds on new user', () => { // happy path :)
+    it('should succeed on new user', () => { // happy path :)
         const name = 'Ana Conda'
         const email = 'ana@conda.com'
         const password = '123123123'
@@ -21,7 +21,7 @@ describe('registerUser', () => {
         })
     })
 
-    it('fails on already existing user', () => { // unhappy path :(
+    it('should fail on already existing user', () => { // unhappy path :(
         const id = 'user-' + Date.now()
         const name = 'Cobra Taka'
         const email = 'cobra@taka.com'

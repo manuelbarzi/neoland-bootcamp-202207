@@ -3,7 +3,7 @@ describe('authenticateUser', () => {
         users.length = 0
     })
 
-    it('succeeds on correct credentials', () => { // happy path :)
+    it('should succeed on correct credentials', () => { // happy path :)
         const id = 'user-' + Date.now()
         const name = 'Pi Tufo'
         const email = 'pi@tufo.com'
@@ -23,7 +23,7 @@ describe('authenticateUser', () => {
         })
     })
 
-    it('fails on incorrect password', () => { // unhappy path :(
+    it('should fail on incorrect password', () => { // unhappy path :(
         const id = 'user-' + Date.now()
         const name = 'Ele Fante'
         const email = 'ele@fante.com'
@@ -44,7 +44,7 @@ describe('authenticateUser', () => {
         })
     })
     
-    it('fails on incorrect email', () => { // unhappy path :(
+    it('should fail on incorrect email', () => { // unhappy path :(
         const id = 'user-' + Date.now()
         const name = 'Ele Fante'
         const email = 'ele@fante.com'

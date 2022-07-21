@@ -3,7 +3,7 @@ describe('retrieveUser', () => {
         users.length = 0
     })
 
-    it('succeeds on correct email', () => { // happy path :)
+    it('should succeed on correct email', () => { // happy path :)
         const name = 'Lan Gosta'
         const email = 'lan@gosta.com'
         const password = '123123123'
@@ -26,7 +26,7 @@ describe('retrieveUser', () => {
         })
     })
     
-    it('fails on incorrect email', () => { // unhappy path :(
+    it('should fail on incorrect email', () => { // unhappy path :(
         const name = 'Zor Ro'
         const email = 'zor@ro.com'
         const password = '123123123'
@@ -49,7 +49,7 @@ describe('retrieveUser', () => {
         })
     })
 
-    it('fails on invalid email', () => { // unhappy path :(
+    it('should fail on invalid email', () => { // unhappy path :(
         const name = 'Zor Ro'
         const email = 'zor@ro.com'
         const password = '123123123'
