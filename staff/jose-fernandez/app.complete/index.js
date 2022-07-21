@@ -50,16 +50,7 @@ const headmainhome = homePage.querySelector('.header_mainhome')
 
 
 
-btn__arrLeft.onclick = function (event) {
-    //cancela la accion predeterminada del evento
-    event.preventDefault()
 
-    create__Note.classList.add('off')
-    list__Notes.classList.remove('off')
-
-    headmainhome.classList.add('off')
-    btn__pluss.classList.remove('off')
-}
 
 const loginForm = loginPage.querySelector('.form')
 
@@ -172,9 +163,80 @@ registerForm.onsubmit = function (event) {
 
 }
 
+
+
 btn__pluss.onclick = function () {
     //cancela la accion predeterminada del evento
     // event.preventDefault()
+
+    headmainhome.classList.remove('off')
+    list__Notes.classList.add('off')
+    btn__pluss.classList.add('off')
+    create__Note.classList.remove('off')
+    // try {
+    //     createNote(_user.id, error => {
+    //         if (error) {
+    //             alert(error.message)
+    //             return
+    //         }
+    //         try {
+
+    //             retrieveNotes(_user.id, function (error, notes) {
+    //                 if (error) {
+    //                     alert(error.message)
+    //                     return
+    //                 }
+
+
+    //                 // btn__arrLeft.classList.remove('off')
+    //                 const list = homePage.querySelector('.list')
+    //                 // list.innerHTML = ''
+
+    //                 notes.forEach(note => {
+    //                     const item = document.createElement('li')
+    //                     item.classList.add('list__item')
+
+    //                     const text = document.createElement('textarea')
+    //                     text.classList.add('list__item-text')
+    //                     text.onkeyup = function () {
+    //                         try {
+    //                             updateNote(_user.id, note.id, text.value, error => {
+    //                                 if (error) {
+    //                                     alert(error.message)
+    //                                     return
+    //                                 }
+    //                             })
+    //                         } catch (error) {
+    //                             alert(error.message)
+    //                         }
+    //                     }
+
+    //                     text.value = note.text
+    //                     item.append(text)
+    //                     // item.value=newItem.value
+    //                     list.append(item)
+    //                 })
+
+
+    //             })
+
+    //         } catch (error) {
+    //             alert(error.message)
+    //         }
+
+    //     })
+    // } catch (error) {
+    //     alert(error.message)
+    // }
+}
+
+
+const newItem = homePage.querySelector('.list__item-textNew')
+
+btn__arrLeft.onclick = function (event) {
+    //cancela la accion predeterminada del evento
+    event.preventDefault()
+
     try {
         createNote(_user.id, error => {
             if (error) {
@@ -188,14 +250,17 @@ btn__pluss.onclick = function () {
                         alert(error.message)
                         return
                     }
-                    headmainhome.classList.remove('off')
-                    list__Notes.classList.add('off')
-                    btn__pluss.classList.add('off')
-                    create__Note.classList.remove('off')
+                    create__Note.classList.add('off')
+                    list__Notes.classList.remove('off')
+
+                    headmainhome.classList.add('off')
+                    btn__pluss.classList.remove('off')
 
                     // btn__arrLeft.classList.remove('off')
                     const list = homePage.querySelector('.list')
-                    list.innerHTML = ''
+                    list.innerHTML = ""
+
+
 
                     notes.forEach(note => {
                         const item = document.createElement('li')
@@ -216,11 +281,19 @@ btn__pluss.onclick = function () {
                             }
                         }
 
-                        text.value = note.text
-                        item.append(text)
+
+                        text.value = note.text                       
+                        // text= newItem.value
+                        // var listult = document.querySelector(".list__item-textNew").lastElementChild.innerHTML;
+                        // document.querySelector(".list").innerHTML = listult;
+
+                        item.append(listult)
+                        // item.value=newItem.value
                         list.append(item)
+                        // list.innerHTML=newItem.value
                     })
-                    
+
+
 
                 })
 
@@ -232,4 +305,5 @@ btn__pluss.onclick = function () {
     } catch (error) {
         alert(error.message)
     }
+
 }

@@ -343,7 +343,7 @@ body {
     display: none;
 }
 
-.input__Newitem {
+.list__item-textNew {
     display: flex;
     justify-content: center;
     align-items: center;
