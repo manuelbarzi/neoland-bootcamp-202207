@@ -11,12 +11,13 @@ const loginPage = document.querySelector('.login_page')
 const registerPage = document.querySelector('.register_page')
 const homePage = document.querySelector('.home_page')
 
-let _user
+// ===================PageHome=============================
+
 // ==========================================================
 
 
-// loginPage.classList.add('off')
-// homePage.classList.remove('off')
+loginPage.classList.add('off')
+homePage.classList.remove('off')
 
 const registerLink = loginPage.querySelector('.link-register')
 
@@ -46,9 +47,19 @@ const btn__pluss = homePage.querySelector('.btn_plus')
 const list__Notes = homePage.querySelector('.list')
 const create__Note = homePage.querySelector('.createNote')
 const btn__arrLeft = homePage.querySelector('.btn_arrLeft')
-const headmainhome = homePage.querySelector('.header_mainhome')
 
 
+btn__pluss.onclick = function (event) {
+    //cancela la accion predeterminada del evento
+    event.preventDefault()
+
+
+    list__Notes.classList.add('off')
+    btn__pluss.classList.add('off')
+    create__Note.classList.remove('off')
+
+    btn__arrLeft.classList.remove('off')
+}
 
 btn__arrLeft.onclick = function (event) {
     //cancela la accion predeterminada del evento
@@ -57,7 +68,7 @@ btn__arrLeft.onclick = function (event) {
     create__Note.classList.add('off')
     list__Notes.classList.remove('off')
 
-    headmainhome.classList.add('off')
+    btn__arrLeft.classList.add('off')
     btn__pluss.classList.remove('off')
 }
 
@@ -82,8 +93,6 @@ loginForm.onsubmit = function (event) {
                         alert(error.message)
                         return
                     }
-
-                    _user = user
                     try {
                         retrieveNotes(user.id, function (error, notes) {
                             if (error) {
@@ -102,28 +111,12 @@ loginForm.onsubmit = function (event) {
                             list.innerHTML = ''
 
                             notes.forEach(note => {
-                                const item = document.createElement('li')
+                                const item = document.querySelector('li')
                                 item.classList.add('list__item')
 
-                                const text = document.createElement('textarea')
-                                text.classList.add('list__item-text')
                                 //con innerText obtenemos el texto del item
+                                item.innerText = note.text
 
-                                text.onkeyup = function () {
-                                    try {
-                                        updateNote(_user.id, note.id, text.value, error => {
-                                            if (error) {
-                                                alert(error.message)
-                                                return
-                                            }
-                                        })
-                                    } catch (error) {
-                                        alert(error.message)
-                                    }
-                                }
-
-                                text.value = note.text
-                                item.append(text)
                                 list.append(item)
                             })
 
@@ -172,64 +165,3 @@ registerForm.onsubmit = function (event) {
 
 }
 
-btn__pluss.onclick = function () {
-    //cancela la accion predeterminada del evento
-    // event.preventDefault()
-    try {
-        createNote(_user.id, error => {
-            if (error) {
-                alert(error.message)
-                return
-            }
-            try {
-
-                retrieveNotes(_user.id, function (error, notes) {
-                    if (error) {
-                        alert(error.message)
-                        return
-                    }
-                    headmainhome.classList.remove('off')
-                    list__Notes.classList.add('off')
-                    btn__pluss.classList.add('off')
-                    create__Note.classList.remove('off')
-
-                    // btn__arrLeft.classList.remove('off')
-                    const list = homePage.querySelector('.list')
-                    list.innerHTML = ''
-
-                    notes.forEach(note => {
-                        const item = document.createElement('li')
-                        item.classList.add('list__item')
-
-                        const text = document.createElement('textarea')
-                        text.classList.add('list__item-text')
-                        text.onkeyup = function () {
-                            try {
-                                updateNote(_user.id, note.id, text.value, error => {
-                                    if (error) {
-                                        alert(error.message)
-                                        return
-                                    }
-                                })
-                            } catch (error) {
-                                alert(error.message)
-                            }
-                        }
-
-                        text.value = note.text
-                        item.append(text)
-                        list.append(item)
-                    })
-                    
-
-                })
-
-            } catch (error) {
-                alert(error.message)
-            }
-
-        })
-    } catch (error) {
-        alert(error.message)
-    }
-}

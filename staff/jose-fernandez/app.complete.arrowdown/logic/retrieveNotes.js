@@ -14,7 +14,6 @@ function retrieveNotes(userId, callback){
         return note.user === userId
     })
 
-    filtered.reverse()
     //si no hay error el callback manda un "null" a la posicion de error del callback de retrieveNotes de index.js
     // y luego manda filtered a la posicion de notes
     callback(null, filtered)

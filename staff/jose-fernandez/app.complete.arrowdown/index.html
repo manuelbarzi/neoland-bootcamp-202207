@@ -88,11 +88,6 @@
         </header>
 
         <main class="main_home">
-            <div class="header_mainhome off">
-                <div class="btn_arrLeft  ">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </div>
-            </div>
             <ul class="list">
                 <li class="list__item"><textarea class="list__item-text">Hello, Note!</textarea></li>
                 <li class="list__item"><textarea class="list__item-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab sunt tempora esse eaque, maiores similique.
@@ -127,7 +122,7 @@
             </ul>
             <div class="createNote off">
                 <!-- <input class="input__Newitem" type="text" name="newItemNote" placeholder="New Note!!"></input> -->
-                <textarea class="list__item-text" name="newItemNote" placeholder="New Item!!"></textarea>
+                <textarea class="input__Newitem" name="newItemNote" placeholder="New Item!!"></textarea>
             </div>
 
         </main>
@@ -137,9 +132,10 @@
                 <div class="btn_plus">
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <!-- <div class="btn_arrLeft off ">
+                <div class="btn_arrLeft off ">
+                    <!-- <i class="fa-solid fa-x"></i> -->
                     <i class="fa-solid fa-arrow-left"></i>
-                </div> -->
+                </div>
             </div>
 
         </footer>
@@ -158,9 +154,6 @@
     <script src="logic/retrieveUser.js"></script>
     <script src="logic/registerUser.js"></script>
     <script src="logic/retrieveNotes.js"></script>
-    <script src="logic/updateNote.js"></script>
-    <script src="logic/createNote.js"></script>
-
 
     <!-- presentation layer -->
     <script src="index.js"></script>
