@@ -3,6 +3,7 @@
 * {
     font-family: Lato;
     color: grey;
+    box-sizing: border-box;
 }
 
 html,
@@ -10,13 +11,9 @@ body {
     height: 100%;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     margin: 0px;
-    background-color: rgb(230, 228, 228);
+    background-image: URL('https://static.vecteezy.com/system/resources/previews/006/189/477/non_2x/elegant-seamless-pattern-cherry-blossom-vector.jpg');
 }
 
 .page {
@@ -33,12 +30,10 @@ body {
     width: 80%;
     margin: 2%;
     display: flex;
-    background-color: rgb(252, 215, 221);
+    background-color: rgba(252, 215, 221, 0.8);
     align-items: center;
     justify-content: center;
-    border-radius: 10%;
     flex-direction: column;
-    border: 1px solid grey;
 }
 
 .form {
@@ -47,7 +42,6 @@ body {
     gap: 10px;
     height: 90%;
     width: 90%;
-    background-color: rgb(252, 215, 221);
     align-items: center;
     justify-content: center;
 }
@@ -58,6 +52,7 @@ body {
     gap: 5px;
     width: 40%;
 }
+
 
 .input {
     background-color: transparent;
@@ -113,6 +108,10 @@ body {
     color: rgb(252, 215, 221);
 }
 
+a {
+    font-size: small;
+}
+
 .anchor {
     color: grey;
 }
@@ -121,23 +120,43 @@ body {
     color: grey;
 }
 
-a {
-    font-size: small;
+.home-page {
+    overflow: scroll;
+    justify-content: start;
+    width: 100%;
+}
+
+.homecontainer {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    background-color: rgba(252, 215, 221, 0.8);
+    height: 10%;
+    width: 100%;
+    position: fixed;
+    margin: 0px;
 }
 
 .topcontainer {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 100%;
-    background-color: rgb(252, 215, 221);
-    height: 10%;
+    height: 80px;
     width: 100%;
     top: 0px;
-    position: absolute;
+}
+
+.botcontainer {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    height: 50px;
+    width: 100%;
+    bottom: 0px;
 }
 
 
-.cabecera {
+.header {
     display: grid;
     height: 100%;
     width: 100%;
@@ -166,17 +185,14 @@ a {
     background-size: cover;
     border: 1px solid grey;
     background-repeat: no-repeat;
-
 }
 
-.saludo {
+.greeting {
     width: 100%;
-    height: 100%;
     grid-column: 2;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: rgb(252, 215, 221);
     font-size: x-large;
     top: 50%
 }
@@ -186,10 +202,9 @@ a {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(252, 215, 221);
     gap: 5px;
 
 }
@@ -201,3 +216,108 @@ a {
     /* margin-top: 5px; */
     margin-left: 10px;
 }
+
+
+.list {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+    padding: 0;
+    /* overflow: scroll; */
+    margin-top: 40%;
+    margin-bottom: 30%;
+}
+
+.list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    background-color: rgb(252, 215, 221);
+    color: black;
+    width: 300px;
+    min-height: 150px;
+    font-size: 1.5rem;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.delete {
+    cursor: pointer;
+    font-size: small;
+    align-self: flex-end;
+}
+
+
+.list__item-text {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    font-size: medium;
+}
+
+.homefooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: 1px solid grey;
+    gap: 60%;
+}
+
+.addnote {
+    display: flex;
+    height: 35px;
+    width: 35px;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.addnote:hover {
+    height: 40px;
+    width: 40px;
+    font-size: x-large;
+}
+
+.off {
+    display: none;
+}
+
+option {
+    background-color: rgba(252, 215, 221, 0.8);
+}
+
+select {
+    background-color: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid grey;
+    color: grey;
+    font-size: 0.8rem;
+    caret-color: grey;
+
+}
+
+select::placeholder {
+    color: transparent;
+}
+
+select:focus {
+    outline: none;
+}
+
+select::content {
+    color: transparent;
+}
+
