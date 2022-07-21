@@ -15,5 +15,7 @@ function retrieveNotes(userId, callback) {
         return note.user === userId
     })
 
+    filtered.reverse()
+
     callback(null, filtered)
 }

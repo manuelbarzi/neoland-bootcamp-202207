@@ -107,6 +107,17 @@ body {
     width: 300px;
     font-size: 1.5rem;
     padding: 10px;
+    min-height: 3rem;
+}
+
+.list__item-text {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
 }
 
 .footer {

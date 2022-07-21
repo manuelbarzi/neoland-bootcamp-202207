@@ -2,9 +2,11 @@ const loginPage = document.querySelector('.login-page')
 const registerPage = document.querySelector('.register-page')
 const homePage = document.querySelector('.home-page')
 
+let _user
+
 // temp (for ui design purposes)
-loginPage.classList.add('off')
-homePage.classList.remove('off')
+// loginPage.classList.add('off')
+// homePage.classList.remove('off')
 
 const registerLink = loginPage.querySelector('.anchor')
 registerLink.onclick = function (event) {
@@ -45,6 +47,8 @@ loginForm.onsubmit = function (event) {
                         return
                     }
 
+                    _user = user
+
                     try {
                         retrieveNotes(user.id, function (error, notes) {
                             if (error) {
@@ -66,7 +70,27 @@ loginForm.onsubmit = function (event) {
                                 const item = document.createElement('li')
                                 item.classList.add('list__item')
 
-                                item.innerText = note.text
+                                const text = document.createElement('textarea')
+                                text.classList.add('list__item-text')
+                                text.onkeyup = function () {
+                                    text.style.height = '1px'
+                                    text.style.height = text.scrollHeight + 'px'
+
+                                    try {
+                                        updateNote(_user.id, note.id, text.value, error => {
+                                            if (error) {
+                                                alert(error.message)
+
+                                                return
+                                            }
+                                        })
+                                    } catch(error) {
+                                        alert(error.message)
+                                    }
+                                }
+                                text.value = note.text
+
+                                item.append(text)
 
                                 list.append(item)
                             })
@@ -105,6 +129,65 @@ registerForm.onsubmit = function (event) {
 
             registerPage.classList.add('off')
             loginPage.classList.remove('off')
+        })
+    } catch (error) {
+        alert(error.message)
+    }
+}
+
+const plusButton = homePage.querySelector('.transparent-button')
+plusButton.onclick = function () {
+    try {
+        createNote(_user.id, error => {
+            if (error) {
+                alert(error.message)
+
+                return
+            }
+
+            try {
+                retrieveNotes(_user.id, function (error, notes) {
+                    if (error) {
+                        alert(error.message)
+
+                        return
+                    }
+
+                    const list = homePage.querySelector('.list')
+                    list.innerHTML = ''
+
+                    notes.forEach(note => {
+                        const item = document.createElement('li')
+                        item.classList.add('list__item')
+
+                        const text = document.createElement('textarea')
+                        text.classList.add('list__item-text')
+                        text.onkeyup = function () {
+                            text.style.height = '1px'
+                            text.style.height = text.scrollHeight + 'px'
+
+                            try {
+                                updateNote(_user.id, note.id, text.value, error => {
+                                    if (error) {
+                                        alert(error.message)
+
+                                        return
+                                    }
+                                })
+                            } catch(error) {
+                                alert(error.message)
+                            }
+                        }
+                        text.value = note.text
+
+                        item.append(text)
+
+                        list.append(item)
+                    })
+                })
+            } catch (error) {
+                alert(error.message)
+            }
         })
     } catch (error) {
         alert(error.message)
