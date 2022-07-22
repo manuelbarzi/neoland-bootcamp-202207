@@ -26,8 +26,7 @@
 
     const note = notes[noteIndex]
 
-    //mirar linea de abajo con el codigo de fede
-    if (note===-1) {
+    if (!note) {
         callback(new Error(`note with id ${noteId} not found`))
 
         return

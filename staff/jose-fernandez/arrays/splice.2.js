@@ -1,4 +1,4 @@
-function splice(array, start, removeCount, ...elements) {
+function splice(array, start, removeCount, element) {
     if (removeCount === 0) {
         /*
         0. ['Jan', 'Mar', 'Apr', 'May']
@@ -14,7 +14,7 @@ function splice(array, start, removeCount, ...elements) {
             array[i + 1] = elem
         }
     
-        array[start] = elements
+        array[start] = element
     
         return []
     } else if (removeCount > 0) {
@@ -41,7 +41,7 @@ function splice(array, start, removeCount, ...elements) {
             array[i] = array[i + removeCount]       
         }
 
-        if(elements){
+        if(element){
             // for(let i=array.length;i>start;i--){
             //     array[i]=array[i-1]        
             // }
