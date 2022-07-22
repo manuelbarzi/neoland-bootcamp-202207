@@ -49,57 +49,15 @@ loginForm.onsubmit = function (event) {
 
                     _user = user
 
-                    try {
-                        retrieveNotes(user.id, function (error, notes) {
-                            if (error) {
-                                alert(error.message)
+                    loginPage.classList.add('off')
 
-                                return
-                            }
+                    const title = homePage.querySelector('.title')
 
-                            loginPage.classList.add('off')
+                    title.innerText = 'Hello, ' + user.name + '!'
 
-                            const title = homePage.querySelector('.title')
+                    refreshList()
 
-                            title.innerText = 'Hello, ' + user.name + '!'
-
-                            const list = homePage.querySelector('.list')
-                            list.innerHTML = ''
-
-                            notes.forEach(note => {
-                                const item = document.createElement('li')
-                                item.classList.add('list__item')
-
-                                const text = document.createElement('textarea')
-                                text.classList.add('list__item-text')
-                                text.onkeyup = function () {
-                                    text.style.height = '1px'
-                                    text.style.height = text.scrollHeight + 'px'
-
-                                    try {
-                                        updateNote(_user.id, note.id, text.value, error => {
-                                            if (error) {
-                                                alert(error.message)
-
-                                                return
-                                            }
-                                        })
-                                    } catch(error) {
-                                        alert(error.message)
-                                    }
-                                }
-                                text.value = note.text
-
-                                item.append(text)
-
-                                list.append(item)
-                            })
-
-                            homePage.classList.remove('off')
-                        })
-                    } catch (error) {
-                        alert(error.message)
-                    }
+                    homePage.classList.remove('off')
                 })
             } catch (error) {
                 alert(error.message)
@@ -145,49 +103,72 @@ plusButton.onclick = function () {
                 return
             }
 
-            try {
-                retrieveNotes(_user.id, function (error, notes) {
-                    if (error) {
-                        alert(error.message)
+            refreshList()
+        })
+    } catch (error) {
+        alert(error.message)
+    }
+}
 
-                        return
-                    }
-
-                    const list = homePage.querySelector('.list')
-                    list.innerHTML = ''
-
-                    notes.forEach(note => {
-                        const item = document.createElement('li')
-                        item.classList.add('list__item')
-
-                        const text = document.createElement('textarea')
-                        text.classList.add('list__item-text')
-                        text.onkeyup = function () {
-                            text.style.height = '1px'
-                            text.style.height = text.scrollHeight + 'px'
-
-                            try {
-                                updateNote(_user.id, note.id, text.value, error => {
-                                    if (error) {
-                                        alert(error.message)
-
-                                        return
-                                    }
-                                })
-                            } catch(error) {
-                                alert(error.message)
-                            }
-                        }
-                        text.value = note.text
-
-                        item.append(text)
-
-                        list.append(item)
-                    })
-                })
-            } catch (error) {
+function refreshList() {
+    try {
+        retrieveNotes(_user.id, function (error, notes) {
+            if (error) {
                 alert(error.message)
+
+                return
             }
+
+            const list = homePage.querySelector('.list')
+            list.innerHTML = ''
+
+            notes.forEach(note => {
+                const item = document.createElement('li')
+                item.classList.add('list__item')
+
+                const deleteButton = document.createElement('button')
+                deleteButton.classList.add('list__item-delete-button')
+                deleteButton.innerText = 'x'
+                deleteButton.onclick = function () {
+                    try {
+                        deleteNote(_user.id, note.id, error => {
+                            if (error) {
+                                alert(error.message)
+
+                                return
+                            }
+
+                            refreshList()
+                        })
+                    } catch (error) {
+                        alert(error.message)
+                    }
+                }
+
+                const text = document.createElement('textarea')
+                text.classList.add('list__item-text')
+                text.onkeyup = function () {
+                    text.style.height = '1px'
+                    text.style.height = text.scrollHeight + 'px'
+
+                    try {
+                        updateNote(_user.id, note.id, text.value, error => {
+                            if (error) {
+                                alert(error.message)
+
+                                return
+                            }
+                        })
+                    } catch (error) {
+                        alert(error.message)
+                    }
+                }
+                text.value = note.text
+
+                item.append(deleteButton, text)
+
+                list.append(item)
+            })
         })
     } catch (error) {
         alert(error.message)

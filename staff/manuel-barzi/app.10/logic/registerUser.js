@@ -1,13 +1,4 @@
-/**
- * Checks user credentials against database
- * 
- * @param {string} email The user email
- * @param {string} password The user password
- * @param {function} callback The function expression that provides a result
- * 
- * @throws {Error | TypeError} On invalid inputs
- */
-function authenticateUser(email, password, callback) {
+function registerUser(name, email, password, callback) {
     if (typeof email !== 'string') throw new TypeError('email is not a string')
     if (email.trim().length === 0) throw new Error('email is empty or blank')
     if (email.length < 6) throw new Error('email length is not valid')
@@ -20,14 +11,21 @@ function authenticateUser(email, password, callback) {
     if (typeof callback !== 'function') throw new TypeError('callback is not a function')
 
     const user = users.find(function (user) {
-        return user.email === email && user.password === password
+        return user.email === email
     })
 
-    if (!user) {
-        callback(new Error('wrong credentials'))
+    if (user) {
+        callback(new Error('user already exists'))
 
         return
     }
+
+    users.push({
+        id: 'user-' + Date.now(),
+        name: name,
+        email: email,
+        password: password
+    })
 
     callback(null)
 }
