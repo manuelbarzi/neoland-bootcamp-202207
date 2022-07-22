@@ -49,6 +49,7 @@ describe('TESTING Splice in arrays',function(){
     })
 
     test('Replace 1 element on array', function(){
+        // OK
         const months = ['Jan', 'Feb', 'March', 'April', 'June'];
         const result = splice(months, 4, 1, 'May')
 
@@ -210,20 +211,33 @@ describe('TESTING Splice in arrays',function(){
     })
 
     test('Remove 1 element from negative index', function(){
+        
         const myFish = ['angel', 'clown', 'trumpet', 'sturgeon']
-        const result = splice(myFish, -2, 1)
-
+        const result = splice(myFish, -3, 1)
+        // Expected my fish -> ['angel', 'trumpet', 'sturgeon']
+        // Expected result -> ['clown']
+        /*
+        EMPIEZO DE : ['angel', 'clown', 'trumpet', 'sturgeon']
+        Recupero los elementos a eliminar
+        1. ['clown']
+        Empiezo a posicionar los elementos
+        2. ['angel', 'trumpet', 'trumpet', 'sturgeon']
+        3. ['angel', 'trumpet', 'sturgeon', 'sturgeon']
+        Borro la cantidad de elementos a eliminar
+        4. ['angel', 'trumpet', 'sturgeon']
+        */
         check(result instanceof Array, true)
         check(result.length, 1)
-        check(result[0], 'trumpet')
+        check(result[0], 'clown')
 
         check(myFish.length, 3)
         check(myFish[0], 'angel')
-        check(myFish[1], 'clown')
+        check(myFish[1], 'trumpet')
         check(myFish[2], 'sturgeon')
     })
 
     test('Remove all elements from index 2', function(){
+        
         const myFish = ['angel', 'clown', 'trumpet', 'sturgeon']
         const result = splice(myFish, 2)
 
@@ -237,6 +251,8 @@ describe('TESTING Splice in arrays',function(){
         check(myFish[1], 'clown')
 
     })
+
+    // Faltan mas tests: por ejemplo eliminar desde indice negativos e introducir elementos
 })
 
 
