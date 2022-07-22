@@ -78,41 +78,51 @@
       </div>
   </main>
 
-  <main class="home-page page off background flex-container">
-        <div class="navigation-bar">
+  <div class="home-page page off background flex-container--homepage">
+        <header class=" header flex-container">
 
-          <div class="flex-container"></div>
-          <i class="fa-solid fa-poo nav-icon"></i>
-        </div>
+            <div class="navigation-bar">
+              <i class="fa-solid fa-poo nav-icon">
 
-        <div class="flex-container main-page-content">
-          <h1 class="title">Hello, Mundo!</h1>
-          <ul class="list"></ul>
-        </div>
-      </div>
-  </main>
+              </i></div>
+            <h1 class="title">Hello, Mundo!</h1>
+        </header>
 
-</body>
+        <main class="flex-container main-page-content">
+          <ul class="list">
+            <li class="list__item">
+              <textarea class="list__item-text">
+            </textarea>
+          </li>
+          </ul>
+        </main>
 
-<!-- utility -->
-
+        <footer class="footer"><button class="transparent-button">+</button></footer>
+  </div>
+  
+  <!-- utility -->
+  
   <script src="constants.js"></script>
-
+  
   <!-- data -->
-
+  
   <script src="data/users.js"></script>
   <script src="data/notes.js"></script>
-
-
+  
+  
   <!-- logic -->
   <script src="logic/authenticateUser.js"></script>
   <script src="logic/registerUser.js"></script>
   <script src="logic/retrieveUser.js"></script>
   <script src="logic/retrieveNotes.js"></script>
-
+  <script src="logic/createNote.js"></script>
+  <script src="logic/updateNote.js"></script>
+  
   <!-- presentation -->
   
   <script src="index.js"></script>
+
+</body>
 
 </html>
 
