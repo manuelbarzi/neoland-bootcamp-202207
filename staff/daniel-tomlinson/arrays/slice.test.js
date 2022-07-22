@@ -116,7 +116,7 @@ describe("slice", () => {
     check(animals[3], "duck");
     check(animals[4], "elephant");
   });
-  debugger;
+
   test("slice without index / count arguments", () => {
     const animals = ["ant", "bison", "camel", "duck", "elephant"];
 

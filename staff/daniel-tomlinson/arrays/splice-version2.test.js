@@ -14,11 +14,11 @@
  */
 // splice(start: number, deleteCount: number, ...items: T[]): T[];
 
-describe("Array.prototype.splice", () => {
+describe("Splice 2", () => {
   test("insert at endex 1", () => {
     const months = ["Jan", "Mar", "Apr", "May"];
 
-    const result = splice(months, 1, 0, "Feb");
+    const result = spliceTwo(months, 1, 0, "Feb");
 
     //expected ["Jan", "Feb", "March", "April", "May"]
     //expected result []
@@ -37,7 +37,7 @@ describe("Array.prototype.splice", () => {
   test("insert at endex 1", () => {
     const months = ["Jan", "Feb", "Mar", "Apr", "Jun", "Jun", "Jun", "Jul"];
 
-    const result = splice(months, 4, 2, "May");
+    const result = spliceTwo(months, 4, 2, "May");
 
     //expected months ["Jan", "Feb", "March", "April", "May", "Jun", "Jul"]
     //expected result ["Jun", "Jun"]
@@ -58,7 +58,7 @@ describe("Array.prototype.splice", () => {
   test("negative count", () => {
     const letters = ["A", "B", "B", "B", "B", "E", "F"];
 
-    const result = splice(letters, 2, 3, "C", "D");
+    const result = spliceTwo(letters, 2, 3, "C", "D");
 
     // expected A, B , C , D , E , F
     // expected B, B, B
@@ -81,7 +81,7 @@ describe("Array.prototype.splice", () => {
   test("no count", () => {
     const letters = ["A", "B", "C", "D", "E", "F"];
 
-    const result = splice(letters, 2);
+    const result = spliceTwo(letters, 2);
 
     // expected A, B
     // expected  , C , D , E , F
@@ -102,7 +102,7 @@ describe("Array.prototype.splice", () => {
   test("negative start", () => {
     const letters = ["A", "B", "B", "B", "B", "E", "F"];
 
-    const result = splice(letters, -5, 3, "C", "D");
+    const result = spliceTwo(letters, -5, 3, "C", "D");
 
     // expected A, B , C , D , E , F
     // expected B, B, B
@@ -120,5 +120,29 @@ describe("Array.prototype.splice", () => {
     check(letters[3], "D");
     check(letters[4], "E");
     check(letters[5], "F");
+  });
+
+  test("count greater than array length", () => {
+    const letters = ["A", "B", "B", "B", "B", "E", "F"];
+
+    const result = splice(letters, 2, 10, "C", "D");
+
+    // expected A, B , C , D
+    // expected B, B, B
+
+    check(result instanceof Array, true);
+    check(result.length, 5);
+    check(result[0], "B");
+    check(result[1], "B");
+    check(result[2], "B");
+    check(result[3], "E");
+    check(result[4], "F");
+
+    check(letters.length, 4);
+    check(letters[0], "A");
+    check(letters[1], "B");
+    check(letters[2], "C");
+    check(letters[3], "D");
+    check(letters[4], undefined);
   });
 });

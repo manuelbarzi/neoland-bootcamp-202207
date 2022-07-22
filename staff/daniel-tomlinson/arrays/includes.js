@@ -5,7 +5,7 @@ function includes(array, element) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === element) result = true;
   }
-  if ((result = true)) return true;
+  if (result === true) return true;
   else return false;
 }
 

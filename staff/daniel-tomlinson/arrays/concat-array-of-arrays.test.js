@@ -1,4 +1,4 @@
-describe("TEST: concat", function () {
+describe("TEST: concat arrays of arrays", function () {
   const arrayOfArraysNumbers = [
     [1, 2],
     [3, 4, 5],

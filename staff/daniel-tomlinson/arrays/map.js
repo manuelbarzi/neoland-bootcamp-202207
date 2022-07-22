@@ -19,9 +19,9 @@ function map(array, callback) {
 
 //This should also be able to work in some way with an array of objects:
 
-const productList = [
+/* const productList = [
   { product: leek, price: 20, discount: 10 },
   { product: potato, price: 60, discount: 20 },
   { product: tomato, price: 30, discount: 5 },
   { product: juice, price: 10, discount: 10 },
-];
+]; */
