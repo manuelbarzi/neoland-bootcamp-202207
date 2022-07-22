@@ -2,14 +2,34 @@ describe('splice', () => {
     test('insert at index', () => {
         const months = ['Jan', 'Mar', 'Apr', 'May']
 
-        const result = splice(months, 1, 0, 'Feb')
+        const removed = splice(months, 1, 0, 'Feb')
 
         // expected
         // months -> ['Jan', 'Feb', 'Mar', 'Apr', 'May']
         // result -> []
 
-        check(result instanceof Array, true)
-        check(result.length, 0)
+        check(removed instanceof Array, true)
+        check(removed.length, 0)
+
+        check(months.length, 5)
+        check(months[0], 'Jan')
+        check(months[1], 'Feb')
+        check(months[2], 'Mar')
+        check(months[3], 'Apr')
+        check(months[4], 'May')
+    })
+
+    test('insert more than one element at index', () => {
+        const months = ['Jan', 'Apr', 'May']
+
+        const removed = splice(months, 1, 0, 'Feb', 'Mar')
+
+        // expected
+        // months -> ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+        // result -> []
+
+        check(removed instanceof Array, true)
+        check(removed.length, 0)
 
         check(months.length, 5)
         check(months[0], 'Jan')
@@ -129,6 +149,64 @@ describe('splice', () => {
         check(months[7], 'Ago')
     })
 
+    test('replace elements (3)', () => {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', '1', '2', '3', '4', '5', 'Ago', 'Sep']
+
+        const result = splice(months, 4, 5, 'May', 'Jun', 'Jul');
+
+        // expected
+        // months -> ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Ago', 'Sep']
+        // result -> ['1', '2', '3', '4', '5']
+
+        check(result instanceof Array, true)
+        check(result.length, 5)
+        check(result[0], '1')
+        check(result[1], '2')
+        check(result[2], '3')
+        check(result[3], '4')
+        check(result[4], '5')
+
+        check(months.length, 9)
+        check(months[0], 'Jan')
+        check(months[1], 'Feb')
+        check(months[2], 'Mar')
+        check(months[3], 'Apr')
+        check(months[4], 'May')
+        check(months[5], 'Jun')
+        check(months[6], 'Jul')
+        check(months[7], 'Ago')
+        check(months[8], 'Sep')
+    })
+
+    test('replace elements (4)', () => {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', '1', '2', '3', '4', '5', 'Ago', 'Sep']
+
+        const result = splice(months, 4, 10, 'May', 'Jun', 'Jul');
+
+        // expected
+        // months -> ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
+        // result -> ['1', '2', '3', '4', '5', 'Ago', 'Sep']
+
+        check(result instanceof Array, true)
+        check(result.length, 7)
+        check(result[0], '1')
+        check(result[1], '2')
+        check(result[2], '3')
+        check(result[3], '4')
+        check(result[4], '5')
+        check(result[5], 'Ago')
+        check(result[6], 'Sep')
+
+        check(months.length, 7)
+        check(months[0], 'Jan')
+        check(months[1], 'Feb')
+        check(months[2], 'Mar')
+        check(months[3], 'Apr')
+        check(months[4], 'May')
+        check(months[5], 'Jun')
+        check(months[6], 'Jul')
+    })
+
     test('remove element from negative index', () => {
         const fish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
         const removed = splice(fish, -3, 2)
@@ -146,5 +224,24 @@ describe('splice', () => {
         check(fish[0], 'angel')
         check(fish[1], 'clown')
         check(fish[2], 'sturgeon')
+    })
+
+    test('remove all elements from index', () => {
+        const fish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
+        const removed = splice(fish, 2)
+
+        // expected
+        // fish -> ['angel', 'clown']
+        // removed -> ['drum', 'mandarin', 'sturgeon']
+
+        check(removed instanceof Array, true)
+        check(removed.length, 3)
+        check(removed[0], 'drum')
+        check(removed[1], 'mandarin')
+        check(removed[2], 'sturgeon')
+
+        check(fish.length, 2)
+        check(fish[0], 'angel')
+        check(fish[1], 'clown')
     })
 })
