@@ -4,7 +4,7 @@ describe('retrieveNotes', () => {
         notes.length = 0
     })
 
-    it('returns notes for an existing user with notes', () => {
+    it('succeeds for an existing user with notes', () => {
         const peTete = {
             id: 'user-34534345',
             name: 'Pe Tete',
@@ -49,7 +49,7 @@ describe('retrieveNotes', () => {
         })
     })
 
-    it('returns error for a non-existing user', () => {
+    it('fails for a non-existing user', () => {
         const peTete = {
             id: 'user-34534345',
             name: 'Pe Tete',

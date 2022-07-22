@@ -16,12 +16,15 @@ body {
     color: white;
 }
 
-.page {
+.container {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.container--spaced {
     gap: 10px;
 }
 
@@ -83,12 +86,16 @@ body {
     color: white;
 }
 
+.main {
+    overflow: scroll;
+}
+
 .list {
     display: flex;
     flex-direction: column;
     gap: 50px;
     padding: 0;
-    overflow: scroll;
+    margin: 0;
 }
 
 .list__item {
@@ -97,10 +104,34 @@ body {
     align-items: center;
     background-color: yellow;
     color: black;
-    min-height: 29px;
     width: 300px;
     font-size: 1.5rem;
     padding: 10px;
+    min-height: 3rem;
+}
+
+.list__item-text {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transparent-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
 }
 
 .off {
