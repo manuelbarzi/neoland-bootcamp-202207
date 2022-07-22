@@ -9,7 +9,9 @@ function spliceTwo(array, start, count = array.length - start, ...input) {
   const removed = [];
   const originalLength = array.length;
 
-  if (start < 0) start += array.length;
+  if (start + array.length < 0) start = 0;
+  else if (start < 0) start = array.length + start;
+  if (start - count > array.length) start = array.length;
   if (count + start > array.length) count = array.length - start;
 
   //This adds to the removed array

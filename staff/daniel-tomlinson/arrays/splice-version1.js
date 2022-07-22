@@ -9,7 +9,9 @@ function splice(array, start, count = array.length - start, ...input) {
 
   const inputs = [];
 
-  if (start < 0) start = array.length + start;
+  if (start + array.length < 0) start = 0;
+  else if (start < 0) start = array.length + start;
+  if (start - count > array.length) start = array.length;
   if (count + start > array.length) count = array.length - start;
 
   // This part fills inputs with the inputs from arguments
