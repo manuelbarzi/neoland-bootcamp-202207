@@ -12,7 +12,6 @@ function retrieveUser(email, callback){
         callback(new Error('User with email ' + email +' not found'))
         return
     }
-
     callback(null, user)
 
 }

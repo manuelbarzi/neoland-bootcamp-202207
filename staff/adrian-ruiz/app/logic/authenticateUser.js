@@ -5,6 +5,7 @@ function authenticateUser(email, password, callback){
     if (typeof password !== 'string') throw new TypeError('password is not a string')
     if (password.trim().length === 0) throw new Error('password is empty or blank')
     if (password.length < 8 || password.length > 15) throw new Error('password length is less than 8 characters or more than 15')
+    
 
     if (typeof callback !== 'function') throw new TypeError('callback is not a function')
 
@@ -16,6 +17,8 @@ function authenticateUser(email, password, callback){
         callback(new Error('El usuario no existe o las credenciales son erroneas'))
         return
     }
+
+    if(regexUserId.test(user.id) === false) throw new Error(user.id+' does not match ID pattern')
 
     callback(null)
 }

@@ -6,13 +6,13 @@ describe('retrieveNotes',() => {
 
     it('returns notes for an existing user with notes',() => {
         const pepe = {
-            id: 'user-789456123000',
+            id: 'user-7894561230009',
             name: 'Pepe',
             email: 'pepe@pepe.com',
             password: '123!Aadfa'
         }
         const jose = {
-            id: 'user-111111111111',
+            id: 'user-1111111111119',
             name: 'Jose',
             email: 'jose@jose.com',
             password: '123!Aadfa'
@@ -23,19 +23,19 @@ describe('retrieveNotes',() => {
         const note1 = {
             id: 'note-01',
             text: 'Hello, Test',
-            user: 'user-789456123000'
+            user: 'user-7894561230009'
         }
 
         const note2 = {
             id: 'note-02',
             text: 'Hello, Test 2',
-            user: 'user-789456123000'
+            user: 'user-7894561230009'
         }
 
         const note3 = {
             id: 'note-03',
             text: 'Hello, Test Jose',
-            user: 'user-111111111111'
+            user: 'user-1111111111119'
         }
         
         notes.push(note1,note3,note2)
@@ -52,13 +52,13 @@ describe('retrieveNotes',() => {
 
     it('returns error for a non-existing user', () => {
         const pepe = {
-            id: 'user-789456123000',
+            id: 'user-7894561230009',
             name: 'Pepe',
             email: 'pepe@pepe.com',
             password: '123!Aadfa'
         }
         const jose = {
-            id: 'user-111111111111',
+            id: 'user-1111111111119',
             name: 'Jose',
             email: 'jose@jose.com',
             password: '123!Aadfa'
@@ -69,24 +69,24 @@ describe('retrieveNotes',() => {
         const note1 = {
             id: 'note-01',
             text: 'Hello, Test',
-            user: 'user-789456123000'
+            user: 'user-7894561230009'
         }
 
         const note2 = {
             id: 'note-02',
             text: 'Hello, Test 2',
-            user: 'user-789456123000'
+            user: 'user-7894561230009'
         }
 
         const note3 = {
             id: 'note-03',
             text: 'Hello, Test Jose',
-            user: 'user-111111111111'
+            user: 'user-1111111111119'
         }
         
         notes.push(note1,note3,note2)
 
-        const unknownUserId = 'user-789456123001'
+        const unknownUserId = 'user-7894561230019'
 
         retrieveNotes(unknownUserId, (error, notes) =>{
             expect(error).toBeInstanceOf(Error)

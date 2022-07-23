@@ -6,28 +6,31 @@ describe('createNotes', () => {
 
     it('create notes for an existing user', () => {
         const peTete = {
-            id: 'user-888888888000',
+            id: 'user-8888888880009',
             name: 'PeTete',
             email: 'pe@tete.com',
             password: '123Aa!bcde'   
         }
 
         const peTeta = {
-            id: 'user-123456789555',
+            id: 'user-1234567895559',
             name: 'PeTeta',
             email: 'pe@teta.com',
             password: '123A1!zXadas'   
         }
 
+        const title = 'Test123'
+        const text = 'Text testing'
         users.push(peTete, peTeta)
 
-        createNote(peTete.id, error => {
+        createNote(peTete.id, title, text, error => {
             expect(error).toBeNull()
 
             expect(notes).toBeInstanceOf(Array)
             expect(notes.length).toBe(1) // expect(notes).toHaveSize(1)
             expect(notes[0].user).toBe(peTete.id)
-            expect(notes[0].text).toBe('')
+            expect(notes[0].title).toBe('Test123')
+            expect(notes[0].text).toBe('Text testing')
             expect(notes[0].id).toBeDefined()
 
         })
@@ -35,14 +38,14 @@ describe('createNotes', () => {
 
     it('returns error for a non-existing user', () => {
         const peTete = {
-            id: 'user-888888888000',
+            id: 'user-8888888880009',
             name: 'PeTete',
             email: 'pe@tete.com',
             password: '123Aa!bcde'   
         }
 
         const peTeta = {
-            id: 'user-123456789555',
+            id: 'user-1234567895559',
             name: 'PeTeta',
             email: 'pe@teta.com',
             password: '123A1!zXadas'   
@@ -50,9 +53,11 @@ describe('createNotes', () => {
 
         users.push(peTete, peTeta)
 
-        const unknownUserId = 'user-987456123555'
+        const unknownUserId = 'user-9874561235559'
+        const title = 'Test123'
+        const text = 'Text testing'
 
-        createNote(unknownUserId, error => {
+        createNote(unknownUserId, title, text, error => {
             expect(error).toBeInstanceOf(Error)
             expect(error.message).toBe('User with id ' + unknownUserId + ' not found')
 
