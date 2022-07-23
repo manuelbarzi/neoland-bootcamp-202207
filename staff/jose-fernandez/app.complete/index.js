@@ -5,8 +5,9 @@ var nav = document.getElementById('nav-home');
 btnMenu.addEventListener('click', function () {
     nav.classList.toggle('mostrar');
 });
-
 // ===================================================================
+
+
 const loginPage = document.querySelector('.login_page')
 const registerPage = document.querySelector('.register_page')
 const homePage = document.querySelector('.home_page')
@@ -15,13 +16,14 @@ let _user
 // ==========================================================
 
 
+// ===================================================================
+
 // loginPage.classList.add('off')
 // homePage.classList.remove('off')
 
 const registerLink = loginPage.querySelector('.link-register')
 
 registerLink.onclick = function (event) {
-
     event.preventDefault()
 
     //Oculto la pagina del login agregandole off a la clase ".login_page"
@@ -44,14 +46,6 @@ loginLink.onclick = function (event) {
 
 const btn__pluss = homePage.querySelector('.btn_plus')
 const list__Notes = homePage.querySelector('.list')
-
-
-// const headmainhome = homePage.querySelector('.header_mainhome')
-
-
-
-
-
 const loginForm = loginPage.querySelector('.form')
 
 //para recoger los datos que ponemos en los inputs usamos .onsubmit
@@ -60,7 +54,6 @@ loginForm.onsubmit = function (event) {
 
     const email = loginForm.email.value
     const password = loginForm.password.value
-
     try {
         authenticateUser(email, password, function (error) {
             if (error) {
@@ -73,7 +66,6 @@ loginForm.onsubmit = function (event) {
                         alert(error.message)
                         return
                     }
-
                     _user = user
                     loginPage.classList.add('off')
 
@@ -82,19 +74,15 @@ loginForm.onsubmit = function (event) {
                     messageTitle.innerText = " Hello " + user.name + " !"
                     refreshList()
                     homePage.classList.remove('off')
-
                 })
-
             } catch (error) {
                 alert(error.message)
             }
-
         })
     } catch (error) {
         alert(error.message)
     }
 }
-
 
 
 const registerForm = registerPage.querySelector('.form')
@@ -108,7 +96,6 @@ registerForm.onsubmit = function (event) {
     // try catch 
     try {
         registerUser(name, email, password, function (error) {
-
             if (error) {
                 alert(error.message)
                 return
@@ -120,7 +107,6 @@ registerForm.onsubmit = function (event) {
     } catch (error) {
         alert(error.message)
     }
-
 }
 
 
@@ -130,41 +116,40 @@ const createNoteForm = homePage.querySelector('.formcreateNote')
 createNoteForm.onsubmit = function (event) {
     //cancela la accion predeterminada del evento
     event.preventDefault()
-    
-        // creo una constante y lo igualo al texto de mi textarea con name="newItemNote" ubicado en createNoteForm 
+
+    // creo una constante y lo igualo al texto de mi textarea con name="newItemNote" ubicado en createNoteForm 
     const textFromTextarea = createNoteForm.newItemNote.value
+  
+    if (textFromTextarea !== "") {
+        try {
+            createNote(_user.id, textFromTextarea, error => {
 
-
-    try {
-        createNote(_user.id, textFromTextarea, error => {
-            if (error) {
-                alert(error.message)
-                return
-            }
-            refreshList()
-        })
-    } catch (error) {
-        alert(error.message)
-    }
+                if (error) {
+                    alert(error.message)
+                    return
+                }
+                refreshList()
+            })
+        } catch (error) {
+            alert(error.message)
+        }
+    }else alert('Nota Vacia Descartada')
 
     createNoteForm.classList.add('off')
     list__Notes.classList.remove('off')
     btn__pluss.classList.remove('off')
     // poner el textarea de la newNote en Blanco
     document.getElementById("newNote").value = "";
-
 }
 
 
 btn__pluss.onclick = function () {
     //cancela la accion predeterminada del evento
     // event.preventDefault()
-
-    // headmainhome.classList.remove('off')
     list__Notes.classList.add('off')
     btn__pluss.classList.add('off')
     createNoteForm.classList.remove('off')
-  
+
 }
 
 function refreshList() {
@@ -180,23 +165,20 @@ function refreshList() {
             // headmainhome.classList.add('off')
             btn__pluss.classList.remove('off')
 
-            
             const list = homePage.querySelector('.list')
             list.innerHTML = ""
-
-
 
             notes.forEach(note => {
                 const item = document.createElement('li')
                 item.classList.add('list__item')
 
-                const deleteButton=document.createElement('button')
+                const deleteButton = document.createElement('button')
                 deleteButton.classList.add('btn__delete')
-                deleteButton.innerText='x'
-                deleteButton.onclick=function(){
+                deleteButton.innerText = 'x'
+                deleteButton.onclick = function () {
                     try {
-                        deleteNote(_user.id,note.id,error=>{
-                            if(error){
+                        deleteNote(_user.id, note.id, error => {
+                            if (error) {
                                 alert(error.message)
                                 return
                             }
@@ -205,8 +187,6 @@ function refreshList() {
                     } catch (error) {
                         alert(error.message)
                     }
-
-
                 }
 
                 const text = document.createElement('textarea')
@@ -223,19 +203,74 @@ function refreshList() {
                         alert(error.message)
                     }
                 }
-
-
-                text.value = note.text                       
-                item.append(deleteButton,text)
+                text.value = note.text
+                item.append(deleteButton, text)
                 list.append(item)
-                
+
             })
-
-
-
         })
-
     } catch (error) {
         alert(error.message)
     }
 }
+
+
+const configGlobal=homePage.querySelector('.configGlobal')
+const navHome=homePage.querySelector(".nav-home")
+const formConfig=homePage.querySelector(".formConfig")
+const btnBack=homePage.querySelector(".btnBack")
+
+
+btnBack.onclick = function (event) {
+    event.preventDefault()
+    
+
+    formConfig.classList.add('off')
+    list__Notes.classList.remove('off')
+    btn__pluss.classList.remove('off')
+}
+
+configGlobal.onclick = function (event) {
+    event.preventDefault()
+    list__Notes.classList.add('off')
+    navHome.classList.toggle('mostrar')
+    btn__pluss.classList.add('off')
+    formConfig.classList.remove('off')
+}
+
+// const textSmall=homePage.querySelector('.textSmall')
+// const textNormal=homePage.querySelector('.textNormal')
+// const textBig=homePage.querySelector('.textBig')
+
+
+
+// textSmall.onsubmit=function(event){    
+//     //cancela la accion predeterminada del evento
+//     event.preventDefault()
+//     document.getElementById('newItem').style.fontSize=1+"rem"; 
+//     document.getElementById('list__item-text').style.fontSize=1+"rem";
+    
+//     // creo una constante y lo igualo al texto de mi textarea con name="newItemNote" ubicado en createNoteForm 
+//     const textFromTextarea = createNoteForm.newItemNote.value
+
+//     formConfig.classList.add('off')
+//     list__Notes.classList.remove('off')
+//     btn__pluss.classList.remove('off')
+// }
+// textNormal.onsubmit=function(event){
+//     event.preventDefault()
+//     document.getElementById('newItem').style.fontSize=1.5+"rem"; 
+//     document.getElementById('list__item-text').style.fontSize=1.5+"rem";
+//     formConfig.classList.add('off')
+//     list__Notes.classList.remove('off')
+//     btn__pluss.classList.remove('off')
+// }
+// textBig.onsubmit=function(event){
+//     event.preventDefault()
+
+//     document.getElementById('newItem').style.fontSize=2+"rem"; 
+//     document.getElementById('list__item-text').style.fontSize=2+"rem";
+//     formConfig.classList.add('off')
+//     list__Notes.classList.remove('off')
+//     btn__pluss.classList.remove('off')
+// }

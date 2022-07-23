@@ -130,22 +130,25 @@ const createNoteForm = homePage.querySelector('.formcreateNote')
 createNoteForm.onsubmit = function (event) {
     //cancela la accion predeterminada del evento
     event.preventDefault()
-    
-        // creo una constante y lo igualo al texto de mi textarea con name="newItemNote" ubicado en createNoteForm 
+
+    // creo una constante y lo igualo al texto de mi textarea con name="newItemNote" ubicado en createNoteForm 
     const textFromTextarea = createNoteForm.newItemNote.value
 
+    if (textFromTextarea !== "") {
+        try {
+            createNote(_user.id, textFromTextarea, error => {
 
-    try {
-        createNote(_user.id, textFromTextarea, error => {
-            if (error) {
-                alert(error.message)
-                return
-            }
-            refreshList()
-        })
-    } catch (error) {
-        alert(error.message)
-    }
+                if (error) {
+                    alert(error.message)
+                    return
+                }
+                refreshList()
+
+            })
+        } catch (error) {
+            alert(error.message)
+        }
+    }else this.textContent('Nota Vacia Descartada')
 
     createNoteForm.classList.add('off')
     list__Notes.classList.remove('off')
@@ -164,7 +167,7 @@ btn__pluss.onclick = function () {
     list__Notes.classList.add('off')
     btn__pluss.classList.add('off')
     createNoteForm.classList.remove('off')
-  
+
 }
 
 function refreshList() {
@@ -180,7 +183,7 @@ function refreshList() {
             // headmainhome.classList.add('off')
             btn__pluss.classList.remove('off')
 
-            
+
             const list = homePage.querySelector('.list')
             list.innerHTML = ""
 
@@ -190,13 +193,13 @@ function refreshList() {
                 const item = document.createElement('li')
                 item.classList.add('list__item')
 
-                const deleteButton=document.createElement('button')
+                const deleteButton = document.createElement('button')
                 deleteButton.classList.add('btn__delete')
-                deleteButton.innerText='x'
-                deleteButton.onclick=function(){
+                deleteButton.innerText = 'x'
+                deleteButton.onclick = function () {
                     try {
-                        deleteNote(_user.id,note.id,error=>{
-                            if(error){
+                        deleteNote(_user.id, note.id, error => {
+                            if (error) {
                                 alert(error.message)
                                 return
                             }
@@ -225,10 +228,10 @@ function refreshList() {
                 }
 
 
-                text.value = note.text                       
-                item.append(deleteButton,text)
+                text.value = note.text
+                item.append(deleteButton, text)
                 list.append(item)
-                
+
             })
 
 
