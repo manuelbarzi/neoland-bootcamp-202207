@@ -235,6 +235,7 @@ configGlobal.onclick = function (event) {
     list__Notes.classList.add('off')
     navHome.classList.toggle('mostrar')
     btn__pluss.classList.add('off')
+    createNoteForm.classList.add('off')
     formConfig.classList.remove('off')
 }
 
