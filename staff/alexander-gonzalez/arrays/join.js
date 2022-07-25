@@ -1,7 +1,8 @@
 function join(array, separator) {
   var result = "";
-  if (!separator)
-  separator = ','
+  if (!separator) {
+    separator = ",";
+  }
   for (var i = 0; i < array.length; i++) {
     var element = array[i];
     //result = result + element

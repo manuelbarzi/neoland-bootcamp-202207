@@ -11,18 +11,18 @@ function invertCase(text) {
   return resultado
 }*/
 
-let invertedText = " ";
+  let invertedText = " ";
   for (i = 0; i < text.length; i++) {
     let character = text[i];
-  const charlsUpper = character === character.toUpperCase();
+    const charlsUpper = character === character.toUpperCase();
     if (charlsUpper) {
       character = character.toLowerCase();
     } else {
       character = character.toUpperCase();
     }
-    invertedText=invertedText+character;
+    invertedText = invertedText + character;
   }
- return invertedText;
+  return invertedText;
 }
 
 /*  let result =' ';

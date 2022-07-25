@@ -2,21 +2,24 @@ function max() {
   let max = arguments[0]; 
   for (let i = 1 ; i < arguments.length;i++){
     const element = arguments[i]
-    if (element )
+    if (max < element){
+
+      max = element
+    }
 
   }
 
   return max
-  /*for (var i = 0; i < arguments.length; i++) {
+  
+
+  }
+  
+/*for (var i = 0; i < arguments.length; i++) {
     if (max < arguments[i]) {
       max = arguments[i];
     }*/
-
-  }
-  return max;
-
   
-}
+
 
 // tests
 
