@@ -145,12 +145,14 @@ function refreshList() {
                     }
                 }
 
-                const text = document.createElement('p')
-                text.contentEditable = true
+                const text = document.createElement('textarea')
                 text.classList.add('list__item-text')
                 text.onkeyup = function () {
+                    text.style.height = '1px'
+                    text.style.height = text.scrollHeight + 'px'
+
                     try {
-                        updateNote(_user.id, note.id, text.innerText, error => {
+                        updateNote(_user.id, note.id, text.value, error => {
                             if (error) {
                                 alert(error.message)
 
@@ -161,7 +163,7 @@ function refreshList() {
                         alert(error.message)
                     }
                 }
-                text.innerText = note.text
+                text.value = note.text
 
                 item.append(deleteButton, text)
 
